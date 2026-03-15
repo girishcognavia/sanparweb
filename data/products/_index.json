@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "slug": "water-chillers",
+      "title": "Water Chillers - Sanpar",
+      "url": "https://sanpar.com/our-prouct/water-chillers/"
+    },
+    {
+      "slug": "cat-m1-series",
+      "title": "CAT M1 SERIES - Sanpar",
+      "url": "https://sanpar.com/our-prouct/cat-m1-series/"
+    },
+    {
+      "slug": "dehumidifier",
+      "title": "Dehumidifier - Sanpar",
+      "url": "https://sanpar.com/our-prouct/dehumidifier/"
+    },
+    {
+      "slug": "precision-ac",
+      "title": "Precision Air Conditioner - Sanpar",
+      "url": "https://sanpar.com/our-prouct/precision-air-conditioner/"
+    },
+    {
+      "slug": "air-chillers",
+      "title": "Air Chillers - Sanpar",
+      "url": "https://sanpar.com/our-prouct/air-chillers/"
+    },
+    {
+      "slug": "moisture-separator",
+      "title": "Centrifugal Moisture Separator - Sanpar",
+      "url": "https://sanpar.com/our-prouct/centrifugal-moisture-separator/"
+    },
+    {
+      "slug": "aftercooler",
+      "title": "AfterCooler - Sanpar",
+      "url": "https://sanpar.com/our-prouct/aftercooler/"
+    },
+    {
+      "slug": "compressed-air-filters",
+      "title": "Compressed Air Filters - Sanpar",
+      "url": "https://sanpar.com/our-prouct/compressed-air-filters/"
+    },
+    {
+      "slug": "adsorption-dryers",
+      "title": "Adsorption Based Compressed Air Dryers - Sanpar",
+      "url": "https://sanpar.com/our-prouct/adsorption-based-compressed-air-dryers/"
+    },
+    {
+      "slug": "xeros-series",
+      "title": "Xeros Series - Sanpar",
+      "url": "https://sanpar.com/our-prouct/xeros-series/"
+    },
+    {
+      "slug": "cat-dth-series",
+      "title": "CAT DTH Series - Sanpar",
+      "url": "https://sanpar.com/our-prouct/cat-dth-series/"
+    },
+    {
+      "slug": "drains",
+      "title": "Drains - Sanpar",
+      "url": "https://sanpar.com/our-prouct/drains/"
+    },
+    {
+      "slug": "coolant-chillers",
+      "title": "Coolant Chillers - Sanpar",
+      "url": "https://sanpar.com/our-prouct/coolant-chillers/"
+    },
+    {
+      "slug": "ecodrair-series",
+      "title": "Ecodrair Series - Sanpar",
+      "url": "https://sanpar.com/our-prouct/ecodrair-series/"
+    }
+  ]
+}

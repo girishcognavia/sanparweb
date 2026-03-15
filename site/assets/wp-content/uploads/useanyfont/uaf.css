@@ -1,0 +1,13 @@
+				@font-face {
+					font-family: 'onsite-extended-tri';
+					src: url(/assets/wp-content/uploads/useanyfont/447-Onsite-Extended-TRI.woff2) format('woff2'),
+						url(/assets/wp-content/uploads/useanyfont/447-Onsite-Extended-TRI.woff) format('woff');
+					  font-display: auto;
+				}
+
+				.onsite-extended-tri{font-family: 'onsite-extended-tri' !important;}
+
+						h1{
+					font-family: 'onsite-extended-tri' !important;
+				}
+		
