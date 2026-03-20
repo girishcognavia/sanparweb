@@ -6,10 +6,9 @@ const pages = [
   { name: 'Home', path: '/', description: 'SANPAR Industries homepage' },
   { name: 'Products', path: '/products', description: 'Full product catalogue' },
   { name: 'Industries', path: '/industries', description: 'Industries we serve' },
-  { name: 'Defence Systems', path: '/defence', description: 'SANPAR Defence Systems microsite' },
   { name: 'Technology', path: '/technology', description: 'R&D and innovation' },
   { name: 'About', path: '/about', description: 'Company story and timeline' },
-  { name: 'Case Studies', path: '/case-studies', description: 'Results and outcomes' },
+  { name: 'Success Stories', path: '/case-studies', description: 'Real client success stories' },
   { name: 'Insights', path: '/insights', description: 'Engineering insights and news' },
   { name: 'Contact', path: '/contact', description: 'Get in touch with SANPAR' },
 ]

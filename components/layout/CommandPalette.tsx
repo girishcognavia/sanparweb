@@ -28,10 +28,10 @@ const searchItems: SearchItem[] = [
     href: `/industries/${i.slug}`,
   })),
   { type: 'page', name: 'Products', description: 'Browse our full product catalogue', href: '/products' },
-  { type: 'page', name: 'Industries', description: 'See the 14 industries we serve', href: '/industries' },
-  { type: 'page', name: 'About SANPAR', description: '32 years of engineering excellence', href: '/about' },
+  { type: 'page', name: 'Industries', description: 'See the 10 industries we serve', href: '/industries' },
+  { type: 'page', name: 'About SANPAR', description: '31 years of engineering excellence', href: '/about' },
   { type: 'page', name: 'Technology', description: 'Innovation and R&D', href: '/technology' },
-  { type: 'page', name: 'Defence Systems', description: 'DGAQA & CEMILAC certified', href: '/defence' },
+  { type: 'page', name: 'Success Stories', description: 'Real client deployments and results', href: '/case-studies' },
   { type: 'page', name: 'Contact', description: 'Get a quote or speak to an engineer', href: '/contact' },
   { type: 'page', name: 'Insights', description: 'Engineering and business intelligence', href: '/insights' },
 ]

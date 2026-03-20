@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Phone, Shield, Menu, ChevronDown } from 'lucide-react'
+import { Phone, Menu, ChevronDown } from 'lucide-react'
 import { mainNav } from '@/data/navigation'
 import { Button } from '@/components/shared/Button'
 import { MobileMenu } from './MobileMenu'
@@ -186,18 +186,6 @@ export function Navbar() {
               </div>
             ))}
 
-            {/* Defence Badge */}
-            <Link
-              href="/defence"
-              className={`flex items-center gap-1.5 px-4 py-2 text-sm font-body font-semibold rounded-full transition-all duration-200 ${
-                scrolled
-                  ? 'text-amber-600 bg-amber-500/10 hover:bg-amber-500/20'
-                  : 'text-amber-400 bg-amber-500/15 hover:bg-amber-500/25'
-              }`}
-            >
-              <Shield className="w-4 h-4" strokeWidth={1.5} />
-              <span className="hidden xl:inline">Defence</span>
-            </Link>
           </nav>
 
           {/* Right Side */}

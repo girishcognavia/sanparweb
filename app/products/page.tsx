@@ -16,7 +16,7 @@ const heroProducts = [
   { image: '/images/products/adsorption-dryer.webp', name: 'Adsorption Dryer', x: 15, y: 55, w: 150, rotate: 3, delay: 0.6 },
   { image: '/images/products/air-chiller.webp', name: 'Air Chiller', x: 42, y: 50, w: 190, rotate: -5, delay: 0.75 },
   { image: '/images/products/cat-dth.webp', name: 'CAT DTH', x: 72, y: 55, w: 160, rotate: 2, delay: 0.9 },
-  { image: '/images/products/oil-chiller.webp', name: 'Oil Chiller', x: 90, y: 40, w: 140, rotate: -4, delay: 1.05 },
+  { image: '/images/products/dehumidifier.webp', name: 'Dehumidifier', x: 90, y: 40, w: 140, rotate: -4, delay: 1.05 },
 ]
 
 const filters: { label: string; value: ProductCategory | 'all' }[] = [

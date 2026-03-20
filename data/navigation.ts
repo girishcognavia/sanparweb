@@ -13,7 +13,7 @@ export const mainNav: NavItem[] = [
     children: [
       { label: 'Who We Are', href: '/about', description: 'Our story, values, and 32-year journey' },
       { label: 'Technology', href: '/technology', description: 'Innovation rooted in engineering' },
-      { label: 'Case Studies', href: '/case-studies', description: 'Success stories and results' },
+      { label: 'Success Stories', href: '/case-studies', description: 'Real client success stories' },
       { label: 'Careers', href: '/careers', description: 'Life at SANPAR — join our team' },
     ],
   },
@@ -41,7 +41,6 @@ export const mainNav: NavItem[] = [
           { label: 'Air Chillers', href: '/products/air-chillers', description: 'Down to -10°C, DGAQA variants' },
           { label: 'Water Chillers', href: '/products/water-chillers', description: '1 TR to 30 TR process cooling' },
           { label: 'Coolant Chillers', href: '/products/coolant-chillers', description: 'CNC & airborne EGW cooling' },
-          { label: 'Oil Chillers', href: '/products/oil-chillers', description: 'Hydraulic thermal management' },
         ],
       },
       {
@@ -102,11 +101,10 @@ export const footerProducts = [
 export const footerCompany = [
   { label: 'Who We Are', href: '/about' },
   { label: 'Company History', href: '/about#timeline' },
-  { label: 'Defence Systems', href: '/defence' },
   { label: 'Technology', href: '/technology' },
   { label: 'Support & Services', href: '/support' },
   { label: 'Careers', href: '/careers' },
-  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Success Stories', href: '/case-studies' },
   { label: 'Insights', href: '/insights' },
   { label: 'Contact Us', href: '/contact' },
 ]

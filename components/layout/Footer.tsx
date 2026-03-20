@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Linkedin, Twitter, Youtube, Facebook, Mail, Phone, PhoneCall, ArrowUpRight } from 'lucide-react'
+import { Linkedin, Twitter, Youtube, Facebook, Instagram, Mail, Phone, PhoneCall, ArrowUpRight } from 'lucide-react'
 import { company } from '@/data/company'
 import { footerProducts } from '@/data/navigation'
 
@@ -32,6 +32,7 @@ const socials = [
   { icon: Linkedin, href: company.social.linkedin, label: 'LinkedIn' },
   { icon: Twitter, href: company.social.twitter, label: 'Twitter' },
   { icon: Youtube, href: company.social.youtube, label: 'YouTube' },
+  { icon: Instagram, href: company.social.instagram, label: 'Instagram' },
 ]
 
 export function Footer() {
@@ -65,13 +66,13 @@ export function Footer() {
               {company.phone}
             </a>
             <a
-              href={`tel:${company.phoneAlt.replace(/\s/g, '')}`}
+              href={`tel:${company.fax.replace(/\s/g, '')}`}
               className="flex items-center gap-3 text-sm font-body text-white/60 hover:text-accent-400 transition-colors"
             >
               <div className="w-8 h-8 rounded-full bg-accent-500/15 flex items-center justify-center">
                 <PhoneCall className="w-3.5 h-3.5 text-accent-400" strokeWidth={1.5} />
               </div>
-              {company.phoneAlt}
+              {company.fax}
             </a>
             <a
               href={`mailto:${company.email}`}

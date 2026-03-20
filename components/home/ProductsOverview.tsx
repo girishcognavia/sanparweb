@@ -14,7 +14,7 @@ const categories = [
   },
   {
     name: 'Industrial Cooling Systems',
-    desc: 'Air, Water, Coolant and Oil Chillers for process temperature control',
+    desc: 'Air, Water and Coolant Chillers for process temperature control',
     href: '/products?category=industrial-cooling',
     image: '/images/products/water-chiller.webp',
     count: '4 products',

@@ -180,21 +180,6 @@ export const products: Product[] = [
     applications: ['Machine Tools', 'Aerospace & Defence', 'CNC Machining'],
   },
   {
-    id: 'oil-chillers',
-    name: 'Oil Chillers',
-    slug: 'oil-chillers',
-    category: 'industrial-cooling',
-    categoryLabel: 'Industrial Cooling',
-    series: 'Hydraulic Thermal Management',
-    shortDesc: 'Controls hydraulic oil temperature to protect machinery and maintain consistent viscosity',
-    image: '/images/products/oil-chiller.webp',
-    keySpecs: {
-      'Coolant': 'Hydraulic oil / Gear oil',
-      'Integration': 'Standalone or skid-mounted',
-    },
-    applications: ['Heavy Industry', 'Hydraulic Systems', 'Defence Ground Equipment'],
-  },
-  {
     id: 'precision-air-conditioner',
     name: 'Precision Air Conditioner',
     slug: 'precision-air-conditioner',

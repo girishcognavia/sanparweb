@@ -9,8 +9,8 @@ import { Button } from '@/components/shared/Button'
 import { ArrowRight, TrendingUp } from 'lucide-react'
 
 export const metadata = generatePageMetadata({
-  title: 'Case Studies',
-  description: 'Real outcomes for real businesses — measured in enquiries, pipeline, and growth. See how Cognavia delivers results.',
+  title: 'Success Stories',
+  description: 'Real client deployments and outcomes — see how SANPAR delivers reliable compressed air and cooling solutions across industries.',
   path: '/case-studies',
 })
 
@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
         {/* Content */}
         <div className="container-main relative z-10 pb-14 pt-28 md:pt-36">
           <span className="inline-block font-body text-xs font-semibold uppercase tracking-wider text-accent-400 mb-4">
-            {'// '}Case Studies
+            {'// '}Success Stories
           </span>
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight max-w-3xl leading-[1.05]">
             Results That
@@ -48,7 +48,7 @@ export default function CaseStudiesPage() {
             <span className="text-gradient">Speak</span>
           </h1>
           <p className="mt-5 text-lg font-body text-white/50 max-w-xl font-light leading-relaxed">
-            Real outcomes for real businesses — measured in enquiries, pipeline, and growth.
+            Real client deployments and outcomes across India&apos;s most demanding industries.
           </p>
 
           <div className="flex flex-wrap gap-4 mt-8">

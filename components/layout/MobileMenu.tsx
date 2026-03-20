@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { X, ChevronDown, Shield, Phone } from 'lucide-react'
+import { X, ChevronDown, Phone } from 'lucide-react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { mainNav } from '@/data/navigation'
 import { Button } from '@/components/shared/Button'
@@ -146,18 +146,6 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   )}
                 </motion.li>
               ))}
-
-              {/* Defence */}
-              <li className="pt-4 border-t border-white/10 mt-4">
-                <Link
-                  href="/defence"
-                  onClick={onClose}
-                  className="flex items-center gap-2 py-3 px-4 text-lg font-body font-medium text-amber-400"
-                >
-                  <Shield className="w-5 h-5" strokeWidth={1.5} />
-                  Defence Systems
-                </Link>
-              </li>
 
               {/* Contact */}
               <li className="pt-4 space-y-3">

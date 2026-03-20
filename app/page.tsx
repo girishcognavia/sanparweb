@@ -8,7 +8,6 @@ const ProductsOverview = dynamic(() => import('@/components/home/ProductsOvervie
 const IndustriesGrid = dynamic(() => import('@/components/home/IndustriesGrid').then(m => m.IndustriesGrid))
 const CompanyStoryTeaser = dynamic(() => import('@/components/home/CompanyStoryTeaser').then(m => m.CompanyStoryTeaser))
 const TrustBar = dynamic(() => import('@/components/home/TrustBar').then(m => m.TrustBar))
-const DefenceSpotlight = dynamic(() => import('@/components/home/DefenceSpotlight').then(m => m.DefenceSpotlight))
 const CTABanner = dynamic(() => import('@/components/home/CTABanner').then(m => m.CTABanner))
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
       <IndustriesGrid />
       <CompanyStoryTeaser />
       <TrustBar />
-      <DefenceSpotlight />
       <CTABanner />
     </>
   )

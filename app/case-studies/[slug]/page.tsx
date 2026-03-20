@@ -41,7 +41,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
           <Breadcrumb
             items={[
               { label: 'Home', href: '/' },
-              { label: 'Case Studies', href: '/case-studies' },
+              { label: 'Success Stories', href: '/case-studies' },
               { label: study.title },
             ]}
           />

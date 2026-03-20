@@ -6,7 +6,7 @@ import { ScrollReveal } from '@/components/shared/ScrollReveal'
 const milestones = [
   { year: '1994', text: 'Founded in Bengaluru' },
   { year: '2016', text: 'CEMILAC Approval for Airborne Systems' },
-  { year: '2024', text: 'SANPAR Defence Systems Entity Formed' },
+  { year: '2017', text: 'AS 9100 D Certification Achieved' },
 ]
 
 export function CompanyStoryTeaser() {
@@ -45,8 +45,8 @@ export function CompanyStoryTeaser() {
             </h2>
             <p className="mt-5 text-base font-body text-text-secondary leading-relaxed font-light">
               What began as a single compressed air dryer in 1994 has grown into India&apos;s
-              trusted thermal engineering partner — serving 40+ marquee clients across
-              14 industries, with defence-grade certifications that few can match.
+              trusted thermal engineering partner — serving 3500+ customers across
+              10 industries, with defence-grade certifications that few can match.
             </p>
             <p className="mt-3 text-base font-body text-text-secondary leading-relaxed font-light">
               From pharmaceutical cleanrooms to airborne radar systems, SANPAR delivers
