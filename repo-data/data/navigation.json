@@ -1,0 +1,118 @@
+{
+  "main_navigation": [
+    {
+      "label": "Home",
+      "url": "/",
+      "slug": "homepage"
+    },
+    {
+      "label": "About Us",
+      "url": "/who-we-are/",
+      "slug": "who-we-are",
+      "children": [
+        { "label": "Who We Are", "url": "/who-we-are/" },
+        { "label": "Technology", "url": "/technology/" },
+        { "label": "Success Stories", "url": "/success-stories/" },
+        { "label": "Work With Us", "url": "/work-with-us/" }
+      ]
+    },
+    {
+      "label": "Products",
+      "url": "/products-solutions/",
+      "slug": "products-solutions",
+      "children": [
+        {
+          "label": "Compressed Air Treatment",
+          "children": [
+            { "label": "Xeros Series", "url": "/our-prouct/xeros-series/", "description": "Refrigerant compressed air dryers with open/closed loop design" },
+            { "label": "Ecodrair Series", "url": "/our-prouct/ecodrair-series/", "description": "Tube-in-tube refrigerant air dryers, 5-180 cfm, 4-16 bar" },
+            { "label": "Adsorption Based Dryers", "url": "/our-prouct/adsorption-based-compressed-air-dryers/", "description": "Reversible adsorption drying process" },
+            { "label": "Compressed Air Filters", "url": "/our-prouct/compressed-air-filters/", "description": "Microfilters for solid, liquid, aerosol, mist and gas removal" },
+            { "label": "Aftercooler", "url": "/our-prouct/aftercooler/", "description": "Cooling hot compressed air from compressors" },
+            { "label": "Centrifugal Moisture Separator", "url": "/our-prouct/centrifugal-moisture-separator/", "description": "No moving parts, constant pressure drop design" },
+            { "label": "Drains", "url": "/our-prouct/drains/", "description": "Condensate drain valves for system protection" }
+          ]
+        },
+        {
+          "label": "Industrial Cooling System",
+          "children": [
+            { "label": "Water Chillers", "url": "/our-prouct/water-chillers/", "description": "CFC-free chillers from 0.5TR capacity" },
+            { "label": "Air Chillers", "url": "/our-prouct/air-chillers/", "description": "Constant temperature water supply chillers" },
+            { "label": "Coolant Chillers", "url": "/our-prouct/coolant-chillers/", "description": "CFC-free process cooling solutions" }
+          ]
+        },
+        {
+          "label": "Industrial Air Conditioning Systems",
+          "children": [
+            { "label": "Dehumidifier", "url": "/our-prouct/dehumidifier/", "description": "Temperature control for sensitive electronics" },
+            { "label": "Precision Air Conditioner", "url": "/our-prouct/precision-air-conditioner/", "description": "Fine balance temperature and humidity control" }
+          ]
+        },
+        {
+          "label": "Medical Desiccant Air Dryer",
+          "children": [
+            { "label": "CAT M1 Series", "url": "/our-prouct/cat-m1-series/", "description": "ISO 8573.1 Class 1, 0.01μm particle, 0.003mg/m³ oil" },
+            { "label": "CAT DTH Series", "url": "/our-prouct/cat-dth-series/", "description": "BS_EN12021:2014 breathing air quality standards" }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Industries",
+      "url": "/industries-applications/",
+      "slug": "industries-applications",
+      "children": [
+        { "label": "Aerospace & Defence", "url": "/industries-applications/aerospace-and-defence/" },
+        { "label": "Machine Tools", "url": "/industries-applications/machine-tools/" },
+        { "label": "Pharmaceutical", "url": "/industries-applications/pharmaceutical/" },
+        { "label": "Cement Industry", "url": "/industries-applications/cement-industry/" },
+        { "label": "Textile Industry", "url": "/industries-applications/textile-industry/" },
+        { "label": "Food & Beverage", "url": "/industries-applications/food-beverage-industry/" },
+        { "label": "Plastics Industry", "url": "/industries-applications/plastics-industry/" },
+        { "label": "Manufacturing", "url": "/industries-applications/manufacturing-industry/" },
+        { "label": "Energy & Power", "url": "/industries-applications/energy-power-industry/" },
+        { "label": "Chemical Industry", "url": "/industries-applications/chemical-indsutry/" }
+      ]
+    },
+    {
+      "label": "Support & Services",
+      "url": "/support-service/",
+      "slug": "support-service"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact-us/",
+      "slug": "contact-us"
+    }
+  ],
+  "secondary_navigation": [
+    { "label": "News", "url": "/news/" },
+    { "label": "Blogs", "url": "/blogs/" },
+    { "label": "Events", "url": "/events/" },
+    { "label": "Shop", "url": "/shop/" },
+    { "label": "Job Openings", "url": "/job-openings/" }
+  ],
+  "footer_navigation": [
+    { "label": "Privacy Policy", "url": "/privacy-policy/" },
+    { "label": "Terms and Conditions", "url": "/terms-and-conditions/" }
+  ],
+  "success_stories": [
+    { "label": "Hindustan Motors", "url": "/success-stories/hindustan-motors/", "industry": "Automobile", "location": "Calcutta" },
+    { "label": "Hical Technologies", "url": "/success-stories/hical-technologies/" },
+    { "label": "Excel Glass", "url": "/success-stories/excel-glass/" },
+    { "label": "Infosys Technologies Ltd", "url": "/success-stories/infosys-technologies-ltd/", "industry": "Software Services", "location": "Mysore" },
+    { "label": "JMT Auto Ltd", "url": "/success-stories/jmt-auto-ltd/" },
+    { "label": "Gas Turbine Research Establishment", "url": "/success-stories/gas-turbine-research-establishment/" },
+    { "label": "Ashok Leyland Ltd", "url": "/success-stories/ashok-leyland-ltd/" },
+    { "label": "Jindal Steel Power Limited", "url": "/success-stories/jindal-steel-power-limited-raigarh/", "location": "Raigarh" }
+  ],
+  "sitemap": {
+    "total_pages": 46,
+    "page_categories": {
+      "main_pages": 14,
+      "industry_pages": 10,
+      "product_pages": 14,
+      "success_story_pages": 8
+    }
+  }
+}
