@@ -1,0 +1,54 @@
+{
+  "industries": [
+    {
+      "slug": "aerospace-defence",
+      "title": "Aerospace and Defence - Sanpar",
+      "url": "https://sanpar.com/industries-applications/aerospace-and-defence/"
+    },
+    {
+      "slug": "machine-tools",
+      "title": "Machine Tools Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/machine-tools/"
+    },
+    {
+      "slug": "pharmaceutical",
+      "title": "Pharmaceutical Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/pharmaceutical/"
+    },
+    {
+      "slug": "cement",
+      "title": "Cement Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/cement-industry/"
+    },
+    {
+      "slug": "textile",
+      "title": "Textile Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/textile-industry/"
+    },
+    {
+      "slug": "food-beverage",
+      "title": "Food & Beverage Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/food-beverage-industry/"
+    },
+    {
+      "slug": "plastics",
+      "title": "Plastics Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/plastics-industry/"
+    },
+    {
+      "slug": "manufacturing",
+      "title": "Manufacturing Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/manufacturing-industry/"
+    },
+    {
+      "slug": "energy-power",
+      "title": "Energy & Power Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/energy-power-industry/"
+    },
+    {
+      "slug": "chemical",
+      "title": "Chemical Industry - Sanpar",
+      "url": "https://sanpar.com/industries-applications/chemical-indsutry/"
+    }
+  ]
+}
