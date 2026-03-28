@@ -1,53 +1,48 @@
 /* ============================================
    SANPAR SPA Router — Client-side navigation
+   Auto-detects base path for GitHub Pages / DigitalOcean
    ============================================ */
 
 (function () {
   'use strict';
 
-  var ROUTES = null;       // loaded from routes.json
-  var cache = {};          // slug -> HTML string
+  var ROUTES = null;
+  var cache = {};
   var currentSlug = null;
   var mainEl = document.getElementById('main-content');
-
-  /* --- Detect base path (e.g., /v3/) --- */
-  var BASE_PATH = (function() {
-    var scripts = document.getElementsByTagName('script');
-    for (var i = 0; i < scripts.length; i++) {
-      var src = scripts[i].src;
-      if (src && src.indexOf('router.js') !== -1) {
-        var match = src.match(/^(.*?)js\/router\.js/);
-        if (match) {
-          var url = new URL(match[0], location.origin);
-          return url.pathname.replace(/js\/router\.js$/, '');
-        }
-      }
-    }
-    return '/';
-  })();
+  var BASE = '';
 
   /* --- Slug resolution --- */
   function pathToSlug(path) {
-    // Strip base path first
-    var p = path.replace(new RegExp('^' + BASE_PATH.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), '');
+    var p = path;
+    if (BASE && p.indexOf(BASE) === 0) {
+      p = p.substring(BASE.length);
+    }
     p = p.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
-    if (!p || p === 'index' || p === 'spa') return 'home';
+    if (!p || p === 'index' || p === 'spa' || p === '404') return 'home';
     return p;
+  }
+
+  /* --- Build browser URL for a slug --- */
+  function buildUrl(slug) {
+    if (slug === 'home') return BASE + '/';
+    return BASE + '/' + slug;
+  }
+
+  /* --- Build fetch URL for a file relative to site root --- */
+  function assetUrl(filePath) {
+    return BASE + '/' + filePath;
   }
 
   /* --- Update active nav state --- */
   function updateNav(slug) {
     var route = ROUTES[slug];
     var navActive = route ? route.navActive : '';
-
-    // Desktop nav links
     document.querySelectorAll('.header__menu a').forEach(function (a) {
       a.classList.remove('active');
       var nav = a.getAttribute('data-nav');
       if (nav && nav === navActive) a.classList.add('active');
     });
-
-    // Contact CTA
     var cta = document.querySelector('.header__cta');
     if (cta) cta.classList.toggle('active', navActive === 'Contact');
   }
@@ -56,11 +51,7 @@
   function activateScripts() {
     mainEl.querySelectorAll('script').forEach(function (old) {
       var s = document.createElement('script');
-      if (old.src) {
-        s.src = old.src;
-      } else {
-        s.textContent = old.textContent;
-      }
+      if (old.src) { s.src = old.src; } else { s.textContent = old.textContent; }
       old.parentNode.replaceChild(s, old);
     });
   }
@@ -83,67 +74,41 @@
 
     var route = ROUTES[slug];
     if (!route) {
-      // 404 fallback
-      mainEl.innerHTML = '<section class="section" style="text-align:center;padding:8rem 0"><div class="container"><h1>Page Not Found</h1><p style="margin:1rem 0 2rem">The page you are looking for does not exist.</p><a href="' + BASE_PATH + '" class="btn btn--primary" data-spa>Go Home</a></div></section>';
+      mainEl.innerHTML = '<section class="section" style="text-align:center;padding:8rem 0"><div class="container"><h1>Page Not Found</h1><p style="margin:1rem 0 2rem">The page you are looking for does not exist.</p><a href="' + buildUrl('home') + '" class="btn btn--primary" data-spa>Go Home</a></div></section>';
       currentSlug = slug;
       document.title = 'Page Not Found — SANPAR Industries';
-      if (pushState) history.pushState({ slug: slug }, '', BASE_PATH + slug);
+      if (pushState) history.pushState({ slug: slug }, '', buildUrl(slug));
+      mainEl.classList.remove('spa-loading');
       return;
     }
 
-    // Fade out
     mainEl.classList.add('spa-loading');
 
     function inject(html) {
       setTimeout(function () {
         mainEl.innerHTML = html;
         activateScripts();
-
-        // Update meta
         document.title = route.title;
         var metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', route.description);
-
-        // Update nav
         updateNav(slug);
         currentSlug = slug;
-
-        // Push state
-        if (pushState) {
-          var url = slug === 'home' ? BASE_PATH : BASE_PATH + slug;
-          history.pushState({ slug: slug }, '', url);
-        }
-
-        // Scroll to top
+        if (pushState) history.pushState({ slug: slug }, '', buildUrl(slug));
         window.scrollTo(0, 0);
-
-        // Fade in
         mainEl.classList.remove('spa-loading');
-
-        // Re-init animations and counters
         if (window.reinitPage) window.reinitPage();
-
-        // Close mobile nav
         closeMobileNav();
-      }, 150); // match the CSS transition duration
+      }, 150);
     }
 
-    // Check cache
-    if (cache[slug]) {
-      inject(cache[slug]);
-      return;
-    }
+    if (cache[slug]) { inject(cache[slug]); return; }
 
-    // Fetch fragment
-    fetch(route.file)
+    fetch(assetUrl(route.file))
       .then(function (res) {
         if (!res.ok) throw new Error('Failed to load ' + route.file);
         return res.text();
       })
-      .then(function (html) {
-        cache[slug] = html;
-        inject(html);
-      })
+      .then(function (html) { cache[slug] = html; inject(html); })
       .catch(function (err) {
         console.error('Router fetch error:', err);
         mainEl.innerHTML = '<section class="section" style="text-align:center;padding:8rem 0"><div class="container"><h1>Error Loading Page</h1><p>Please try refreshing.</p></div></section>';
@@ -155,19 +120,12 @@
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a[href]');
     if (!link) return;
-
     var href = link.getAttribute('href');
     if (!href) return;
-
-    // Skip external links, tel, mailto, hash-only, target=_blank
     if (link.target === '_blank') return;
     if (/^(https?:|mailto:|tel:|#)/.test(href)) return;
-
-    // Resolve slug
     var slug = pathToSlug(href);
-
-    // Only intercept if it's a known route
-    if (ROUTES[slug]) {
+    if (ROUTES && ROUTES[slug]) {
       e.preventDefault();
       navigateTo(slug);
     }
@@ -187,23 +145,35 @@
     if (!href || /^(https?:|mailto:|tel:|#)/.test(href)) return;
     var slug = pathToSlug(href);
     if (ROUTES && ROUTES[slug] && !cache[slug]) {
-      fetch(ROUTES[slug].file).then(function (r) { return r.text(); }).then(function (html) {
+      fetch(assetUrl(ROUTES[slug].file)).then(function (r) { return r.text(); }).then(function (html) {
         cache[slug] = html;
-      }).catch(function () { /* ignore prefetch errors */ });
+      }).catch(function () {});
     }
   });
 
-  /* --- Boot --- */
-  fetch('pages/routes.json')
-    .then(function (r) { return r.json(); })
-    .then(function (routes) {
+  /* --- Boot: auto-detect base path --- */
+  function tryBoot(basePath) {
+    var url = basePath + '/pages/routes.json';
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('Not found at ' + url);
+      return r.json();
+    }).then(function (routes) {
+      BASE = basePath;
       ROUTES = routes;
       var slug = pathToSlug(location.pathname);
-      history.replaceState({ slug: slug }, '', location.pathname === BASE_PATH || location.pathname === BASE_PATH.slice(0,-1) ? BASE_PATH : location.pathname);
+      history.replaceState({ slug: slug }, '', location.pathname);
       navigateTo(slug, false);
-    })
-    .catch(function (err) {
-      console.error('Failed to load route manifest:', err);
     });
+  }
+
+  // Try root first (localhost), then first path segment (GitHub Pages / subpath)
+  tryBoot('').catch(function () {
+    var firstSeg = location.pathname.split('/').filter(Boolean)[0];
+    if (firstSeg) {
+      return tryBoot('/' + firstSeg);
+    }
+  }).catch(function (err) {
+    console.error('Router: Could not detect base path', err);
+  });
 
 })();
