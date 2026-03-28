@@ -1,117 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SANPAR Industries — Precision-engineered compressed air treatment, industrial cooling, and aerospace cooling systems. ISO 9001 &amp; AS 9100D certified. Trusted by 3000+ customers since 1994.">
-  <title>SANPAR Industries — Compressed Air Treatment & Industrial Cooling Solutions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="icon" href="images/logo/cropped-sanpar-icon-300x300.png" type="image/png">
-</head>
-<body>
-
-<!-- Skip Link (C5) -->
-<a href="#main-content" class="skip-link">Skip to main content</a>
-
-<!-- Header (C1) -->
-<header class="header" role="banner">
-  <div class="header__inner">
-    <a href="index.html" class="header__logo">
-      <img src="images/logo/cropped-sanpar-icon-300x300.png" alt="SANPAR" width="36" height="36">
-      SANPAR
-    </a>
-    <nav class="header__nav" aria-label="Main navigation">
-      <ul class="header__menu">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="who-we-are.html">About Us</a></li>
-        <li class="header__dropdown">
-          <a href="products.html" class="header__dropdown-trigger">
-            Products
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
-          </a>
-          <div class="header__mega-menu">
-            <div class="mega-menu__category">
-              <h4>Compressed Air Treatment</h4>
-              <a href="product-xeros.html" class="mega-menu__link">Xeros Series<small>Refrigerated air dryers, 85–10,000 CFM</small></a>
-              <a href="product-ecodrair.html" class="mega-menu__link">Ecodrair Series<small>Tube-in-tube dryers, 5–180 CFM</small></a>
-              <a href="product-adsorption.html" class="mega-menu__link">Adsorption Dryers<small>Desiccant-based, down to -70°C</small></a>
-              <a href="product-filters.html" class="mega-menu__link">Compressed Air Filters<small>ISO 8573.1 Class 1 filtration</small></a>
-            </div>
-            <div class="mega-menu__category">
-              <h4>Industrial Cooling</h4>
-              <a href="product-water-chillers.html" class="mega-menu__link">Water Chillers<small>CFC-free, 0.5–100TR capacity</small></a>
-              <a href="product-air-chillers.html" class="mega-menu__link">Air Chillers<small>Constant-temperature supply</small></a>
-              <a href="product-coolant-chillers.html" class="mega-menu__link">Coolant Chillers<small>Process cooling solutions</small></a>
-            </div>
-            <div class="mega-menu__category">
-              <h4>Air Conditioning</h4>
-              <a href="product-precision-ac.html" class="mega-menu__link">Precision AC<small>±1°C temperature, ±2% RH</small></a>
-              <a href="product-dehumidifier.html" class="mega-menu__link">Dehumidifier<small>Xerion Series industrial</small></a>
-            </div>
-            <div class="mega-menu__category">
-              <h4>Medical Air Systems</h4>
-              <a href="product-cat-m1.html" class="mega-menu__link">CAT M1 Series<small>ISO 8573.1 Class 1 medical</small></a>
-              <a href="product-cat-dth.html" class="mega-menu__link">CAT DTH Series<small>BS EN12021:2014 breathing air</small></a>
-            </div>
-          </div>
-        </li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="support.html">Support</a></li>
-      </ul>
-    </nav>
-    <div class="header__actions">
-      <a href="contact.html" class="btn btn--primary header__cta">Contact Us</a>
-      <button class="header__hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- Mobile Nav (C4) -->
-<div class="mobile-overlay"></div>
-<nav class="mobile-nav" aria-label="Mobile navigation">
-  <div class="mobile-nav__header">
-    <span class="header__logo" style="font-size:var(--text-lg)">SANPAR</span>
-    <button class="mobile-nav__close" aria-label="Close menu">&times;</button>
-  </div>
-  <ul class="mobile-nav__menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="who-we-are.html">About Us</a></li>
-    <li><a href="products.html">Products & Solutions</a></li>
-    <li><a href="industries.html">Industries</a></li>
-    <li><a href="support.html">Support & Services</a></li>
-    <li><a href="success-stories.html">Success Stories</a></li>
-    <li><a href="work-with-us.html">Careers</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="blogs.html">Blogs</a></li>
-    <li><a href="technology.html">Technology</a></li>
-    <li><a href="job-openings.html">Job Openings</a></li>
-  </ul>
-  <div class="mobile-nav__footer">
-    <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center">Contact Us</a>
-  </div>
-</nav>
-
-<main id="main-content">
-
 <!-- Hero (D1, G1) -->
 <section class="hero">
-  <!-- OLD (for rollback): <div class="hero__bg" style="background-image:url('images/products/Product-iteration.gif')"></div> -->
-  <video class="hero__video" autoplay muted loop playsinline>
-    <source src="images/misc/hero-video.mp4" type="video/mp4">
-  </video>
+  <div class="hero__bg" style="background-image:url('images/products/Product-iteration.gif')"></div>
   <div class="hero__overlay"></div>
   <div class="hero__content">
     <p style="font-size:var(--text-lg);font-weight:700;color:var(--color-accent);margin-bottom:var(--space-2);letter-spacing:2px;text-transform:uppercase">We Are Solutionizers</p>
     <span class="label" style="color:var(--color-accent)">Excellence Since 1994</span>
-    <h1>Your Production Depends on Clean, Dry Air. We Make Sure It Never Fails.</h1>
-    <p class="hero__subtitle">From compressed air dryers rated up to 10,000 CFM to aerospace-grade liquid cooling systems approved by DGAQA — we design, manufacture, and stand behind every system we build. Over 3,000 installations. 10 industries. Zero compromise on quality.</p>
+    <h1>Your Production Runs Best on Clean, Dry Air. We Keep It Flowing — Always.</h1>
+    <p class="hero__subtitle">From compressed air dryers rated up to 10,000 CFM to aerospace-grade liquid cooling systems approved by DGAQA — we design, manufacture, and stand behind every system we build. With over 3,000 installations powering operations across diverse industries — from defence and aerospace to pharmaceuticals, food processing, textiles, and beyond — our solutions are trusted wherever precision and reliability matter most. No shortcuts. No compromises. Just engineering you can count on.</p>
     <div class="hero__proof">
       <div class="hero__proof-item"><strong>ISO 9001:2015</strong> Quality Certified</div>
       <div class="hero__proof-item"><strong>AS 9100D</strong> Aerospace &amp; Defence Standard</div>
@@ -152,7 +47,7 @@
       <div>
         <span class="label">Aerospace & Defence Grade</span>
         <h2>Trusted Where Failure Is Not an Option</h2>
-        <p>When India's defence establishment needs airborne liquid cooling systems for fighter aircraft avionics, they turn to SANPAR. Our systems are DGAQA-qualified, CEMILAC-approved, and field-proven in some of the nation's most demanding programmes — including turbine testing at GTRE/DRDO.</p>
+        <p>Fighter-grade. Field-proven. Trusted by defence forces for mission-critical avionics cooling — because at 40,000 feet, there's no room for second chances. That's SANPAR.</p>
         
         <div class="defence-cred__badges">
           <span class="badge badge--cert">AS 9100D (EN 9100:2018) Certified</span>
@@ -309,22 +204,3 @@
     </div>
   </div>
 </section>
-
-</main>
-
-<!-- Trust Bar (F2) -->
-<div class="trust-bar"><div class="trust-bar__inner"><div class="trust-bar__item">&#10003; ISO 9001:2015</div><div class="trust-bar__item">&#10003; AS 9100D</div><div class="trust-bar__item">&#10003; 30+ Years</div><div class="trust-bar__item">&#10003; 3000+ Customers</div></div></div>
-<footer class="footer" role="contentinfo"><div class="footer__grid">
-<div class="footer__col"><h4>SANPAR Industries</h4><p>India's leading manufacturer of compressed air dryers, industrial chillers, and aerospace cooling systems. ISO 9001:2015 and AS 9100D certified. Trusted by 3,000+ customers across 10 industries since 1994.</p>
-<div class="footer__social"><a href="https://www.linkedin.com/company/sanpar-industries" aria-label="LinkedIn">in</a><a href="https://www.youtube.com/channel/UCtD9fjNAP-VTtvyApCV8juw" aria-label="YouTube">&#9654;</a><a href="https://www.facebook.com/sanparindustries/" aria-label="Facebook">f</a><a href="https://x.com/SANPARindia" aria-label="Twitter/X">&#120143;</a><a href="https://www.instagram.com/sanparindustries/" aria-label="Instagram">&#9737;</a><a href="https://www.pinterest.com/sanparindustries/" aria-label="Pinterest">&#9883;</a></div>
-<p style="margin-top:var(--space-4);font-size:var(--text-xs)">+91 7349 142 424 | Fax: +91 80 4343 5959<br>enquiry@sanpar.com</p></div>
-<div class="footer__col"><h4>Products</h4><ul class="footer__links"><li><a href="products.html">Compressed Air Treatment</a></li><li><a href="products.html">Industrial Cooling Systems</a></li><li><a href="products.html">Air Conditioning Systems</a></li><li><a href="products.html">Medical Air Dryers</a></li></ul>
-<h4 style="margin-top:var(--space-6)">Quick Links</h4><ul class="footer__links"><li><a href="index.html">Home</a></li><li><a href="who-we-are.html">Who We Are</a></li><li><a href="industries.html">Industries</a></li><li><a href="support.html">Support</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-<div class="footer__col"><h4>Company</h4><ul class="footer__links"><li><a href="who-we-are.html">About Us</a></li><li><a href="success-stories.html">Success Stories</a></li><li><a href="work-with-us.html">Careers</a></li><li><a href="news.html">News &amp; Events</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="technology.html">Technology</a></li><li><a href="job-openings.html">Job Openings</a></li><li><a href="support.html">Support &amp; Services</a></li></ul></div>
-<div class="footer__col"><h4>Contact</h4><ul class="footer__links"><li><a href="tel:+917349142424">+91 7349 142 424</a></li><li><a href="tel:+918043435959">Fax: +91 80 4343 5959</a></li><li><a href="mailto:enquiry@sanpar.com">enquiry@sanpar.com</a></li></ul>
-<p style="margin-top:var(--space-4);font-size:var(--text-xs)">SANPAR Industries Pvt. Ltd<br>Plot No.4, 2nd Cross, KSSIDC Industrial Estate<br>Bommasandra 2nd Stage<br>Bengaluru 560 099, Karnataka, India</p></div>
-</div><div class="footer__bottom"><span>&copy; 2025 SANPAR Industries Pvt. Ltd. All rights reserved. | ISO 9001:2015 | AS 9100D</span><div class="flex gap-4"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></div></div></footer>
-
-<script src="js/main.js"></script>
-</body>
-</html>

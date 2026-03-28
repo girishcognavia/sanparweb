@@ -55,7 +55,7 @@ function initMobileNav() {
 /* --- Scroll Animations (J1) --- */
 function initScrollAnimations() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const els = document.querySelectorAll('.animate-on-scroll');
+  const els = document.querySelectorAll('.animate-on-scroll:not(.visible)');
   if (prefersReduced) {
     els.forEach(el => el.classList.add('visible'));
     return;
@@ -103,3 +103,9 @@ function initCounters() {
 
   counters.forEach(el => observer.observe(el));
 }
+
+/* --- SPA reinit hook (called by router after each navigation) --- */
+window.reinitPage = function () {
+  initScrollAnimations();
+  initCounters();
+};
