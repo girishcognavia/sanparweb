@@ -10,9 +10,27 @@
   var currentSlug = null;
   var mainEl = document.getElementById('main-content');
 
+  /* --- Detect base path (e.g., /v3/) --- */
+  var BASE_PATH = (function() {
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].src;
+      if (src && src.indexOf('router.js') !== -1) {
+        var match = src.match(/^(.*?)js\/router\.js/);
+        if (match) {
+          var url = new URL(match[0], location.origin);
+          return url.pathname.replace(/js\/router\.js$/, '');
+        }
+      }
+    }
+    return '/';
+  })();
+
   /* --- Slug resolution --- */
   function pathToSlug(path) {
-    var p = path.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
+    // Strip base path first
+    var p = path.replace(new RegExp('^' + BASE_PATH.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), '');
+    p = p.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
     if (!p || p === 'index' || p === 'spa') return 'home';
     return p;
   }
@@ -66,10 +84,10 @@
     var route = ROUTES[slug];
     if (!route) {
       // 404 fallback
-      mainEl.innerHTML = '<section class="section" style="text-align:center;padding:8rem 0"><div class="container"><h1>Page Not Found</h1><p style="margin:1rem 0 2rem">The page you are looking for does not exist.</p><a href="/" class="btn btn--primary" data-spa>Go Home</a></div></section>';
+      mainEl.innerHTML = '<section class="section" style="text-align:center;padding:8rem 0"><div class="container"><h1>Page Not Found</h1><p style="margin:1rem 0 2rem">The page you are looking for does not exist.</p><a href="' + BASE_PATH + '" class="btn btn--primary" data-spa>Go Home</a></div></section>';
       currentSlug = slug;
       document.title = 'Page Not Found — SANPAR Industries';
-      if (pushState) history.pushState({ slug: slug }, '', '/' + slug);
+      if (pushState) history.pushState({ slug: slug }, '', BASE_PATH + slug);
       return;
     }
 
@@ -92,7 +110,7 @@
 
         // Push state
         if (pushState) {
-          var url = slug === 'home' ? '/' : '/' + slug;
+          var url = slug === 'home' ? BASE_PATH : BASE_PATH + slug;
           history.pushState({ slug: slug }, '', url);
         }
 
@@ -181,7 +199,7 @@
     .then(function (routes) {
       ROUTES = routes;
       var slug = pathToSlug(location.pathname);
-      history.replaceState({ slug: slug }, '', location.pathname === '/' ? '/' : location.pathname);
+      history.replaceState({ slug: slug }, '', location.pathname === BASE_PATH || location.pathname === BASE_PATH.slice(0,-1) ? BASE_PATH : location.pathname);
       navigateTo(slug, false);
     })
     .catch(function (err) {
