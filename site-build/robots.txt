@@ -1,0 +1,38 @@
+# SANPAR Industries - robots.txt
+# https://sanpar.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sanpar.com/sitemap.xml
+
+# AI Crawlers - Explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow build/development files
+Disallow: /*.py$
+Disallow: /MISSING-CONTENT.md
+Disallow: /CLAUDE.md
