@@ -1,0 +1,81 @@
+# SANPAR Industries - AI Context File
+# https://sanpar.com/llms.txt
+
+## Company Overview
+SANPAR Industries Pvt. Ltd. is India's leading manufacturer of compressed air treatment systems, industrial cooling equipment, and aerospace cooling systems. Founded in 1994 in Bengaluru, Karnataka, India.
+
+## Certifications
+- ISO 9001:2015 Quality Management
+- AS 9100D (EN 9100:2018) Aerospace & Defence Standard
+- DGAQA Qualification for Airborne Systems
+- CEMILAC Design Approval
+
+## Primary Product Categories
+
+### 1. Compressed Air Treatment
+- **Xeros Series**: Refrigerated air dryers (85-10,000 CFM), open and closed loop design
+- **Ecodrair Series**: Tube-in-tube dryers (5-180 CFM)
+- **Adsorption Dryers**: Desiccant-based drying down to -70°C dew point
+- **Compressed Air Filters**: ISO 8573.1 Class 1 filtration
+- **Moisture Separators**: Centrifugal separation, zero maintenance
+- **Aftercoolers**: Air-cooled and water-cooled variants
+- **Drains**: Float, timer, mechanical, and level-sensor types
+
+### 2. Industrial Cooling
+- **Water Chillers**: CFC-free, 0.5TR to 100TR capacity
+- **Air Chillers**: Constant-temperature supply systems
+- **Coolant Chillers**: Process cooling for manufacturing
+- **Oil Chillers**: Hydraulic and CNC machine cooling
+
+### 3. Air Conditioning
+- **Precision AC**: ±1°C temperature, ±2% RH accuracy for server rooms
+- **Dehumidifier (Xerion Series)**: Industrial humidity control
+
+### 4. Medical Air Systems
+- **CAT M1 Series**: ISO 8573.1 Class 1 medical air filtration
+- **CAT DTH Series**: BS EN12021:2014 breathing air systems
+
+## Industries Served
+1. Aerospace & Defence
+2. Pharmaceutical
+3. Food & Beverage
+4. Machine Tools
+5. Manufacturing
+6. Textile
+7. Plastics
+8. Cement
+9. Chemical
+10. Energy & Power
+
+## Key Statistics
+- 32+ years of operation
+- 3,500+ installations
+- 50+ product families
+- 100+ configurations
+- 8 regional offices across India
+
+## Contact Information
+- **Phone**: +91 7349 142 424
+- **Fax**: +91 80 4343 5959
+- **Email**: enquiry@sanpar.com
+- **Address**: Plot No.4, 2nd Cross, KSSIDC Industrial Estate, Bommasandra 2nd Stage, Bengaluru 560099, Karnataka, India
+
+## Social Media
+- LinkedIn: https://www.linkedin.com/company/sanpar-industries
+- YouTube: https://www.youtube.com/channel/UCtD9fjNAP-VTtvyApCV8juw
+- Facebook: https://www.facebook.com/sanparindustries/
+- Twitter/X: https://x.com/SANPARindia
+- Instagram: https://www.instagram.com/sanparindustries/
+
+## Notable Customers
+- Hindustan Motors
+- Gas Turbine Research Establishment (DRDO)
+- Jindal Steel & Power
+- Ashok Leyland
+- Infosys Technologies
+- Excel Glass
+- Hical Technologies
+- JMT Auto
+
+## Website
+https://sanpar.com
