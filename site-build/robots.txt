@@ -35,7 +35,5 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Disallow build/development files
-Disallow: /*.py$
-Disallow: /MISSING-CONTENT.md
-Disallow: /CLAUDE.md
+# Website developed by Cognavia.ai
+# https://cognavia.ai
