@@ -33,3 +33,46 @@ jobs:
             sudo cp -r /tmp/sanpar-deploy/* /var/www/html/
             sudo chown -R www-data:www-data /var/www/html
             rm -rf /tmp/sanpar-deploy
+
+      - name: Configure nginx for SPA routing
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.LIGHTSAIL_HOST }}
+          username: ubuntu
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          script: |
+            set -e
+            CONF=$(sudo grep -l "/var/www/html" /etc/nginx/sites-enabled/* 2>/dev/null | head -1)
+            if [ -z "$CONF" ]; then
+              CONF=$(sudo grep -l "sanpar" /etc/nginx/sites-enabled/* 2>/dev/null | head -1)
+            fi
+            if [ -z "$CONF" ]; then
+              CONF=/etc/nginx/sites-enabled/default
+            fi
+            echo "Using nginx config: $CONF"
+
+            if sudo grep -qE 'try_files[^;]*\$uri\.html' "$CONF"; then
+              echo "nginx already configured for SPA routing — skipping"
+              exit 0
+            fi
+
+            sudo cp "$CONF" "$CONF.bak-$(date +%Y%m%d-%H%M%S)"
+            if sudo grep -qE 'try_files[[:space:]]+\$uri' "$CONF"; then
+              sudo sed -i -E 's|try_files[[:space:]]+\$uri[^;]+;|try_files $uri $uri.html $uri/ /index.html;|' "$CONF"
+              echo "Updated existing try_files directive"
+            else
+              echo "ERROR: no try_files directive found in $CONF — manual nginx update required"
+              exit 1
+            fi
+
+            if sudo nginx -t; then
+              sudo systemctl reload nginx
+              echo "nginx reloaded successfully"
+            else
+              LATEST_BAK=$(ls -t "$CONF".bak-* 2>/dev/null | head -1)
+              if [ -n "$LATEST_BAK" ]; then
+                sudo cp "$LATEST_BAK" "$CONF"
+                echo "nginx test failed — config reverted from $LATEST_BAK"
+              fi
+              exit 1
+            fi
