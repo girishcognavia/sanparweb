@@ -31,6 +31,13 @@ jobs:
           script: |
             sudo rm -rf /var/www/html/*
             sudo cp -r /tmp/sanpar-deploy/* /var/www/html/
+            # Strip dev-only artifacts that should not be web-accessible
+            sudo find /var/www/html -maxdepth 2 -type f \( \
+                -name '*.py' -o \
+                -name 'CLAUDE.md' -o \
+                -name 'PLAN.md' -o \
+                -name 'MISSING-CONTENT.md' \
+              \) -delete 2>/dev/null || true
             sudo chown -R www-data:www-data /var/www/html
             rm -rf /tmp/sanpar-deploy
 
@@ -85,6 +92,74 @@ jobs:
             else
               sudo cp "$BACKUP_FILE" "$CONF"
               echo "nginx test failed — config reverted from $BACKUP_FILE"
+              sudo nginx -t && sudo systemctl reload nginx
+              exit 1
+            fi
+
+      - name: Apply nginx security headers
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.LIGHTSAIL_HOST }}
+          username: ubuntu
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          script: |
+            set -e
+            BACKUP_DIR=/var/backups/nginx
+            sudo mkdir -p "$BACKUP_DIR" /etc/nginx/snippets
+
+            # Always write the latest snippet (idempotent — overwrite is safe)
+            sudo tee /etc/nginx/snippets/sanpar-security.conf > /dev/null <<'EOF'
+            # Security headers for SANPAR (managed by deploy workflow)
+            add_header Strict-Transport-Security "max-age=31536000" always;
+            add_header X-Content-Type-Options "nosniff" always;
+            add_header X-Frame-Options "SAMEORIGIN" always;
+            add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+            EOF
+
+            # Find the active sanpar config (skip .bak files)
+            CONF=$(sudo grep -l "/var/www/html" /etc/nginx/sites-enabled/* 2>/dev/null | grep -v '\.bak' | head -1)
+            [ -z "$CONF" ] && CONF=$(sudo grep -l "sanpar" /etc/nginx/sites-enabled/* 2>/dev/null | grep -v '\.bak' | head -1)
+            [ -z "$CONF" ] && CONF=/etc/nginx/sites-enabled/default
+
+            if sudo grep -q "snippets/sanpar-security.conf" "$CONF"; then
+              echo "Security headers include already present — reloading to pick up snippet changes"
+              sudo nginx -t && sudo systemctl reload nginx
+              exit 0
+            fi
+
+            BACKUP_FILE="$BACKUP_DIR/$(basename "$CONF").bak-secheaders-$(date +%Y%m%d-%H%M%S)"
+            sudo cp "$CONF" "$BACKUP_FILE"
+
+            # Insert include directive after the FIRST server_name line (one-shot)
+            sudo awk '
+              !done && /^[[:space:]]*server_name/ {
+                print
+                print "        include /etc/nginx/snippets/sanpar-security.conf;"
+                done = 1
+                next
+              }
+              { print }
+            ' "$BACKUP_FILE" | sudo tee "$CONF" > /dev/null
+
+            if ! sudo grep -q "snippets/sanpar-security.conf" "$CONF"; then
+              echo "WARNING: server_name not found — falling back to insert after first listen"
+              sudo awk '
+                !done && /^[[:space:]]*listen/ {
+                  print
+                  print "        include /etc/nginx/snippets/sanpar-security.conf;"
+                  done = 1
+                  next
+                }
+                { print }
+              ' "$BACKUP_FILE" | sudo tee "$CONF" > /dev/null
+            fi
+
+            if sudo nginx -t; then
+              sudo systemctl reload nginx
+              echo "Security headers applied and nginx reloaded"
+            else
+              sudo cp "$BACKUP_FILE" "$CONF"
+              echo "ERROR: nginx test failed — config reverted from $BACKUP_FILE"
               sudo nginx -t && sudo systemctl reload nginx
               exit 1
             fi
