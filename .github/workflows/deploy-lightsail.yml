@@ -42,9 +42,18 @@ jobs:
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
             set -e
-            CONF=$(sudo grep -l "/var/www/html" /etc/nginx/sites-enabled/* 2>/dev/null | head -1)
+
+            # Clean up any stray .bak files left in sites-enabled by previous runs.
+            # nginx loads every file in sites-enabled/ — backup files cause
+            # "duplicate default server" errors.
+            sudo find /etc/nginx/sites-enabled/ -maxdepth 1 -name '*.bak*' -delete 2>/dev/null || true
+
+            BACKUP_DIR=/var/backups/nginx
+            sudo mkdir -p "$BACKUP_DIR"
+
+            CONF=$(sudo grep -l "/var/www/html" /etc/nginx/sites-enabled/* 2>/dev/null | grep -v '\.bak' | head -1)
             if [ -z "$CONF" ]; then
-              CONF=$(sudo grep -l "sanpar" /etc/nginx/sites-enabled/* 2>/dev/null | head -1)
+              CONF=$(sudo grep -l "sanpar" /etc/nginx/sites-enabled/* 2>/dev/null | grep -v '\.bak' | head -1)
             fi
             if [ -z "$CONF" ]; then
               CONF=/etc/nginx/sites-enabled/default
@@ -53,10 +62,15 @@ jobs:
 
             if sudo grep -qE 'try_files[^;]*\$uri\.html' "$CONF"; then
               echo "nginx already configured for SPA routing — skipping"
+              # Still reload in case stray bak cleanup above changed things
+              sudo nginx -t && sudo systemctl reload nginx
               exit 0
             fi
 
-            sudo cp "$CONF" "$CONF.bak-$(date +%Y%m%d-%H%M%S)"
+            BACKUP_FILE="$BACKUP_DIR/$(basename "$CONF").bak-$(date +%Y%m%d-%H%M%S)"
+            sudo cp "$CONF" "$BACKUP_FILE"
+            echo "Backed up to $BACKUP_FILE"
+
             if sudo grep -qE 'try_files[[:space:]]+\$uri' "$CONF"; then
               sudo sed -i -E 's|try_files[[:space:]]+\$uri[^;]+;|try_files $uri $uri.html $uri/ /index.html;|' "$CONF"
               echo "Updated existing try_files directive"
@@ -69,10 +83,8 @@ jobs:
               sudo systemctl reload nginx
               echo "nginx reloaded successfully"
             else
-              LATEST_BAK=$(ls -t "$CONF".bak-* 2>/dev/null | head -1)
-              if [ -n "$LATEST_BAK" ]; then
-                sudo cp "$LATEST_BAK" "$CONF"
-                echo "nginx test failed — config reverted from $LATEST_BAK"
-              fi
+              sudo cp "$BACKUP_FILE" "$CONF"
+              echo "nginx test failed — config reverted from $BACKUP_FILE"
+              sudo nginx -t && sudo systemctl reload nginx
               exit 1
             fi
