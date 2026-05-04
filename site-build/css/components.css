@@ -548,9 +548,14 @@ video.hero__video {
   height: auto;
   object-fit: contain;
   opacity: 1;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
-  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.45));
+  /* Soft circular halo + drop shadow so the logo reads as a stable, fixed element
+     against the animated hero background (GIF + gradient + orb) */
+  background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 40%, transparent 70%);
+  border-radius: 50%;
+  padding: 24px;
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.6)) drop-shadow(0 0 24px rgba(255,255,255,0.15));
 }
 
 /* Hide on tablet & mobile so it doesn't overlap text */
