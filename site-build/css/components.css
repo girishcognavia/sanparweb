@@ -538,6 +538,36 @@ video.hero__video {
   margin-top: var(--space-10);
 }
 
+/* Large SANPAR logo highlight on the right of the homepage hero */
+.hero__logo-mark {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(280px, 38vw, 560px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.92;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.45));
+  animation: heroLogoFloat 8s ease-in-out infinite;
+}
+
+@keyframes heroLogoFloat {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50%      { transform: translateY(calc(-50% - 12px)) scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__logo-mark { animation: none; }
+}
+
+/* Hide on tablet & mobile so it doesn't overlap text */
+@media (max-width: 1024px) {
+  .hero__logo-mark { display: none; }
+}
+
 @media (max-width: 544px) {
   .hero { min-height: 100vh; }
   .hero__content h1 { font-size: var(--text-5xl); }
