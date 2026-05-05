@@ -538,31 +538,6 @@ video.hero__video {
   margin-top: var(--space-10);
 }
 
-/* Large SANPAR logo highlight on the right of the homepage hero — static & always visible */
-.hero__logo-mark {
-  position: absolute;
-  right: 4%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(280px, 38vw, 560px);
-  height: auto;
-  object-fit: contain;
-  opacity: 1;
-  z-index: 3;
-  pointer-events: none;
-  /* Soft circular halo + drop shadow so the logo reads as a stable, fixed element
-     against the animated hero background (GIF + gradient + orb) */
-  background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 40%, transparent 70%);
-  border-radius: 50%;
-  padding: 24px;
-  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.6)) drop-shadow(0 0 24px rgba(255,255,255,0.15));
-}
-
-/* Hide on tablet & mobile so it doesn't overlap text */
-@media (max-width: 1024px) {
-  .hero__logo-mark { display: none; }
-}
-
 @media (max-width: 544px) {
   .hero { min-height: 100vh; }
   .hero__content h1 { font-size: var(--text-5xl); }
