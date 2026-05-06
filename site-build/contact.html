@@ -266,10 +266,20 @@
           <img src="images/misc/india-map-clean.svg" alt="Map of India showing SANPAR office locations" loading="lazy" style="width:100%;height:auto;display:block">
 
           <!-- Animated pin overlays (Mercator-projected lat/long → %) -->
-          <!-- Chandigarh -->
-          <div class="map-pin" data-city="chandigarh" style="left:29.4%;top:23.1%">
+          <!-- Delhi -->
+          <div class="map-pin" data-city="delhi" style="left:31.0%;top:30.0%">
             <span class="pin-ring"></span><span class="pin-ring pin-ring--inner"></span><span class="pin-dot"></span>
-            <span class="pin-label">Chandigarh</span>
+            <span class="pin-label">Delhi</span>
+          </div>
+          <!-- Ahmedabad -->
+          <div class="map-pin" data-city="ahmedabad" style="left:15.0%;top:48.0%">
+            <span class="pin-ring"></span><span class="pin-ring pin-ring--inner"></span><span class="pin-dot"></span>
+            <span class="pin-label" style="left:auto;right:50%;transform:translateX(-8px)">Ahmedabad</span>
+          </div>
+          <!-- Hyderabad -->
+          <div class="map-pin" data-city="hyderabad" style="left:35.0%;top:66.0%">
+            <span class="pin-ring"></span><span class="pin-ring pin-ring--inner"></span><span class="pin-dot"></span>
+            <span class="pin-label">Hyderabad</span>
           </div>
           <!-- Jamshedpur -->
           <div class="map-pin" data-city="jamshedpur" style="left:61.6%;top:49.8%">
@@ -333,7 +343,7 @@
             <div class="office-card__info">
               <h4>Mumbai</h4>
               <p>Western Region</p>
-              <a href="tel:+919326452948">+91 9326 452 948</a>
+              <a href="tel:+918928748989">+91 8928 748 989</a>
             </div>
           </div>
           <div class="office-card animate-on-scroll" data-city="chennai">
@@ -349,7 +359,7 @@
             <div class="office-card__info">
               <h4>Pune</h4>
               <p>Maharashtra Region</p>
-              <a href="tel:+919371042525">+91 9371 042 525</a>
+              <a href="tel:+919324092626">+91 9324 092 626</a> / <a href="tel:+919371042525">+91 9371 042 525</a>
             </div>
           </div>
           <div class="office-card animate-on-scroll" data-city="jamshedpur">
@@ -357,15 +367,31 @@
             <div class="office-card__info">
               <h4>Jamshedpur</h4>
               <p>Eastern Region</p>
-              <a href="tel:+919334196462">+91 9334 196 462</a>
+              <a href="tel:+919304042324">+91 9304 042 324</a>
             </div>
           </div>
-          <div class="office-card animate-on-scroll" data-city="chandigarh">
+          <div class="office-card animate-on-scroll" data-city="delhi">
             <div class="office-card__marker"><span class="office-card__dot"></span></div>
             <div class="office-card__info">
-              <h4>Chandigarh</h4>
+              <h4>Delhi</h4>
               <p>Northern Region</p>
-              <a href="tel:+917899972424">+91 7899 972 424</a>
+              <a href="tel:+918197462323">+91 8197 462 323</a>
+            </div>
+          </div>
+          <div class="office-card animate-on-scroll" data-city="hyderabad">
+            <div class="office-card__marker"><span class="office-card__dot"></span></div>
+            <div class="office-card__info">
+              <h4>Hyderabad</h4>
+              <p>Telangana Region</p>
+              <a href="tel:+919379172425">+91 9379 172 425</a>
+            </div>
+          </div>
+          <div class="office-card animate-on-scroll" data-city="ahmedabad">
+            <div class="office-card__marker"><span class="office-card__dot"></span></div>
+            <div class="office-card__info">
+              <h4>Ahmedabad</h4>
+              <p>Gujarat Region</p>
+              <a href="tel:+918928748989">+91 8928 748 989</a>
             </div>
           </div>
           <div class="office-card animate-on-scroll" data-city="kolhapur">
@@ -373,7 +399,7 @@
             <div class="office-card__info">
               <h4>Kolhapur</h4>
               <p>Regional Support</p>
-              <a href="tel:+919373982424">+91 9373 982 424</a>
+              <a href="tel:+919379222323">+91 9379 222 323</a>
             </div>
           </div>
           <div class="office-card animate-on-scroll" data-city="coimbatore">
@@ -381,7 +407,7 @@
             <div class="office-card__info">
               <h4>Coimbatore</h4>
               <p>Regional Support</p>
-              <a href="tel:+917338392626">+91 7338 392 626</a>
+              <a href="tel:+919342996464">+91 9342 996 464</a>
             </div>
           </div>
         </div>
@@ -538,13 +564,15 @@
 (function(){
   var data={
     bengaluru:{region:'Head Office & Manufacturing',phone:'+91 9341 343 704',tel:'+919341343704'},
-    mumbai:{region:'Western Region',phone:'+91 9326 452 948',tel:'+919326452948'},
+    mumbai:{region:'Western Region',phone:'+91 8928 748 989',tel:'+918928748989'},
     chennai:{region:'Southern Region',phone:'+91 9380 342 424',tel:'+919380342424'},
-    pune:{region:'Maharashtra Region',phone:'+91 9371 042 525',tel:'+919371042525'},
-    jamshedpur:{region:'Eastern Region',phone:'+91 9334 196 462',tel:'+919334196462'},
-    chandigarh:{region:'Northern Region',phone:'+91 7899 972 424',tel:'+917899972424'},
-    kolhapur:{region:'Regional Support',phone:'+91 9373 982 424',tel:'+919373982424'},
-    coimbatore:{region:'Regional Support',phone:'+91 7338 392 626',tel:'+917338392626'}
+    pune:{region:'Maharashtra Region',phone:'+91 9324 092 626 / +91 9371 042 525',tel:'+919324092626'},
+    jamshedpur:{region:'Eastern Region',phone:'+91 9304 042 324',tel:'+919304042324'},
+    delhi:{region:'Northern Region',phone:'+91 8197 462 323',tel:'+918197462323'},
+    hyderabad:{region:'Telangana Region',phone:'+91 9379 172 425',tel:'+919379172425'},
+    ahmedabad:{region:'Gujarat Region',phone:'+91 8928 748 989',tel:'+918928748989'},
+    kolhapur:{region:'Regional Support',phone:'+91 9379 222 323',tel:'+919379222323'},
+    coimbatore:{region:'Regional Support',phone:'+91 9342 996 464',tel:'+919342996464'}
   };
   var tooltip=document.getElementById('mapTooltip');
   var pins=document.querySelectorAll('.map-pin');
