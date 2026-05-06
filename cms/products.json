@@ -1,0 +1,140 @@
+{
+  "lastUpdated": "2026-05-06T00:00:00Z",
+  "products": [
+    {
+      "id": "water-chillers",
+      "name": "Water Chillers",
+      "category": "Chillers",
+      "description": "CFC-free process chillers, 0.5TR to 100TR. PLC/microprocessor controlled, 24/7 operation.",
+      "image": "images/products/Water-chiller.webp",
+      "features": ["CFC-free refrigerants", "0.5TR to 100TR capacity", "PLC/microprocessor controlled", "24/7 continuous operation"],
+      "active": true
+    },
+    {
+      "id": "air-chillers",
+      "name": "Air Chillers",
+      "category": "Chillers",
+      "description": "Industrial air chillers for precision cooling applications.",
+      "image": "images/products/SAC_WC_1-768x540.webp",
+      "features": ["Precision temperature control", "Energy efficient", "Low maintenance"],
+      "active": true
+    },
+    {
+      "id": "coolant-chillers",
+      "name": "Coolant Chillers",
+      "category": "Chillers",
+      "description": "Coolant chillers for machine tools and industrial applications.",
+      "image": "images/products/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
+      "features": ["Machine tool cooling", "Stable temperature control", "Compact design"],
+      "active": true
+    },
+    {
+      "id": "oil-chillers",
+      "name": "Oil Chillers",
+      "category": "Chillers",
+      "description": "Oil chillers for hydraulic systems and industrial machinery.",
+      "image": "images/products/SAC_WC_2-1024x720.webp",
+      "features": ["Hydraulic oil cooling", "High efficiency", "Durable construction"],
+      "active": true
+    },
+    {
+      "id": "xeros",
+      "name": "Xeros Dryers",
+      "category": "Dryers",
+      "description": "Advanced desiccant air dryers for ultra-dry compressed air.",
+      "image": "images/products/Xeros-Internal-1-1024x720.webp",
+      "features": ["Ultra-low dew point", "Energy efficient regeneration", "Long desiccant life"],
+      "active": true
+    },
+    {
+      "id": "adsorption",
+      "name": "Adsorption Dryers",
+      "category": "Dryers",
+      "description": "Heatless and heated adsorption dryers for critical applications.",
+      "image": "images/products/SFD320_1-r9r15r5jg1lg11ln26jap1az5m1r4djmmt8gvpnj4w.webp",
+      "features": ["Heatless regeneration", "Heated regeneration options", "Low pressure drop"],
+      "active": true
+    },
+    {
+      "id": "dehumidifier",
+      "name": "Dehumidifiers",
+      "category": "Dryers",
+      "description": "Industrial dehumidifiers for humidity control applications.",
+      "image": "images/products/SMPL_IAC_DH-r9r15xqcc6apzhp6u309ijmi0bmguisof3m6zrh9y8.webp",
+      "features": ["Precise humidity control", "Large area coverage", "Energy efficient"],
+      "active": true
+    },
+    {
+      "id": "cat-dth",
+      "name": "CAT DTH Series",
+      "category": "Medical & Dental",
+      "description": "Medical and dental air treatment systems.",
+      "image": "images/products/CAT_D1-5A-cutout-1024x720.webp",
+      "features": ["Medical grade air", "Oil-free operation", "Compact design"],
+      "active": true
+    },
+    {
+      "id": "cat-m1",
+      "name": "CAT M1 Series",
+      "category": "Medical & Dental",
+      "description": "Compact medical air treatment units.",
+      "image": "images/products/medical-dryer.webp",
+      "features": ["Hospital grade", "Silent operation", "Easy maintenance"],
+      "active": true
+    },
+    {
+      "id": "aftercooler",
+      "name": "Aftercoolers",
+      "category": "Accessories",
+      "description": "Air and water-cooled aftercoolers for compressed air systems.",
+      "image": "images/products/CAT-X1-157A-r9r1p9az9aamxr9q641lxm4awfwxu9z4bck6deqg0w.webp",
+      "features": ["Air-cooled and water-cooled options", "High efficiency heat exchange", "Corrosion resistant"],
+      "active": true
+    },
+    {
+      "id": "filters",
+      "name": "Compressed Air Filters",
+      "category": "Accessories",
+      "description": "High-efficiency filters for compressed air purification.",
+      "image": "images/products/Elements_PFFFCF_1-r9r150tzg7aedje8aem3625p0daamrixg7v5ysqlzs.webp",
+      "features": ["Multi-stage filtration", "Low pressure drop", "Easy element replacement"],
+      "active": true
+    },
+    {
+      "id": "separator",
+      "name": "Oil-Water Separators",
+      "category": "Accessories",
+      "description": "Condensate management and oil-water separation systems.",
+      "image": "images/products/MS_1-r9r15b67s5fu8ulyht97upbfr2pnpsb4bzyjh4eq3k.webp",
+      "features": ["Environmental compliance", "Low operating cost", "Automatic operation"],
+      "active": true
+    },
+    {
+      "id": "drains",
+      "name": "Automatic Drains",
+      "category": "Accessories",
+      "description": "Zero air loss and timed automatic drain valves.",
+      "image": "images/products/Ecodrair-arrangement1-cutout-1024x720.webp",
+      "features": ["Zero air loss", "Timed and level-sensing options", "Reliable operation"],
+      "active": true
+    },
+    {
+      "id": "ecodrair",
+      "name": "Ecodrair",
+      "category": "Accessories",
+      "description": "Eco-friendly condensate drain systems.",
+      "image": "images/products/ecodrair-blogpost-1024x681.webp",
+      "features": ["Energy saving", "Eco-friendly design", "Low maintenance"],
+      "active": true
+    },
+    {
+      "id": "precision-ac",
+      "name": "Precision Air Conditioning",
+      "category": "Climate Control",
+      "description": "Precision cooling for data centers and critical environments.",
+      "image": "images/products/SMPL_IAC_PAC.webp",
+      "features": ["Precise temperature control", "Humidity management", "24/7 operation"],
+      "active": true
+    }
+  ]
+}
