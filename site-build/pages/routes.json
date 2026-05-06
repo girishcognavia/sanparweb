@@ -173,12 +173,6 @@
     "description": "SANPAR Oil Chillers - CFC-free precision oil temperature control for hydraulic systems, CNC machines, and industrial processes.",
     "navActive": "Products"
   },
-  "product-precision-ac": {
-    "file": "pages/product-precision-ac.html",
-    "title": "Precision Air Conditioner - SANPAR Industries",
-    "description": "SANPAR Precision Air Conditioner - Climate controller: plus/minus 1 deg C temperature, plus/minus 2% RH. LAN connectivity.",
-    "navActive": "Products"
-  },
   "product-separator": {
     "file": "pages/product-separator.html",
     "title": "Moisture Separator - SANPAR Industries",
