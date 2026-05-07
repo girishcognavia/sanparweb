@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-06T00:00:00Z",
+  "lastUpdated": "2026-05-07T00:00:00Z",
   "products": [
     {
       "id": "water-chillers",
@@ -75,10 +75,10 @@
     },
     {
       "id": "cat-m1",
-      "name": "CAT M1 Series",
+      "name": "CAT Absorption Series",
       "category": "Medical & Dental",
-      "description": "Compact medical air treatment units.",
-      "image": "images/products/medical-dryer.webp",
+      "description": "Medical-grade desiccant air filtration meeting ISO 8573-1: 2010 — the highest purity standard. Hospital and pharmaceutical facility ready.",
+      "image": "images/products/CAT-X1-157A-r9r1p9az9aamxr9q641lxm4awfwxu9z4bck6deqg0w.webp",
       "features": ["Hospital grade", "Silent operation", "Easy maintenance"],
       "active": true
     },
@@ -125,15 +125,6 @@
       "description": "Eco-friendly condensate drain systems.",
       "image": "images/products/ecodrair-blogpost-1024x681.webp",
       "features": ["Energy saving", "Eco-friendly design", "Low maintenance"],
-      "active": true
-    },
-    {
-      "id": "precision-ac",
-      "name": "Precision Air Conditioning",
-      "category": "Climate Control",
-      "description": "Precision cooling for data centers and critical environments.",
-      "image": "images/products/SMPL_IAC_PAC.webp",
-      "features": ["Precise temperature control", "Humidity management", "24/7 operation"],
       "active": true
     }
   ]
