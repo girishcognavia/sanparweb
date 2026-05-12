@@ -29,8 +29,38 @@ jobs:
           username: ubuntu
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
+            # --- Preserve admin-managed content across deploys ---
+            # The CMS admin writes to /var/www/html/data/products.json and uploads
+            # images to /var/www/html/images/products-cms/. These are NOT in git —
+            # they're the runtime state edited via the admin UI. We back them up
+            # before wiping the web root and restore them after the fresh deploy.
+            sudo rm -rf /tmp/sanpar-preserve
+            sudo mkdir -p /tmp/sanpar-preserve
+            if [ -d /var/www/html/data ]; then
+              sudo cp -r /var/www/html/data /tmp/sanpar-preserve/data
+            fi
+            if [ -d /var/www/html/images/products-cms ]; then
+              sudo cp -r /var/www/html/images/products-cms /tmp/sanpar-preserve/products-cms
+            fi
+
+            # Standard deploy: wipe and replace site files
             sudo rm -rf /var/www/html/*
             sudo cp -r /tmp/sanpar-deploy/* /var/www/html/
+
+            # Restore admin-managed content. If the server already had a data
+            # directory with admin edits, those edits win over the deploy's
+            # version. On a first-ever deploy (nothing to preserve), the
+            # deploy's data/products.json seeds the initial state.
+            if [ -d /tmp/sanpar-preserve/data ]; then
+              sudo rm -rf /var/www/html/data
+              sudo cp -r /tmp/sanpar-preserve/data /var/www/html/data
+            fi
+            if [ -d /tmp/sanpar-preserve/products-cms ]; then
+              sudo mkdir -p /var/www/html/images/products-cms
+              sudo cp -rn /tmp/sanpar-preserve/products-cms/. /var/www/html/images/products-cms/ 2>/dev/null || true
+            fi
+            sudo rm -rf /tmp/sanpar-preserve
+
             # Strip dev-only artifacts that should not be web-accessible
             sudo find /var/www/html -maxdepth 2 -type f \( \
                 -name '*.py' -o \

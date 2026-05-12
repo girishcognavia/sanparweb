@@ -1,0 +1,24 @@
+[Unit]
+Description=SANPAR CMS Backend API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/sanpar-cms
+ExecStart=/usr/bin/node /opt/sanpar-cms/api.js
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/sanpar-cms.log
+StandardError=append:/var/log/sanpar-cms.log
+
+# Sandboxing
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/html/data /var/www/html/images/products-cms /var/log
+
+[Install]
+WantedBy=multi-user.target

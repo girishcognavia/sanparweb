@@ -1,131 +1,134 @@
 /**
- * SANPAR Products CMS
- * Fetches product data from S3 and renders on the website
+ * SANPAR Products CMS — frontend renderer
+ *
+ * Loads products from same-origin /data/products.json and upgrades parts of
+ * the page that opt in. The hardcoded HTML on each page is the safe baseline:
+ * if this script fails to load, fails to fetch, or finds bad data, the page
+ * still works fine. Nothing gets blanked out on failure.
  */
+(function (window) {
+  'use strict';
 
-const SANPAR_CMS = {
-  dataUrl: 'https://sanpar-cms.s3.ap-south-1.amazonaws.com/data/products.json',
-  products: [],
-  loaded: false,
+  var DATA_URL = '/data/products.json';
 
-  /**
-   * Load products from S3
-   */
-  async loadProducts() {
-    if (this.loaded) return this.products;
+  var state = {
+    loading: null,
+    products: null,
+    raw: null
+  };
 
-    try {
-      const response = await fetch(this.dataUrl + '?t=' + Date.now());
-      const data = await response.json();
-      this.products = data.products.filter(p => p.active);
-      this.loaded = true;
-      return this.products;
-    } catch (error) {
-      console.error('Error loading products from CMS:', error);
-      return [];
-    }
-  },
+  function safe(value, fallback) {
+    return (typeof value === 'string' && value.length > 0) ? value : fallback;
+  }
 
-  /**
-   * Get all products
-   */
-  async getAll() {
-    await this.loadProducts();
-    return this.products;
-  },
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;');
+  }
 
-  /**
-   * Get products by category
-   */
-  async getByCategory(category) {
-    await this.loadProducts();
-    return this.products.filter(p => p.category === category);
-  },
+  async function load() {
+    if (state.products) return state.products;
+    if (state.loading)  return state.loading;
 
-  /**
-   * Get a single product by ID
-   */
-  async getById(id) {
-    await this.loadProducts();
-    return this.products.find(p => p.id === id);
-  },
+    state.loading = (async function () {
+      try {
+        var res = await fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        var data = await res.json();
+        if (!data || !Array.isArray(data.products)) throw new Error('Bad data shape');
+        state.raw = data;
+        state.products = data.products.filter(function (p) { return p && p.active !== false; });
+        return state.products;
+      } catch (err) {
+        // Failure path — leave the page's hardcoded HTML as-is.
+        console.warn('[products-cms] Could not load data, keeping static HTML:', err.message);
+        state.products = [];
+        return state.products;
+      } finally {
+        state.loading = null;
+      }
+    })();
 
-  /**
-   * Get all categories
-   */
-  async getCategories() {
-    await this.loadProducts();
-    return [...new Set(this.products.map(p => p.category))];
-  },
+    return state.loading;
+  }
 
   /**
-   * Render product cards into a container
+   * Upgrade product cards on the page in place.
+   * Cards with a matching `data-product-id` get text/image swapped from the JSON.
+   * Cards without a match are left untouched (safe).
    */
-  async renderProductCards(containerId, options = {}) {
-    const container = document.getElementById(containerId);
+  async function upgradeCards(selector) {
+    var products = await load();
+    if (!products.length) return;
+
+    var byId = {};
+    products.forEach(function (p) { byId[p.id] = p; });
+
+    var cards = document.querySelectorAll(selector);
+    cards.forEach(function (card) {
+      var id = card.getAttribute('data-product-id');
+      var p = byId[id];
+      if (!p) return;
+
+      var nameEl  = card.querySelector('[data-cms="name"]');
+      var descEl  = card.querySelector('[data-cms="description"]');
+      var catEl   = card.querySelector('[data-cms="category"]');
+      var imgEl   = card.querySelector('[data-cms="image"]');
+
+      if (nameEl && p.name)        nameEl.textContent  = p.name;
+      if (descEl && p.description) descEl.textContent  = p.description;
+      if (catEl  && p.category)    catEl.textContent   = p.category;
+      if (imgEl  && p.image) {
+        imgEl.setAttribute('src', '/' + p.image.replace(/^\//, ''));
+        if (p.name) imgEl.setAttribute('alt', p.name);
+      }
+    });
+  }
+
+  /**
+   * Render a full listing of products into a container, replacing its children.
+   * Use this on the products listing page so admin-added products also appear.
+   */
+  async function renderList(containerId, options) {
+    options = options || {};
+    var container = document.getElementById(containerId);
     if (!container) return;
 
-    let products = await this.getAll();
+    var products = await load();
+    if (!products.length) return;
 
-    // Filter by category if specified
-    if (options.category) {
-      products = products.filter(p => p.category === options.category);
-    }
+    var list = products.slice();
+    if (options.category) list = list.filter(function (p) { return p.category === options.category; });
+    if (options.limit)    list = list.slice(0, options.limit);
 
-    // Limit number of products
-    if (options.limit) {
-      products = products.slice(0, options.limit);
-    }
+    var cardClass = options.cardClass || 'card';
+    var html = list.map(function (p) {
+      var url   = safe(p.url, 'product-' + p.id + '.html');
+      var image = p.image ? ('/' + p.image.replace(/^\//, '')) : '';
+      return '' +
+        '<div class="' + cardClass + ' animate-on-scroll" data-product-id="' + escapeHtml(p.id) + '">' +
+          (image ? '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(p.name) + '" class="card__image" loading="lazy" data-cms="image">' : '') +
+          '<div class="card__body">' +
+            (p.category ? '<span class="badge badge--industry" data-cms="category">' + escapeHtml(p.category) + '</span>' : '') +
+            '<h3 data-cms="name">' + escapeHtml(p.name) + '</h3>' +
+            '<p data-cms="description">' + escapeHtml(p.description || '') + '</p>' +
+            '<a href="' + escapeHtml(url) + '" class="btn btn--tertiary">Explore this product <span class="arrow">→</span></a>' +
+          '</div>' +
+        '</div>';
+    }).join('');
 
-    container.innerHTML = products.map(product => `
-      <div class="product-card" data-product-id="${product.id}">
-        <a href="product-${product.id}.html">
-          <img src="${product.image}" alt="${product.name}" loading="lazy">
-          <div class="product-card-content">
-            <span class="product-category">${product.category}</span>
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-          </div>
-        </a>
-      </div>
-    `).join('');
-  },
-
-  /**
-   * Render product details on a product page
-   */
-  async renderProductDetails(productId, options = {}) {
-    const product = await this.getById(productId);
-    if (!product) return null;
-
-    // Update page elements if they exist
-    if (options.titleElement) {
-      const el = document.querySelector(options.titleElement);
-      if (el) el.textContent = product.name;
-    }
-
-    if (options.descriptionElement) {
-      const el = document.querySelector(options.descriptionElement);
-      if (el) el.textContent = product.description;
-    }
-
-    if (options.imageElement) {
-      const el = document.querySelector(options.imageElement);
-      if (el) el.src = product.image;
-    }
-
-    if (options.featuresElement) {
-      const el = document.querySelector(options.featuresElement);
-      if (el && product.features) {
-        el.innerHTML = product.features.map(f => `<li>${f}</li>`).join('');
-      }
-    }
-
-    return product;
+    container.innerHTML = html;
   }
-};
 
-// Export for use in other scripts
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = SANPAR_CMS;
-}
+  window.SANPAR_CMS = {
+    load: load,
+    upgradeCards: upgradeCards,
+    renderList: renderList
+  };
+
+})(window);

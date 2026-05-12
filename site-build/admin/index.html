@@ -430,15 +430,16 @@
   </div>
 
   <script>
-    // Configuration
-    const S3_DATA_URL = 'https://sanpar-cms.s3.ap-south-1.amazonaws.com/data/products.json';
-    const S3_BUCKET = 'sanpar-cms';
-    const S3_REGION = 'ap-south-1';
+    // Configuration — same-origin endpoints served by the local CMS backend.
+    // Reads come from the static file (fast, cacheable). Writes go to the API.
+    const READ_URL  = '/data/products.json';
+    const SAVE_URL  = '/admin/api/save';
 
     let products = [];
     let editingIndex = -1;
     let currentFeatures = [];
     let currentImageFile = null;
+    let currentImageDataUrl = null;  // base64 data URL of the new image (sent to backend on save)
     let uploadedImages = [];
 
     // Session timeout (30 minutes of inactivity)
@@ -485,17 +486,18 @@
       window.location.href = '/';
     }
 
-    // Load products from S3
+    // Load products from same-origin JSON. Cache-bust each load.
     async function loadProducts() {
       try {
-        const response = await fetch(S3_DATA_URL + '?t=' + Date.now());
+        const response = await fetch(READ_URL + '?t=' + Date.now(), { cache: 'no-store' });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         const data = await response.json();
         products = data.products || [];
         updateCategoryFilter();
         renderProducts();
       } catch (error) {
         console.error('Error loading products:', error);
-        showToast('Error loading products', 'error');
+        showToast('Error loading products: ' + error.message, 'error');
       }
     }
 
@@ -550,6 +552,9 @@
       document.getElementById('imageFile').value = '';
       document.getElementById('imageStatus').textContent = '';
 
+      // Always start with a clean new-image slot
+      currentImageDataUrl = null;
+
       if (index >= 0) {
         const product = products[index];
         document.getElementById('modalTitle').textContent = 'Edit Product';
@@ -562,9 +567,9 @@
         document.getElementById('productActive').checked = product.active;
         currentFeatures = [...(product.features || [])];
 
-        // Show existing image
+        // Show existing image — same-origin path so it works on any host
         if (product.image) {
-          document.getElementById('previewImg').src = 'https://sanpar.com/' + product.image;
+          document.getElementById('previewImg').src = '/' + product.image;
           document.getElementById('imagePreview').classList.remove('hidden');
           document.getElementById('imageUploadArea').classList.add('hidden');
           document.getElementById('imageStatus').textContent = 'Current image (upload new to replace)';
@@ -637,11 +642,10 @@
         return;
       }
 
-      // Handle new image upload
-      if (currentImageFile) {
-        const filename = generateImageFilename(currentImageFile.name, slug);
-        storeImageForUpload(currentImageFile, filename);
-        image = filename;
+      // If a new image was picked, embed its data URL in the product.
+      // The backend will detect data URLs on save, decode them, and write to disk.
+      if (currentImageDataUrl) {
+        image = currentImageDataUrl;
       }
 
       const product = {
@@ -649,10 +653,15 @@
         name,
         category,
         description,
-        image: image || 'images/products/placeholder.webp',
+        image: image || '',
         features: currentFeatures,
         active
       };
+
+      // Preserve existing 'url' field if editing (so the product page link stays correct)
+      if (editingIndex >= 0 && products[editingIndex] && products[editingIndex].url) {
+        product.url = products[editingIndex].url;
+      }
 
       if (editingIndex >= 0) {
         products[editingIndex] = product;
@@ -661,12 +670,13 @@
       }
 
       // Reset image state
+      currentImageDataUrl = null;
       currentImageFile = null;
 
       closeModal();
       updateCategoryFilter();
       renderProducts();
-      showToast('Product saved locally. Click "Save Changes" to upload.', 'success');
+      showToast('Product staged. Click "Save Changes" to publish.', 'success');
     }
 
     // Delete product
@@ -684,46 +694,45 @@
       openModal(index);
     }
 
-    // Save to S3
+    // Publish all changes to the backend.
+    // - Image data URLs travel inside the JSON payload (backend decodes & saves to disk).
+    // - On success, the website's /data/products.json is updated and visible immediately.
     async function saveToS3() {
+      const saveBtn = document.querySelector('button.btn-success');
+      const originalLabel = saveBtn ? saveBtn.textContent : null;
+      if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving...'; }
+
       const data = {
         lastUpdated: new Date().toISOString(),
         products: products
       };
 
-      // Download as JSON file
-      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'products.json';
-      a.click();
-      URL.revokeObjectURL(url);
+      try {
+        const response = await fetch(SAVE_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+          credentials: 'same-origin'
+        });
 
-      // Download images as a zip or individual files
-      if (uploadedImages.length > 0) {
-        showToast(`${uploadedImages.length} image(s) to upload. Downloading...`, 'success');
-
-        // Download each image with the correct filename
-        for (const img of uploadedImages) {
-          const imgUrl = URL.createObjectURL(img.file);
-          const imgLink = document.createElement('a');
-          imgLink.href = imgUrl;
-          imgLink.download = img.filename.split('/').pop(); // Just the filename
-          imgLink.click();
-          URL.revokeObjectURL(imgUrl);
-          await new Promise(r => setTimeout(r, 500)); // Small delay between downloads
+        if (!response.ok) {
+          let detail = '';
+          try { detail = (await response.json()).error || ''; } catch {}
+          throw new Error(`HTTP ${response.status}${detail ? ' — ' + detail : ''}`);
         }
 
-        alert(`Files downloaded!\n\nTo update the website, run these commands:\n\n1. Upload products.json:\naws s3 cp ~/Downloads/products.json s3://sanpar-cms/data/products.json\n\n2. Upload images to your server:\nscp ~/Downloads/*.webp ubuntu@65.0.163.178:/var/www/html/images/products/\n\nOr upload manually to S3 and your web server.`);
+        const result = await response.json();
+        showToast(`Saved! ${result.productCount} products published.`, 'success');
 
-        // Clear uploaded images queue
-        uploadedImages = [];
-      } else {
-        alert(`To update the website:\n\n1. Open Terminal\n2. Run: aws s3 cp ~/Downloads/products.json s3://sanpar-cms/data/products.json\n\nOr upload via AWS Console:\n1. Go to S3 > sanpar-cms > data\n2. Upload products.json`);
+        // Reload from the now-updated source so we drop any local data URLs
+        // and the image paths reflect what the server wrote to disk.
+        await loadProducts();
+      } catch (err) {
+        console.error('Save failed:', err);
+        showToast('Save failed: ' + err.message, 'error');
+      } finally {
+        if (saveBtn) { saveBtn.disabled = false; if (originalLabel) saveBtn.textContent = originalLabel; }
       }
-
-      showToast('Files downloaded!', 'success');
     }
 
     // Toast notifications
@@ -802,19 +811,21 @@
 
       currentImageFile = file;
 
-      // Show preview
+      // Read as data URL — used both for preview and as the payload sent to the backend.
       const reader = new FileReader();
       reader.onload = function(e) {
+        currentImageDataUrl = e.target.result;
         document.getElementById('previewImg').src = e.target.result;
         document.getElementById('imagePreview').classList.remove('hidden');
         document.getElementById('imageUploadArea').classList.add('hidden');
-        document.getElementById('imageStatus').textContent = 'Image ready for upload';
+        document.getElementById('imageStatus').textContent = 'Image ready (will upload on Save Changes)';
       };
       reader.readAsDataURL(file);
     }
 
     function removeImage() {
       currentImageFile = null;
+      currentImageDataUrl = null;
       document.getElementById('imageFile').value = '';
       document.getElementById('productImage').value = '';
       document.getElementById('imagePreview').classList.add('hidden');
