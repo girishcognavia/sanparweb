@@ -1,131 +1,387 @@
-<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">›</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">›</li><li class="breadcrumb__current" aria-current="page">Xeros Series</li></ul></nav>
+<style>
+/* ── Xeros premium product page (scoped) ── */
+.xer-hero{position:relative;background:#07052a;color:#fff;overflow:hidden}
+.xer-hero__bg{position:absolute;inset:0;background:url('images/products/Xeros-hero.webp') right center/cover no-repeat}
+.xer-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,5,38,.92) 0%,rgba(7,5,38,.66) 36%,rgba(7,5,38,.2) 62%,rgba(7,5,38,0) 88%)}
+.xer-hero__inner{position:relative;z-index:2;max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);min-height:560px;display:flex;align-items:center}
+.xer-hero__text{max-width:560px}
+.xer-hero__badge{display:inline-block;background:#2d2db8;color:#fff;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:7px 15px;border-radius:5px;margin-bottom:var(--space-4)}
+.xer-hero h1{color:#fff;font-size:var(--text-8xl);line-height:1.05;margin:0 0 var(--space-3)}
+.xer-hero__tag{color:rgba(255,255,255,.85);font-weight:600;font-size:var(--text-lg);line-height:1.5;margin-bottom:var(--space-6);max-width:34ch}
+.xer-stats{display:flex;flex-wrap:wrap;margin-bottom:var(--space-6);padding:var(--space-5) 0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.xer-stat{flex:1;min-width:120px;display:flex;flex-direction:column;gap:7px;padding:0 var(--space-5);border-left:1px solid rgba(255,255,255,.16)}
+.xer-stat:first-child{padding-left:0;border-left:none}
+.xer-stat svg{width:26px;height:26px;stroke:rgba(255,255,255,.85)}
+.xer-stat b{font-family:var(--font-display);font-size:var(--text-lg);color:#fff;font-weight:800;line-height:1.2}
+.xer-stat span{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.6px}
+.xer-hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-5)}
+.xer-hero__trust{display:flex;align-items:center;gap:8px;font-size:var(--text-sm);color:rgba(255,255,255,.72)}
+.xer-hero__trust svg{width:16px;height:16px;stroke:var(--color-accent);flex-shrink:0}
 
-  <!-- Product Hero (D3) -->
-  <section class="section" style="padding-top:var(--space-8)">
-    <div class="container">
-      <div class="grid grid--2" style="gap:var(--space-12);align-items:center">
-        <div class="animate-on-scroll">
-          <span class="badge badge--industry" style="margin-bottom:var(--space-4)">Compressed Air Treatment</span>
-          <h1 style="font-size:var(--text-7xl)">Xeros Series</h1>
-          <p class="hero__subtitle" style="color:var(--text-secondary);font-size:var(--text-xl);max-width:48ch">Refrigerated compressed air dryers with open and closed loop design. Engineered for tropical conditions up to 50°C ambient.</p>
-          <div style="display:flex;gap:var(--space-6);margin:var(--space-6) 0;flex-wrap:wrap">
-            <div><strong style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-primary)">200–10,000</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">CFM Capacity</span></div>
-            <div style="width:1px;background:var(--grey-4)"></div>
-            <div><strong style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-primary)">3–16</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">bar g Pressure</span></div>
-            <div style="width:1px;background:var(--grey-4)"></div>
-            <div><strong style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-primary)">R407C</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Eco-Friendly Refrigerant</span></div>
+/* section intros */
+.xer-eyebrow{display:block;color:var(--color-primary);font-size:var(--text-xs);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2)}
+
+/* tighter section rhythm for this page */
+section.xer-section{padding-top:3rem;padding-bottom:3rem}
+section.xer-section .text-center,
+section.xer-section > .container > .animate-on-scroll:first-child{margin-bottom:var(--space-6)!important}
+
+/* WHAT */
+.xer-what-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-10);align-items:center}
+.xer-points{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5);margin-top:var(--space-6)}
+.xer-point{display:flex;flex-direction:column;gap:8px;text-align:center;align-items:center}
+.xer-point svg{width:38px;height:38px;stroke:var(--color-primary);fill:none}
+.xer-point span{font-size:var(--text-sm);color:var(--text-secondary)}
+.xer-diagram{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-8);box-shadow:var(--shadow-subtle)}
+.xer-diagram h4{text-align:center;margin:0 0 var(--space-6);font-size:var(--text-base)}
+.xer-diagram__flow{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3)}
+.xer-diagram__end{flex:1;text-align:center;font-size:var(--text-xs);font-weight:600;line-height:1.4}
+.xer-diagram__dots{font-size:18px;letter-spacing:2px;margin-bottom:6px}
+.xer-diagram__in .xer-diagram__dots{color:#e2574c}
+.xer-diagram__out .xer-diagram__dots{color:#2f6df0}
+.xer-diagram__unit{flex:0 0 110px;text-align:center}
+.xer-diagram__unit img{width:100%;max-width:110px}
+.xer-diagram__arrow{flex:0 0 24px;color:var(--text-tertiary);font-size:20px;text-align:center}
+.xer-diagram__moisture{text-align:center;margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px dashed var(--grey-3)}
+.xer-diagram__moisture svg{width:26px;height:26px;stroke:#2f6df0;fill:none}
+.xer-diagram__moisture div{font-size:var(--text-xs);font-weight:600;color:var(--text-secondary);margin-top:4px}
+
+/* split layout: left text + right items */
+.xer-split{display:grid;grid-template-columns:minmax(220px,1fr) 3fr;gap:var(--space-8)}
+.xer-split__intro p{color:var(--text-secondary);margin-top:var(--space-3)}
+
+/* WHY cards */
+.xer-why-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+.xer-why-card{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-md);padding:var(--space-5);text-align:center}
+.xer-why-card svg{width:34px;height:34px;margin:0 auto var(--space-3);display:block;fill:none}
+.xer-why-card h3{font-size:var(--text-sm);font-weight:700;margin:0 0 6px;min-height:2.5em;display:flex;align-items:center;justify-content:center;line-height:1.3}
+.xer-why-card p{font-size:13px;color:var(--text-secondary);margin:0;line-height:1.55}
+
+/* HOW steps */
+.xer-steps{display:flex;align-items:flex-start;gap:var(--space-2)}
+.xer-step{flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.xer-step__icon{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.xer-step__icon svg{width:30px;height:30px;fill:none}
+.xer-step h3{font-size:var(--text-sm);font-weight:700;margin:0;line-height:1.3}
+.xer-step p{font-size:12px;color:var(--text-secondary);margin:0;line-height:1.5}
+.xer-step__arrow{flex:0 0 22px;align-self:center;margin-top:24px;color:var(--text-tertiary);font-size:20px}
+
+/* Core tech */
+.xer-tech-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.xer-tech{padding:0 var(--space-4);text-align:center;border-left:1px solid var(--grey-2)}
+.xer-tech:first-child{border-left:none}
+.xer-tech__icon{width:58px;height:58px;margin:0 auto var(--space-3);display:flex;align-items:center;justify-content:center;background:var(--bg-light);border-radius:var(--radius-md)}
+.xer-tech__icon svg{width:34px;height:34px;stroke:var(--color-primary);fill:none}
+.xer-tech h3{font-size:var(--text-sm);font-weight:700;margin:0 0 6px;line-height:1.3;min-height:3.2em;display:flex;align-items:center;justify-content:center}
+.xer-tech p{font-size:12px;color:var(--text-secondary);margin:0;line-height:1.5}
+
+/* Success story */
+.xer-story-card{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:var(--space-8);align-items:center;background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-subtle)}
+.xer-story-card img{width:100%;height:100%;max-height:240px;object-fit:cover;border-radius:var(--radius-md)}
+.xer-story__badge{display:inline-block;background:var(--color-warning-bg);color:var(--color-warning);font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;margin-bottom:var(--space-3)}
+.xer-story__body h3{margin:0 0 var(--space-2)}
+.xer-story__body p{font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6;margin:0 0 var(--space-3)}
+.xer-story__stats{display:flex;flex-direction:column;gap:var(--space-4)}
+.xer-story__stat{display:flex;align-items:center;gap:var(--space-3)}
+.xer-story__stat svg{width:34px;height:34px;stroke:var(--color-primary);fill:none;flex-shrink:0}
+.xer-story__stat b{display:block;font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-primary);font-weight:800;line-height:1.1}
+.xer-story__stat span{display:block;font-size:var(--text-xs);color:var(--text-secondary)}
+
+/* CTA */
+.xer-cta{background:linear-gradient(135deg,#060097 0%,#0a0a40 100%);color:#fff}
+.xer-cta__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center}
+.xer-cta__badge{width:56px;height:56px;background:rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.xer-cta__badge svg{width:28px;height:28px;stroke:var(--color-accent);fill:none}
+.xer-cta__inner h2{color:#fff;margin:0 0 6px;font-size:var(--text-3xl)}
+.xer-cta__inner p{color:rgba(255,255,255,.8);margin:0;font-size:var(--text-base)}
+.xer-cta__actions{display:flex;gap:var(--space-4);flex-wrap:wrap}
+
+@media(max-width:1024px){
+  .xer-what-grid{grid-template-columns:1fr}
+  .xer-split{grid-template-columns:1fr;gap:var(--space-6)}
+  .xer-why-cards{grid-template-columns:repeat(3,1fr)}
+  .xer-steps{flex-wrap:wrap;gap:var(--space-5)}
+  .xer-step{flex:1 1 28%}
+  .xer-step__arrow{display:none}
+  .xer-tech-grid{grid-template-columns:repeat(3,1fr);gap:var(--space-6) 0}
+  .xer-tech:nth-child(3n+1){border-left:none}
+  .xer-story-card{grid-template-columns:1fr}
+  .xer-cta__inner{grid-template-columns:1fr}
+}
+@media(max-width:544px){
+  .xer-why-cards{grid-template-columns:1fr 1fr}
+  .xer-tech-grid{grid-template-columns:1fr 1fr}
+  .xer-tech{border-left:none}
+  .xer-points{grid-template-columns:1fr 1fr}
+  .xer-step{flex:1 1 45%}
+}
+</style>
+
+<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li>Refrigerated Air Dryer</li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Xeros Series</li></ul></nav>
+
+<!-- HERO -->
+<section class="xer-hero">
+  <div class="xer-hero__bg"></div>
+  <div class="xer-hero__inner">
+    <div class="xer-hero__text animate-on-scroll">
+      <span class="xer-hero__badge">Refrigerated Air Dryer</span>
+      <h1>Xeros Series</h1>
+      <p class="xer-hero__tag">Maximum efficiency. Minimum moisture. Built to power your operations.</p>
+      <div class="xer-stats">
+        <div class="xer-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h9a3 3 0 1 1-3 3"/></svg>
+          <b>200 &ndash; 10,000</b><span>CFM</span>
+        </div>
+        <div class="xer-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+          <b>+3&deg;C</b><span>PDP</span>
+        </div>
+        <div class="xer-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-3"/><path d="M12 5V3"/></svg>
+          <b>3 &ndash; 16</b><span>bar</span>
+        </div>
+        <div class="xer-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14V5a2 2 0 1 1 4 0v9a4 4 0 1 1-4 0z"/></svg>
+          <b>Up to 50&deg;C</b><span>Ambient</span>
+        </div>
+      </div>
+      <div class="xer-hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Get a Custom Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">Download Brochure</a>
+      </div>
+      <div class="xer-hero__trust">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        Trusted by 3,500+ installations across India &amp; 30+ countries
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT -->
+<section class="section xer-section section--light">
+  <div class="container">
+    <div class="xer-what-grid">
+      <div class="animate-on-scroll">
+        <span class="xer-eyebrow">What?</span>
+        <h2>What is Xeros Series?</h2>
+        <p style="color:var(--text-secondary)">The Xeros Series is a range of high-efficiency refrigerated air dryers engineered for reliable moisture removal from compressed air systems.</p>
+        <div class="xer-points">
+          <div class="xer-point">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+            <span>Removes moisture effectively</span>
           </div>
-          <div class="flex gap-4" style="flex-wrap:wrap">
-            <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
-            <a href="#specs" class="btn btn--secondary">View Specifications</a>
+          <div class="xer-point">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span>Delivers stable dew point</span>
+          </div>
+          <div class="xer-point">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+            <span>Reduces energy consumption</span>
+          </div>
+          <div class="xer-point">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+            <span>Ensures reliable performance</span>
           </div>
         </div>
-        <div class="animate-on-scroll" style="background:var(--grey-1);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
-          <img src="images/products/Xeros-Internal-2-1024x720.webp" alt="SANPAR Xeros Series refrigerated air dryer internal view" style="width:100%;max-height:420px;object-fit:contain" loading="lazy">
+      </div>
+      <div class="xer-diagram animate-on-scroll">
+        <h4>The Dry Air Process</h4>
+        <div class="xer-diagram__flow">
+          <div class="xer-diagram__end xer-diagram__in">
+            <div class="xer-diagram__dots">&bull;&bull;&bull;</div>
+            Hot, Moist<br>Air In
+          </div>
+          <div class="xer-diagram__arrow">&rarr;</div>
+          <div class="xer-diagram__unit"><img src="images/products/Xeros-Internal-2-1024x720.webp" alt="Xeros dryer" loading="lazy"></div>
+          <div class="xer-diagram__arrow">&rarr;</div>
+          <div class="xer-diagram__end xer-diagram__out">
+            <div class="xer-diagram__dots">&bull;&bull;&bull;</div>
+            Dry, Clean<br>Air Out
+          </div>
+        </div>
+        <div class="xer-diagram__moisture">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+          <div>Moisture Removed</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Product Description -->
-  <section class="section section--light">
-    <div class="container container--narrow">
-      <div class="animate-on-scroll">
+<!-- WHY -->
+<section class="section xer-section">
+  <div class="container">
+    <div class="xer-split">
+      <div class="xer-split__intro animate-on-scroll">
+        <span class="xer-eyebrow">Why?</span>
+        <h2>Why It Matters to Your Business</h2>
+        <p>Xeros delivers more than just dry air — it delivers efficiency, savings and reliability.</p>
+      </div>
+      <div class="xer-why-cards animate-on-scroll">
+        <div class="xer-why-card">
+          <svg viewBox="0 0 24 24" stroke="#2f9e44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 4-6 7-6 10a6 6 0 0 0 12 0c0-3-2-6-6-10z"/><path d="M12 21V11"/></svg>
+          <h3>Lower Energy Consumption</h3>
+          <p>Save on electricity bills.</p>
+        </div>
+        <div class="xer-why-card">
+          <svg viewBox="0 0 24 24" stroke="#2f6df0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/></svg>
+          <h3>Stable Dew Point</h3>
+          <p>Protects equipment and ensures consistent quality.</p>
+        </div>
+        <div class="xer-why-card">
+          <svg viewBox="0 0 24 24" stroke="#e8893a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M12 5V3"/></svg>
+          <h3>Minimal Pressure Drop</h3>
+          <p>Improves overall system efficiency.</p>
+        </div>
+        <div class="xer-why-card">
+          <svg viewBox="0 0 24 24" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 12l9-5M12 12v10M12 12L3 7"/></svg>
+          <h3>Compact Design</h3>
+          <p>Saves valuable floor space.</p>
+        </div>
+        <div class="xer-why-card">
+          <svg viewBox="0 0 24 24" stroke="#e2574c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14V5a2 2 0 1 1 4 0v9a4 4 0 1 1-4 0z"/></svg>
+          <h3>Built for Tropics</h3>
+          <p>Reliable performance up to 50&deg;C ambient.</p>
+        </div>
+        <div class="xer-why-card">
+          <svg viewBox="0 0 24 24" stroke="#2d2db8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg>
+          <h3>Proven Reliability</h3>
+          <p>Built for long-term dependability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section xer-section section--light">
+  <div class="container">
+    <div class="xer-split">
+      <div class="xer-split__intro animate-on-scroll">
+        <span class="xer-eyebrow">How?</span>
         <h2>How It Works</h2>
-        <p>The moisture content in compressed air is removed by means of a refrigerated air dryer. The SANPAR Xeros Series combines an open loop air cycle and a closed loop refrigerant cycle. The air is cooled to very low temperatures, allowing the moisture content to condense. The condensed water is then removed from the air line, rendering air free from moisture.</p>
-        <p>The Xeros series is manufactured with air-cooled and water-cooled condensers, catering to a wide range of air flows — from 200 CFM to over 10,000 CFM at a design pressure of 7 bar g. These dryers use eco-friendly refrigerants (R407C and R134A) and employ state-of-the-art microcontrollers.</p>
-        <p>SANPAR manufactures water-cooled refrigerant compressed air dryers specifically designed for use in tropical countries where ambient temperatures range up to 45–50°C.</p>
+        <p>Xeros uses a proven refrigeration cycle to cool the compressed air, condense the moisture and deliver consistent dry air.</p>
+      </div>
+      <div class="xer-steps animate-on-scroll">
+        <div class="xer-step">
+          <div class="xer-step__icon" style="background:rgba(226,87,76,.12)"><svg viewBox="0 0 24 24" stroke="#e2574c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="10" r="1"/><circle cx="10" cy="14" r="1"/><circle cx="14" cy="15" r="1"/></svg></div>
+          <h3>1. Moist Air In</h3>
+          <p>Hot, humid air enters the dryer.</p>
+        </div>
+        <div class="xer-step__arrow">&rarr;</div>
+        <div class="xer-step">
+          <div class="xer-step__icon" style="background:rgba(47,109,240,.12)"><svg viewBox="0 0 24 24" stroke="#2f6df0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></div>
+          <h3>2. Air Cooling</h3>
+          <p>Refrigeration cools the air.</p>
+        </div>
+        <div class="xer-step__arrow">&rarr;</div>
+        <div class="xer-step">
+          <div class="xer-step__icon" style="background:rgba(47,158,138,.12)"><svg viewBox="0 0 24 24" stroke="#2f9e8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></div>
+          <h3>3. Moisture Condenses</h3>
+          <p>Water vapor turns into liquid.</p>
+        </div>
+        <div class="xer-step__arrow">&rarr;</div>
+        <div class="xer-step">
+          <div class="xer-step__icon" style="background:rgba(124,58,237,.12)"><svg viewBox="0 0 24 24" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5l3-3 3 3M6 22V12h12v10M6 17h12"/></svg></div>
+          <h3>4. Water Removal</h3>
+          <p>Moisture is removed via automatic drain.</p>
+        </div>
+        <div class="xer-step__arrow">&rarr;</div>
+        <div class="xer-step">
+          <div class="xer-step__icon" style="background:rgba(47,109,240,.12)"><svg viewBox="0 0 24 24" stroke="#2f6df0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h9a3 3 0 1 1-3 3"/></svg></div>
+          <h3>5. Dry Air Out</h3>
+          <p>Clean, dry air exits the dryer.</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Salient Features -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)">
-        <span class="label">Key Features</span>
-        <h2>Salient Features</h2>
+<!-- CORE TECHNOLOGY -->
+<section class="section xer-section">
+  <div class="container">
+    <div class="animate-on-scroll" style="margin-bottom:var(--space-8)">
+      <h2>Core Technology</h2>
+    </div>
+    <div class="xer-tech-grid animate-on-scroll">
+      <div class="xer-tech">
+        <div class="xer-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M7 6v12M11 6v12M15 6v12"/></svg></div>
+        <h3>Aluminium Plate Heat Exchanger</h3>
+        <p>High heat transfer efficiency in a compact design.</p>
       </div>
-      <div class="grid grid--3">
-        <div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)">
-          <h4>Open & Closed Loop Design</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Dual-cycle architecture combining open loop air and closed loop refrigerant for maximum efficiency.</p>
-        </div>
-        <div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)">
-          <h4>Tropical Climate Ready</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Water-cooled variants designed for ambient temperatures up to 50°C — engineered for Indian and Southeast Asian conditions.</p>
-        </div>
-        <div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)">
-          <h4>Eco-Friendly Refrigerants</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">R407C and R134A refrigerants — environmentally responsible without compromising performance.</p>
-        </div>
-        <div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)">
-          <h4>Microcontroller/PLC with HMI Operated</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">State-of-the-art microcontrollers for precise temperature management and system monitoring.</p>
-        </div>
-        <div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)">
-          <h4>Wide Capacity Range</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">From 200 CFM to 10,000 CFM — scalable solutions for small workshops to large manufacturing plants.</p>
-        </div>
-        <div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)">
-          <h4>Air & Water Cooled Options</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Choose between air-cooled and water-cooled condensers based on your facility requirements.</p>
-        </div>
+      <div class="xer-tech">
+        <div class="xer-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 10c2-4 5-3 5 0M14 12c4 2 3 5 0 5M12 14c-2 4-5 3-5 0M10 12c-4-2-3-5 0-5"/></svg></div>
+        <h3>EC Fan Technology</h3>
+        <p>Energy-efficient airflow for optimal performance.</p>
+      </div>
+      <div class="xer-tech">
+        <div class="xer-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 4-6 7-6 10a6 6 0 0 0 12 0c0-3-2-6-6-10z"/><path d="M12 21V11"/></svg></div>
+        <h3>Eco-Friendly Refrigerant</h3>
+        <p>R407C / R134a (Eco-friendly).</p>
+      </div>
+      <div class="xer-tech">
+        <div class="xer-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 7-8"/><path d="M16 7h4v4"/></svg></div>
+        <h3>Low Pressure Drop Design</h3>
+        <p>Maximizes cooling efficiency and system performance.</p>
+      </div>
+      <div class="xer-tech">
+        <div class="xer-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h6M7 13h4M16 9v6"/></svg></div>
+        <h3>Smart Controls (PLC)</h3>
+        <p>Microcontroller with HMI for precise operation.</p>
+      </div>
+      <div class="xer-tech">
+        <div class="xer-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0M8 16a6 6 0 0 1 8 0"/><circle cx="12" cy="19" r="1.5"/></svg></div>
+        <h3>Remote Monitoring (Optional)</h3>
+        <p>Real-time alerts and performance insights.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Specifications Table (E7) -->
-  <section class="section section--light" id="specs">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)">
-        <span class="label">Technical Data</span>
-        <h2>Specifications</h2>
-      </div>
-      <div class="spec-table-wrapper animate-on-scroll">
-        <table class="spec-table">
-          <thead>
-            <tr><th>Parameter</th><th>Value</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Air Flow Range</td><td>200 – 10,000 CFM</td></tr>
-            <tr><td>Working Pressure</td><td>3 – 16 bar g</td></tr>
-            <tr><td>Refrigerant</td><td>R407C / R134A (eco-friendly)</td></tr>
-            <tr><td>Condenser Type</td><td>Air-cooled / Water-cooled</td></tr>
-            <tr><td>Ambient Temperature</td><td>Up to 45–50°C (tropical rated)</td></tr>
-            <tr><td>Control System</td><td>Microcontroller/PLC with HMI</td></tr>
-            <tr><td>Pressure Dew Point</td><td>(+)3°C</td></tr>
-            <tr><td>Inlet Temperature</td><td>Up to 50°C</td></tr>
-          </tbody>
-        </table>
-      </div>
+<!-- SUCCESS STORY -->
+<section class="section xer-section section--light">
+  <div class="container">
+    <div class="animate-on-scroll" style="margin-bottom:var(--space-8)">
+      <span class="xer-eyebrow">Proven in the Field</span>
+      <h2>Success Story</h2>
     </div>
-  </section>
-
-  <!-- Related Success Story (G2) -->
-  <section class="section">
-    <div class="container container--narrow">
-      <div class="animate-on-scroll">
-        <span class="label">Proven in the Field</span>
-        <h2>Success Story</h2>
+    <div class="xer-story-card animate-on-scroll">
+      <img src="images/success-stories/story1.webp" alt="Hindustan Motors, Kolkata">
+      <div class="xer-story__body">
+        <span class="xer-story__badge">Automobile Industry</span>
+        <h3>Hindustan Motors, Kolkata</h3>
+        <p>In 2019, SANPAR supplied a Xeros dryer at Hindustan Motors with a centralized desiccant dryer. The system delivered 25%+ energy savings, improved process reliability and cleaner pneumatic performance.</p>
+        <a href="story-hindustan-motors.html" class="btn btn--tertiary">Read the full case study <span class="arrow">&rarr;</span></a>
       </div>
-      <div class="card card--story animate-on-scroll" style="margin-top:var(--space-6)">
-        <div class="card__body">
-          <span class="badge badge--accent">Automobile Industry</span>
-          <div class="card__result">Saved ₹8.7 lakhs/month — eliminated 6 compressors</div>
-          <h3>Hindustan Motors, Calcutta</h3>
-          <p>In 1997, SANPAR conducted a case study at Hindustan Motors and found the plant was equipped with a centralised desiccant dryer with 25% purge losses. SANPAR suggested replacing it with a refrigerated dryer — an energy-efficient solution with no purge losses — and arresting all leaks in the pneumatic lines.</p>
-          <a href="#" class="btn btn--tertiary">Read the complete case study <span class="arrow">→</span></a>
+      <div class="xer-story__stats">
+        <div class="xer-story__stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 2 0 0 1 6 0c0 2-3 2-3 4M12 17h.01"/></svg>
+          <div><b>&#8377;87 Lakhs / month</b><span>Saved in energy costs</span></div>
+        </div>
+        <div class="xer-story__stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V5h8v3M12 12v4"/></svg>
+          <div><b>6 Compressors</b><span>Eliminated</span></div>
+        </div>
+        <div class="xer-story__stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-9"/><path d="M21 11V6h-5"/></svg>
+          <div><b>25%</b><span>Energy loss eliminated</span></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="section section--dark" style="text-align:center">
-    <div class="container container--narrow animate-on-scroll">
-      <h2 style="color:var(--text-inverse)">Need a Custom Configuration?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin:0 auto var(--space-8)">Our engineering team can design a Xeros system tailored to your specific air flow, pressure, and environmental requirements.</p>
-      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote</a>
+<!-- CTA -->
+<section class="xer-cta">
+  <div class="xer-cta__inner animate-on-scroll">
+    <div class="xer-cta__badge"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="4"/></svg></div>
+    <div>
+      <h2>Need a Custom Configuration?</h2>
+      <p>Our engineering team will design a Xeros system tailored to your air flow, pressure and environmental requirements.</p>
     </div>
-  </section>
+    <div class="xer-cta__actions">
+      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.6);color:#fff">Talk to an Engineer</a>
+    </div>
+  </div>
+</section>

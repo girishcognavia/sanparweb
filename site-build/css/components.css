@@ -158,9 +158,9 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pronounced);
   padding: var(--space-6);
-  min-width: 600px;
+  min-width: 860px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
   opacity: 0;
   visibility: hidden;

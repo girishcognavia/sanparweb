@@ -102,18 +102,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sanpar.com/product-cat-m1</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sanpar.com/product-cat-dth</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://sanpar.com/product-aftercooler</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>

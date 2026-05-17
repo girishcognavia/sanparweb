@@ -191,25 +191,25 @@
           <div class="header__mega-menu">
             <div class="mega-menu__category">
               <h4>Compressed Air Treatment</h4>
-              <a href="/product-xeros" class="mega-menu__link" data-spa>Xeros Series<small>Refrigerated air dryers, 85–10,000 CFM</small></a>
-              <a href="/product-ecodrair" class="mega-menu__link" data-spa>Ecodrair Series<small>Tube-in-tube dryers, 5–180 CFM</small></a>
+              <span style="display:block;font-size:11px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.5px;margin:0 0 2px">Refrigerated Air Dryer</span>
+              <a href="/product-ecodrair" class="mega-menu__link" data-spa style="padding-left:var(--space-3)">Ecodrair Series<small>Tube-in-tube dryers, 5–180 CFM</small></a>
+              <a href="/product-xeros" class="mega-menu__link" data-spa style="padding-left:var(--space-3)">Xeros Series<small>Refrigerated air dryers, 85–10,000 CFM</small></a>
               <a href="/product-adsorption" class="mega-menu__link" data-spa>Adsorption Dryers<small>Desiccant-based, down to -70°C</small></a>
               <a href="/product-filters" class="mega-menu__link" data-spa>Compressed Air Filters<small>ISO 8573.1 Class 1 filtration</small></a>
+              <a href="/product-aftercooler" class="mega-menu__link" data-spa>Aftercooler<small>Air &amp; water-cooled moisture removal</small></a>
+              <a href="/product-separator" class="mega-menu__link" data-spa>Moisture Separator<small>Centrifugal, zero moving parts</small></a>
+              <a href="/product-drains" class="mega-menu__link" data-spa>Drains<small>Float, timer &amp; electronic types</small></a>
             </div>
             <div class="mega-menu__category">
-              <h4>Industrial Cooling</h4>
+              <h4>Industrial Cooling System</h4>
               <a href="/product-water-chillers" class="mega-menu__link" data-spa>Water Chillers<small>CFC-free, 0.5–100TR capacity</small></a>
               <a href="/product-air-chillers" class="mega-menu__link" data-spa>Air Chillers<small>Constant-temperature supply</small></a>
               <a href="/product-coolant-chillers" class="mega-menu__link" data-spa>Coolant Chillers<small>Process cooling solutions</small></a>
+              <a href="/product-oil-chillers" class="mega-menu__link" data-spa>Oil Chillers<small>Hydraulic oil temperature control</small></a>
             </div>
             <div class="mega-menu__category">
-              <h4>Air Conditioning</h4>
+              <h4>Industrial Air Conditioning</h4>
               <a href="/product-dehumidifier" class="mega-menu__link" data-spa>Dehumidifier<small>Xerion Series industrial</small></a>
-            </div>
-            <div class="mega-menu__category">
-              <h4>Medical Air Systems</h4>
-              <a href="/product-cat-m1" class="mega-menu__link" data-spa>CAT Absorption Series<small>ISO 8573.1 Class 1 medical</small></a>
-              <a href="/product-cat-dth" class="mega-menu__link" data-spa>CAT DTH Series<small>BS EN12021:2014 breathing air</small></a>
             </div>
           </div>
         </li>
@@ -253,48 +253,376 @@
 
 <!-- Main content — fragments load here -->
 <main id="main-content">
-<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Ecodrair Series</li></ul></nav>
-  <section class="section" style="padding-top:var(--space-8)">
-    <div class="container">
-      <div class="grid grid--2" style="gap:var(--space-12);align-items:center">
-        <div class="animate-on-scroll">
-          <span class="badge badge--industry" style="margin-bottom:var(--space-4)">Compressed Air Treatment</span>
-          <h1 style="font-size:var(--text-7xl)">Ecodrair Series</h1>
-          <p style="color:var(--text-secondary);font-size:var(--text-xl);max-width:48ch">Tube-in-tube refrigerant compressed air dryers. 5-180 CFM, 4-16 bar g.</p>
-          <div style="display:flex;gap:var(--space-6);margin:var(--space-6) 0;flex-wrap:wrap"><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">5 to 180 CFM</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Capacity</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">4-16 bar g (up to 50 bar g)</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Operating Pressure</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">+3 deg C</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Pressure Dew Point</span></div></div>
-          <div class="flex gap-4" style="flex-wrap:wrap;margin-top:var(--space-6)">
-            <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
-            <a href="#specs" class="btn btn--secondary">View Specifications</a>
-          </div>
+<style>
+/* ── Ecodrair premium product page (scoped) ── */
+.eco-hero{position:relative;background:#07052a;color:#fff;overflow:hidden}
+.eco-hero__bg{position:absolute;inset:0;background:url('images/products/ecodrair-hero.webp') right center/cover no-repeat}
+.eco-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,5,38,.92) 0%,rgba(7,5,38,.66) 36%,rgba(7,5,38,.2) 62%,rgba(7,5,38,0) 88%)}
+.eco-hero__inner{position:relative;z-index:2;max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);min-height:560px;display:flex;align-items:center}
+.eco-hero__text{max-width:560px}
+.eco-hero__badge{display:inline-block;background:#2d2db8;color:#fff;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:7px 15px;border-radius:5px;margin-bottom:var(--space-4)}
+.eco-hero h1{color:#fff;font-size:var(--text-8xl);line-height:1.05;margin:0 0 var(--space-2)}
+.eco-hero__tag{color:#fff;font-weight:700;font-size:var(--text-lg);margin-bottom:var(--space-3)}
+.eco-hero__desc{color:rgba(255,255,255,.8);font-size:var(--text-lg);max-width:46ch;line-height:1.6;margin-bottom:var(--space-6)}
+.eco-stats{display:flex;flex-wrap:wrap;margin-bottom:var(--space-6);padding:var(--space-5) 0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.eco-stat{flex:1;min-width:140px;display:flex;flex-direction:column;gap:7px;padding:0 var(--space-5);border-left:1px solid rgba(255,255,255,.16)}
+.eco-stat:first-child{padding-left:0;border-left:none}
+.eco-stat svg{width:28px;height:28px;stroke:rgba(255,255,255,.85)}
+.eco-stat b{font-family:var(--font-display);font-size:var(--text-lg);color:#fff;font-weight:800;line-height:1.2}
+.eco-stat b small{display:block;font-size:.72em;font-weight:600;opacity:.8}
+.eco-stat span{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.6px;line-height:1.45}
+.eco-hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-5)}
+.eco-hero__trust{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;font-size:var(--text-sm);color:rgba(255,255,255,.72)}
+.eco-hero__trust span{display:flex;align-items:center;gap:7px}
+.eco-hero__trust svg{width:16px;height:16px;stroke:var(--color-accent);flex-shrink:0}
+.eco-hero__trust .eco-sep{width:1px;height:16px;background:rgba(255,255,255,.3)}
+/* hero product image is now baked into the background photo */
+
+/* section intro */
+.eco-eyebrow{display:block;text-align:center;color:var(--color-primary);font-size:var(--text-xs);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2)}
+.eco-h2{text-align:center;margin:0 0 var(--space-2)}
+.eco-sub{text-align:center;color:var(--text-secondary);max-width:60ch;margin:0 auto var(--space-10)}
+
+/* tighter section rhythm — small space between sections */
+section.eco-section{padding-top:3rem;padding-bottom:3rem}
+section.eco-section .text-center,
+section.eco-section > .container > .animate-on-scroll:first-child{margin-bottom:var(--space-6)!important}
+
+/* benefit + tech grids */
+.eco-grid{display:grid;gap:0}
+.eco-grid--6{grid-template-columns:repeat(6,1fr)}
+.eco-grid--7{grid-template-columns:repeat(7,1fr)}
+.eco-grid--4{grid-template-columns:repeat(4,1fr);gap:var(--space-6)}
+
+.eco-benefit{padding:0 var(--space-6);text-align:center;border-left:1px solid var(--grey-2)}
+.eco-benefit:first-child{border-left:none}
+.eco-benefit__icon{width:46px;height:46px;margin:0 auto var(--space-3)}
+.eco-benefit__icon svg{width:46px;height:46px;stroke:var(--color-primary);fill:none}
+.eco-benefit h3{font-size:var(--text-sm);font-weight:700;margin:0 0 var(--space-3);min-height:2.7em;display:flex;align-items:center;justify-content:center;line-height:1.35}
+.eco-benefit p{font-size:13px;color:var(--text-secondary);margin:0;line-height:1.65}
+
+.eco-tech{padding:0 var(--space-4);text-align:center;border-left:1px solid var(--grey-2)}
+.eco-tech:first-child{border-left:none}
+.eco-tech__icon{width:64px;height:64px;margin:0 auto var(--space-3);display:flex;align-items:center;justify-content:center;background:var(--bg-light);border-radius:var(--radius-md)}
+.eco-tech__icon svg{width:40px;height:40px;stroke:var(--color-primary);fill:none}
+.eco-tech h3{font-size:var(--text-sm);margin:0 0 6px;line-height:1.3;min-height:3.4em;display:flex;align-items:center;justify-content:center}
+.eco-tech p{font-size:var(--text-xs);color:var(--text-secondary);margin:0;line-height:1.5}
+
+.eco-specs-layout{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8);align-items:start}
+.eco-panel{background:var(--bg-light);border-radius:var(--radius-lg);padding:var(--space-8)}
+.eco-apps{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4) var(--space-5);margin-top:var(--space-5)}
+.eco-app{display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);font-weight:500}
+.eco-app svg{width:34px;height:34px;flex-shrink:0;stroke:var(--color-primary);fill:none;background:rgba(6,0,151,.06);border-radius:8px;padding:6px}
+
+.eco-trust-card{display:flex;flex-direction:column;gap:var(--space-2)}
+.eco-trust-card svg{width:34px;height:34px;stroke:var(--color-primary);fill:none}
+.eco-trust-card h3{font-size:var(--text-base);margin:0;min-height:2.7em}
+.eco-trust-card p{font-size:var(--text-sm);color:var(--text-secondary);margin:0;line-height:1.55}
+
+.eco-industries{background:var(--bg-light);border-radius:var(--radius-lg);padding:var(--space-8);margin-top:var(--space-10)}
+.eco-industries h4{font-size:var(--text-base);margin:0 0 var(--space-6)}
+.eco-ind-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:var(--space-4);text-align:center}
+.eco-ind{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:var(--text-xs);color:var(--text-secondary)}
+.eco-ind svg{width:34px;height:34px;stroke:var(--color-primary);fill:none}
+
+/* trust strip */
+.eco-strip{background:var(--bg-light);border-top:1px solid var(--grey-2)}
+.eco-strip__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-8) var(--space-6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6)}
+.eco-strip__item{display:flex;align-items:center;gap:var(--space-3);justify-content:center}
+.eco-strip__item svg{width:38px;height:38px;stroke:var(--color-primary);fill:none;flex-shrink:0}
+.eco-strip__item b{display:block;font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-primary);font-weight:800;line-height:1.1}
+.eco-strip__item span{display:block;font-size:var(--text-xs);color:var(--text-secondary);text-transform:uppercase;letter-spacing:.5px}
+
+.eco-cta{background:linear-gradient(135deg,#060097 0%,#0a0a40 100%);color:#fff}
+.eco-cta__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6)}
+.eco-cta__top{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center}
+.eco-cta__badge{width:56px;height:56px;flex-shrink:0;background:rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.eco-cta__badge svg{width:28px;height:28px;stroke:var(--color-accent);fill:none}
+.eco-cta__top h2{color:#fff;margin:0 0 6px;font-size:var(--text-3xl)}
+.eco-cta__top p{color:rgba(255,255,255,.8);margin:0;font-size:var(--text-base)}
+.eco-cta__actions{display:flex;gap:var(--space-4);flex-wrap:wrap}
+.eco-cta__checks{display:flex;gap:var(--space-8);flex-wrap:wrap;margin-top:var(--space-8);padding-top:var(--space-6);border-top:1px solid rgba(255,255,255,.15)}
+.eco-cta__check{display:flex;align-items:center;gap:8px;font-size:var(--text-sm);color:rgba(255,255,255,.9)}
+.eco-cta__check svg{width:18px;height:18px;stroke:var(--color-accent)}
+
+@media(max-width:1080px){
+  .eco-grid--6{grid-template-columns:repeat(3,1fr);gap:var(--space-6) 0}
+  .eco-grid--7{grid-template-columns:repeat(4,1fr);gap:var(--space-6) 0}
+  .eco-benefit:nth-child(3n+1),.eco-tech:nth-child(4n+1){border-left:none}
+}
+@media(max-width:960px){
+  .eco-hero__inner{grid-template-columns:1fr}
+  .eco-specs-layout{grid-template-columns:1fr}
+  .eco-grid--4{grid-template-columns:repeat(2,1fr)}
+  .eco-ind-strip{grid-template-columns:repeat(4,1fr)}
+  .eco-cta__top{grid-template-columns:1fr}
+  .eco-strip__inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:544px){
+  .eco-grid--6,.eco-grid--7,.eco-grid--4{grid-template-columns:repeat(2,1fr)}
+  .eco-benefit,.eco-tech{border-left:none;padding:0 var(--space-2)}
+  .eco-apps{grid-template-columns:1fr}
+  .eco-ind-strip{grid-template-columns:repeat(2,1fr)}
+  .eco-strip__inner{grid-template-columns:1fr}
+}
+</style>
+
+<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li>Refrigerated Air Dryer</li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Ecodrair Series</li></ul></nav>
+
+<!-- HERO -->
+<section class="eco-hero">
+  <div class="eco-hero__bg"></div>
+  <div class="eco-hero__inner">
+    <div class="eco-hero__text animate-on-scroll">
+      <span class="eco-hero__badge">Refrigerated Air Dryer</span>
+      <h1>Ecodrair Series</h1>
+      <p class="eco-hero__tag">Compact. Efficient. Reliable.</p>
+      <p class="eco-hero__desc">Tube-in-tube refrigerant compressed air dryers delivering stable dew point and clean, dry air for critical applications.</p>
+      <div class="eco-stats">
+        <div class="eco-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h9a3 3 0 1 1-3 3"/></svg>
+          <b>5 &ndash; 180 CFM</b><span>Capacity</span>
         </div>
-        <div class="animate-on-scroll" style="background:var(--grey-1);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
-          <img src="images/products/CAT_D1-5A-cutout-1024x720.webp" alt="SANPAR Ecodrair Series" style="width:100%;max-height:420px;object-fit:contain" loading="lazy">
+        <div class="eco-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-3"/><path d="M12 5V3M5 6L4 5M19 6l1-1"/></svg>
+          <b>4 &ndash; 16 bar<small>(up to 50 bar g)</small></b><span>Operating Pressure</span>
+        </div>
+        <div class="eco-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+          <b>+3&deg;C</b><span>Pressure Dew Point</span>
+        </div>
+        <div class="eco-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14V5a2 2 0 1 1 4 0v9a4 4 0 1 1-4 0z"/></svg>
+          <b>Up to 50&deg;C</b><span>Ambient</span>
         </div>
       </div>
+      <div class="eco-hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">Download Brochure</a>
+      </div>
+      <div class="eco-hero__trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Proven by 30+ Years of Experience</span>
+        <span class="eco-sep"></span>
+        <span>Built for Indian Conditions</span>
+      </div>
     </div>
-  </section>
-  <section class="section section--light">
-    <div class="container container--narrow"><div class="animate-on-scroll"><h2>Overview</h2><p>One of the classic product ranges from SANPAR. The Ecodrair series employs tube-in-tube design of air-to-air and evaporator. The dryer incorporates a hot gas bypass valve for modulating capacity during air flow fluctuations.</p><p>The digital dew point indicator ensures high accuracy. These compact dryers have a minimal footprint with rear inlet and outlet connections for easy installation. Designed for silent, reliable operation with minimal maintenance.</p></div></div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Key Features</span><h2>Salient Features</h2></div>
-      <div class="grid grid--3"><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Classic tube-in-tube heat exchanger</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Hermetically sealed compressor</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Modulating capacity controller</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Eco-friendly refrigerant R134</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Air-cooled condensers up to 50 deg C ambient</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Integrated pre-filter and after-filter</h4></div></div>
+  </div>
+</section>
+
+<!-- WHY ECODRAIR -->
+<section class="section eco-section section--light">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <span class="eco-eyebrow">Why Ecodrair?</span>
+      <h2 class="eco-h2">Engineered Benefits That Make a Difference</h2>
+      <p class="eco-sub">Every Ecodrair dryer is built to protect your production, cut your costs, and keep running — year after year.</p>
     </div>
-  </section>
-  <section class="section section--light" id="specs">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Technical Data</span><h2>Specifications</h2></div>
-      <div class="spec-table-wrapper animate-on-scroll"><table class="spec-table"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Capacity</td><td>5 to 180 CFM</td></tr><tr><td>Operating Pressure</td><td>4-16 bar g (up to 50 bar g)</td></tr><tr><td>Pressure Dew Point</td><td>+3 deg C</td></tr><tr><td>Refrigerant</td><td>R134 (eco-friendly)</td></tr><tr><td>Standard</td><td>ISO 8573.1 Class 1.4.1</td></tr></tbody></table></div>
+    <div class="eco-grid eco-grid--6 animate-on-scroll">
+      <div class="eco-benefit">
+        <div class="eco-benefit__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/></svg></div>
+        <h3>Protects Machines &amp; Production</h3>
+        <p>Prevents moisture &amp; oil contamination, reducing breakdowns and downtime.</p>
+      </div>
+      <div class="eco-benefit">
+        <div class="eco-benefit__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12l2.5 2.5 5-5.5"/></svg></div>
+        <h3>Consistent Quality, Zero Downtime</h3>
+        <p>Stable dew point ensures consistent process and product quality.</p>
+      </div>
+      <div class="eco-benefit">
+        <div class="eco-benefit__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <h3>Lower Operating Costs</h3>
+        <p>Low pressure drop and high efficiency reduce energy consumption and bills.</p>
+      </div>
+      <div class="eco-benefit">
+        <div class="eco-benefit__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></div>
+        <h3>Built for Real Conditions</h3>
+        <p>Performs reliably in high ambient temperatures up to 50&deg;C.</p>
+      </div>
+      <div class="eco-benefit">
+        <div class="eco-benefit__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M9 3v6"/></svg></div>
+        <h3>Compact &amp; Easy to Install</h3>
+        <p>Minimal footprint with rear inlet/outlet connections for quick, easy installation.</p>
+      </div>
+      <div class="eco-benefit">
+        <div class="eco-benefit__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 7a4 4 0 0 0-5.5 5.5L3 18.5 5.5 21l6-6A4 4 0 0 0 17 9.5l-2.7 2.7-2.5-2.5z"/></svg></div>
+        <h3>Low Maintenance, Long Life</h3>
+        <p>Hermetically sealed compressor and simple servicing for long life.</p>
+      </div>
     </div>
-  </section>
-  <section class="section section--dark" style="text-align:center">
-    <div class="container container--narrow animate-on-scroll">
-      <h2 style="color:var(--text-inverse)">Need a Custom Configuration?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin:0 auto var(--space-8)">Our engineering team can design a system tailored to your specific requirements.</p>
-      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote</a>
+  </div>
+</section>
+
+<!-- CORE TECHNOLOGY -->
+<section class="section eco-section">
+  <div class="container">
+    <div class="animate-on-scroll" style="margin-bottom:var(--space-8)">
+      <span class="label">Core Technology</span>
+      <h2>Engineered Components Working Together</h2>
+      <p>Reliable, efficient drying — every component designed for performance and longevity.</p>
     </div>
-  </section>
+    <div class="eco-grid eco-grid--7 animate-on-scroll">
+      <div class="eco-tech">
+        <div class="eco-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="8" rx="4"/><path d="M6 8v8M10 8v8M14 8v8M18 8v8"/></svg></div>
+        <h3>Tube-in-Tube Heat Exchanger</h3>
+        <p>Integrated air-to-air exchanger saves &gt;55% power.</p>
+      </div>
+      <div class="eco-tech">
+        <div class="eco-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg></div>
+        <h3>Hermetically Sealed Compressor</h3>
+        <p>High efficiency, low noise (&lt;60 dB) and long operational life.</p>
+      </div>
+      <div class="eco-tech">
+        <div class="eco-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h6M14 12h6"/><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3"/></svg></div>
+        <h3>Modulating Capacity Control (Hot Gas Bypass)</h3>
+        <p>Maintains stable dew point under fluctuating loads and prevents freezing.</p>
+      </div>
+      <div class="eco-tech">
+        <div class="eco-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6l-3 9a3 3 0 0 0 3 4h12a3 3 0 0 0 3-4l-3-9V3"/><path d="M5 3h14"/></svg></div>
+        <h3>Capillary Expansion System</h3>
+        <p>Ensures consistent evaporation temperature and dew point.</p>
+      </div>
+      <div class="eco-tech">
+        <div class="eco-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M7 8c3 2 7 2 10 0M7 16c3-2 7-2 10 0"/></svg></div>
+        <h3>Centrifugal Moisture Separator</h3>
+        <p>Efficient removal of condensate with zero carryover.</p>
+      </div>
+      <div class="eco-tech">
+        <div class="eco-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 12h2l1.5-3 2 6 1.5-3h3"/></svg></div>
+        <h3>Digital Dew Point Indicator</h3>
+        <p>Real-time monitoring with high accuracy.</p>
+      </div>
+      <div class="eco-tech">
+        <div class="eco-tech__icon"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l5-5M12 12l-5 5M12 12l5 5M12 12l-5-5"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Air-Cooled Condenser (Up to 50&deg;C)</h3>
+        <p>High-efficiency aluminium condenser for superior heat rejection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIFICATIONS + APPLICATIONS -->
+<section class="section eco-section section--light" id="specs">
+  <div class="container">
+    <div class="eco-specs-layout">
+      <div class="animate-on-scroll" style="padding-top:var(--space-8)">
+        <span class="label">Technical Data</span>
+        <h2>Technical Specifications</h2>
+        <div class="spec-table-wrapper" style="margin-top:var(--space-5)"><table class="spec-table"><tbody>
+          <tr><td>Capacity</td><td>5 to 180 CFM</td></tr>
+          <tr><td>Operating Pressure</td><td>4 &ndash; 16 bar g (up to 50 bar g)</td></tr>
+          <tr><td>Pressure Dew Point</td><td>+3&deg;C (Class 4 as per ISO 8573.1)</td></tr>
+          <tr><td>Refrigerant</td><td>R134a (Eco-friendly)</td></tr>
+          <tr><td>Ambient Temperature</td><td>Up to 50&deg;C</td></tr>
+          <tr><td>Standard</td><td>ISO 8573.1 Class 4.1.1</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="eco-panel animate-on-scroll">
+        <span class="label">Ideal For</span>
+        <h2>Applications</h2>
+        <div class="eco-apps">
+          <div class="eco-app"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>CNC Machines</div>
+          <div class="eco-app"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M9 7l3 3 3-3M6 13h12l2 8H4z"/></svg>Pneumatic Tools</div>
+          <div class="eco-app"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M12 6v14M8 20h8"/><path d="M9 11l3 3 3-3"/></svg>Laser Cutting Machines</div>
+          <div class="eco-app"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>Precision Manufacturing</div>
+          <div class="eco-app"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8l8-5 8 5v12M9 20v-6h6v6"/></svg>Coordinate Measuring (CMM)</div>
+          <div class="eco-app"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>General Industrial</div>
+        </div>
+        <a href="industries.html" class="btn btn--tertiary" style="margin-top:var(--space-5)">Explore industries <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY INDUSTRY LEADERS -->
+<section class="section eco-section">
+  <div class="container">
+    <div class="animate-on-scroll" style="margin-bottom:var(--space-8)">
+      <span class="label">Trusted by Industry Leaders</span>
+      <h2>Why Industry Prefers Ecodrair</h2>
+    </div>
+    <div class="eco-grid eco-grid--4 animate-on-scroll">
+      <div class="eco-trust-card">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3"/><path d="M5 21a7 7 0 0 1 14 0M9 9L5 5M15 9l4-4"/></svg>
+        <h3>Preferred by Leading Machine Tool Manufacturers</h3>
+        <p>Trusted by OEMs and recommended worldwide.</p>
+      </div>
+      <div class="eco-trust-card">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg>
+        <h3>30+ Years of Field Experience</h3>
+        <p>Decades of innovation and reliability in air treatment.</p>
+      </div>
+      <div class="eco-trust-card">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Built to International Standards</h3>
+        <p>Tested as per ISO 7183 and ISO 8573.1.</p>
+      </div>
+      <div class="eco-trust-card">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0M4 13v4a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2zM20 13v4a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2z"/></svg>
+        <h3>Nationwide Support You Can Count On</h3>
+        <p>Strong service network with fast response and spares.</p>
+      </div>
+    </div>
+
+    <div class="eco-industries animate-on-scroll">
+      <h4>Trusted Across Industries</h4>
+      <div class="eco-ind-strip">
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16M3 16h18v3H3zM6 19v2M18 19v2"/></svg>Automotive</div>
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 7 7 2-7 2-2 7-2-7-7-2 7-2z"/></svg>Aerospace</div>
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg>Engineering</div>
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(45 12 12)"/></svg>Pharma</div>
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3z"/></svg>Food &amp; Beverage</div>
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/></svg>Electronics</div>
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c3-3 6 3 9 0s6-3 9 0M3 14c3-3 6 3 9 0s6-3 9 0"/></svg>Textile</div>
+        <div class="eco-ind"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/></svg>General Manufacturing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="eco-cta">
+  <div class="eco-cta__inner animate-on-scroll">
+    <div class="eco-cta__top">
+      <div class="eco-cta__badge"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+      <div>
+        <h2>Need the Right Dryer for Your Application?</h2>
+        <p>Tell us your requirements. Our experts will recommend the ideal Ecodrair model for you.</p>
+      </div>
+      <div class="eco-cta__actions">
+        <a href="contact.html" class="btn btn--light btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.6);color:#fff">Talk to an Engineer</a>
+      </div>
+    </div>
+    <div class="eco-cta__checks">
+      <div class="eco-cta__check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Quick Response</div>
+      <div class="eco-cta__check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Expert Guidance</div>
+      <div class="eco-cta__check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Accurate Sizing</div>
+      <div class="eco-cta__check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Best Value Solution</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="eco-strip">
+  <div class="eco-strip__inner animate-on-scroll">
+    <div class="eco-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 7L12 19l4.5 3L15 15"/></svg>
+      <div><b>ISO 9001:2015</b><span>Certified Company</span></div>
+    </div>
+    <div class="eco-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><b>30+ Years</b><span>Of Experience</span></div>
+    </div>
+    <div class="eco-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+      <div><b>3500+ Installations</b><span>Across Industries</span></div>
+    </div>
+    <div class="eco-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V11l7-5 7 5v10M9 21v-5h6v5"/></svg>
+      <div><b>Made in India</b><span>For Indian Industries</span></div>
+    </div>
+  </div>
+</section>
 </main>
 
 <!-- Trust Bar (F2) -->

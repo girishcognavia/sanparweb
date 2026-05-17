@@ -1,42 +1,328 @@
-<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Adsorption Dryers</li></ul></nav>
-  <section class="section" style="padding-top:var(--space-8)">
-    <div class="container">
-      <div class="grid grid--2" style="gap:var(--space-12);align-items:center">
-        <div class="animate-on-scroll">
-          <span class="badge badge--industry" style="margin-bottom:var(--space-4)">Compressed Air Treatment</span>
-          <h1 style="font-size:var(--text-7xl)">Adsorption Dryers</h1>
-          <p style="color:var(--text-secondary);font-size:var(--text-xl);max-width:48ch">Desiccant-based drying down to -70 deg C dew point. Heatless, HOC, blower, no-purge-loss variants.</p>
-          <div style="display:flex;gap:var(--space-6);margin:var(--space-6) 0;flex-wrap:wrap"><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Down to -70 deg C</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Pressure Dew Point</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">> 7 bar g</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Operating Pressure</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Heatless, HOC, Blower, No-Purge-Loss</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Types</span></div></div>
-          <div class="flex gap-4" style="flex-wrap:wrap;margin-top:var(--space-6)">
-            <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
-            <a href="#specs" class="btn btn--secondary">View Specifications</a>
+<style>
+/* ── Adsorption Dryers premium product page (scoped) ── */
+.ads-hero{position:relative;background:#07052a;color:#fff;overflow:hidden}
+.ads-hero__bg{position:absolute;inset:0;background:url('images/products/Adsorption-hero.webp') right center/cover no-repeat}
+.ads-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,5,38,.93) 0%,rgba(7,5,38,.82) 35%,rgba(7,5,38,.5) 52%,rgba(7,5,38,.12) 68%,rgba(7,5,38,.05) 100%)}
+.ads-hero__inner{position:relative;z-index:2;max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);min-height:540px;display:flex;align-items:center}
+.ads-hero__text{max-width:600px}
+.ads-hero__badge{display:inline-block;background:#2d2db8;color:#fff;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:7px 15px;border-radius:5px;margin-bottom:var(--space-4)}
+.ads-hero h1{color:#fff;font-size:var(--text-8xl);line-height:1.05;margin:0 0 var(--space-3)}
+.ads-hero__tag{color:rgba(255,255,255,.85);font-weight:600;font-size:var(--text-lg);line-height:1.5;margin-bottom:var(--space-6);max-width:36ch}
+.ads-stats{display:flex;flex-wrap:wrap;margin-bottom:var(--space-6);padding:var(--space-5) 0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.ads-stat{flex:1;min-width:130px;display:flex;flex-direction:column;gap:7px;padding:0 var(--space-5);border-left:1px solid rgba(255,255,255,.16)}
+.ads-stat:first-child{padding-left:0;border-left:none}
+.ads-stat svg{width:26px;height:26px;stroke:rgba(255,255,255,.85)}
+.ads-stat b{font-family:var(--font-display);font-size:var(--text-base);color:#fff;font-weight:800;line-height:1.2}
+.ads-stat span{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.6px}
+.ads-hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap}
+
+.ads-eyebrow{display:block;color:var(--color-primary);font-size:var(--text-xs);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2)}
+
+/* tighter section rhythm */
+section.ads-section{padding-top:3rem;padding-bottom:3rem}
+section.ads-section > .container > .animate-on-scroll:first-child{margin-bottom:var(--space-6)}
+
+/* WHAT */
+.ads-what-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-10);align-items:center}
+.ads-what p{color:var(--text-secondary);margin:0 0 var(--space-3)}
+.ads-points{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);margin:var(--space-5) 0}
+.ads-point{display:flex;gap:var(--space-3);align-items:flex-start}
+.ads-point svg{width:36px;height:36px;flex-shrink:0;stroke:var(--color-primary);fill:none}
+.ads-point b{display:block;font-size:var(--text-sm)}
+.ads-point span{font-size:13px;color:var(--text-secondary)}
+.ads-diagram{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-8);box-shadow:var(--shadow-subtle)}
+.ads-diagram h4{text-align:center;margin:0 0 var(--space-6);font-size:var(--text-sm);color:var(--color-primary);letter-spacing:1px;text-transform:uppercase}
+.ads-diagram__flow{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2)}
+.ads-diagram__end{flex:1;text-align:center;font-size:var(--text-xs);font-weight:600;line-height:1.4}
+.ads-diagram__dots{font-size:16px;letter-spacing:1px;margin-bottom:6px}
+.ads-diagram__in .ads-diagram__dots{color:#e2574c}
+.ads-diagram__out .ads-diagram__dots{color:#2f6df0}
+.ads-diagram__unit{flex:0 0 150px;text-align:center}
+.ads-diagram__unit img{width:100%;max-width:150px}
+.ads-diagram__arrow{flex:0 0 22px;color:var(--text-tertiary);font-size:20px;text-align:center}
+.ads-diagram__moisture{text-align:center;margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px dashed var(--grey-3)}
+.ads-diagram__moisture svg{width:26px;height:26px;stroke:#2f6df0;fill:none}
+.ads-diagram__moisture div{font-size:var(--text-xs);font-weight:600;color:var(--text-secondary);margin-top:4px}
+
+/* WHY cards */
+.ads-why-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-4)}
+.ads-why-card{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-md);padding:var(--space-5);text-align:center}
+.ads-why-card svg{width:36px;height:36px;margin:0 auto var(--space-3);display:block;stroke:#2f9e44;fill:none}
+.ads-why-card h3{font-size:var(--text-sm);font-weight:700;margin:0 0 var(--space-2);min-height:2.6em;display:flex;align-items:center;justify-content:center;line-height:1.3}
+.ads-why-card p{font-size:13px;color:var(--text-secondary);margin:0;line-height:1.55}
+
+/* HOW + regeneration */
+.ads-split{display:grid;grid-template-columns:minmax(220px,1fr) 2.6fr;gap:var(--space-8)}
+.ads-split__intro p{color:var(--text-secondary);margin-top:var(--space-3)}
+.ads-regen{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.ads-regen-item{padding:0 var(--space-5);border-left:1px solid var(--grey-2)}
+.ads-regen-item:first-child{border-left:none;padding-left:0}
+.ads-regen-item svg{width:38px;height:38px;stroke:var(--color-primary);fill:none;margin-bottom:var(--space-3)}
+.ads-regen-item h3{font-size:var(--text-sm);font-weight:700;margin:0 0 var(--space-2);line-height:1.3}
+.ads-regen-item p{font-size:13px;color:var(--text-secondary);margin:0;line-height:1.6}
+
+/* Features + Applications */
+.ads-fa-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:var(--space-10)}
+.ads-feat-list{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3) var(--space-5);margin-top:var(--space-5)}
+.ads-feat{display:flex;gap:10px;align-items:flex-start;font-size:var(--text-sm)}
+.ads-feat svg{width:20px;height:20px;flex-shrink:0;stroke:#2f9e44;fill:none;margin-top:1px}
+.ads-apps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5) var(--space-4);margin-top:var(--space-5)}
+.ads-app{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;font-size:12px;color:var(--text-secondary)}
+.ads-app svg{width:34px;height:34px;stroke:var(--color-primary);fill:none}
+
+/* CTA */
+.ads-cta{background:linear-gradient(135deg,#060097 0%,#0a0a40 100%);color:#fff}
+.ads-cta__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-10) var(--space-6);display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center}
+.ads-cta__badge{width:56px;height:56px;background:rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ads-cta__badge svg{width:30px;height:30px;stroke:var(--color-accent);fill:none}
+.ads-cta__inner h2{color:#fff;margin:0 0 6px;font-size:var(--text-2xl)}
+.ads-cta__inner p{color:rgba(255,255,255,.8);margin:0;font-size:var(--text-sm)}
+
+/* trust strip */
+.ads-strip{background:var(--bg-light);border-top:1px solid var(--grey-2)}
+.ads-strip__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-6) var(--space-6);display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-4)}
+.ads-strip__item{display:flex;align-items:center;gap:var(--space-3);justify-content:center}
+.ads-strip__item svg{width:32px;height:32px;stroke:var(--color-primary);fill:none;flex-shrink:0}
+.ads-strip__item b{display:block;font-family:var(--font-display);font-size:var(--text-base);color:var(--color-primary);font-weight:800;line-height:1.1}
+.ads-strip__item span{display:block;font-size:11px;color:var(--text-secondary)}
+
+@media(max-width:1024px){
+  .ads-what-grid{grid-template-columns:1fr}
+  .ads-why-cards{grid-template-columns:repeat(3,1fr)}
+  .ads-split{grid-template-columns:1fr}
+  .ads-regen{grid-template-columns:1fr;gap:var(--space-5)}
+  .ads-regen-item{border-left:none;padding:0}
+  .ads-fa-grid{grid-template-columns:1fr}
+  .ads-cta__inner{grid-template-columns:1fr}
+  .ads-strip__inner{grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+}
+@media(max-width:544px){
+  .ads-why-cards{grid-template-columns:1fr 1fr}
+  .ads-points,.ads-feat-list{grid-template-columns:1fr}
+  .ads-apps{grid-template-columns:1fr 1fr}
+  .ads-strip__inner{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Adsorption Dryer</li></ul></nav>
+
+<!-- HERO -->
+<section class="ads-hero">
+  <div class="ads-hero__bg"></div>
+  <div class="ads-hero__inner">
+    <div class="ads-hero__text animate-on-scroll">
+      <span class="ads-hero__badge">Adsorption Dryers</span>
+      <h1>Adsorption Dryers</h1>
+      <p class="ads-hero__tag">Engineered Solution for Moisture-Free, High-Precision Operations</p>
+      <div class="ads-stats">
+        <div class="ads-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+          <b>-20&deg;C to -70&deg;C</b><span>PDP / ADP</span>
+        </div>
+        <div class="ads-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-3M12 5V3"/></svg>
+          <b>6 &ndash; 16 bar(g)</b><span>Operating Pressure</span>
+        </div>
+        <div class="ads-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h9a3 3 0 1 1-3 3"/></svg>
+          <b>10 &ndash; 5000 CFM</b><span>Flow Range</span>
+        </div>
+        <div class="ads-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h7M4 12h11M4 16h6"/><circle cx="15" cy="8" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="16" r="2"/></svg>
+          <b>Heatless | HOC</b><span>Blower Variants</span>
+        </div>
+      </div>
+      <div class="ads-hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">View Brochure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT -->
+<section class="section section--light ads-section">
+  <div class="container">
+    <div class="ads-what-grid">
+      <div class="ads-what animate-on-scroll">
+        <span class="ads-eyebrow">What</span>
+        <h2>What is an Adsorption Dryer?</h2>
+        <p>Adsorption dryers remove moisture using a pressure swing twin-tower process.</p>
+        <p>Each dryer consists of two desiccant-filled towers:</p>
+        <div class="ads-points">
+          <div class="ads-point">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 5V3M12 21v-2M5 12H3M21 12h-2M6.3 6.3L4.9 4.9M19.1 19.1l-1.4-1.4M17.7 6.3l1.4-1.4M4.9 19.1l1.4-1.4"/></svg>
+            <div><b>One adsorbs moisture</b><span>from compressed air</span></div>
+          </div>
+          <div class="ads-point">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4"/></svg>
+            <div><b>The other regenerates</b><span>to release the absorbed moisture</span></div>
           </div>
         </div>
-        <div class="animate-on-scroll" style="background:var(--grey-1);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
-          <img src="images/products/Product-6-1024x720.webp" alt="SANPAR Adsorption Dryers" style="width:100%;max-height:420px;object-fit:contain" loading="lazy">
+        <p>Desiccants used include Activated Alumina, Silica Gel, and Molecular Sieves, selected based on required dew point.</p>
+      </div>
+      <div class="ads-diagram animate-on-scroll">
+        <h4>The Dry Air Process</h4>
+        <div class="ads-diagram__flow">
+          <div class="ads-diagram__end ads-diagram__in">
+            <div class="ads-diagram__dots">&bull;&bull;&bull;</div>
+            Moist, Wet<br>Air In
+          </div>
+          <div class="ads-diagram__arrow">&rarr;</div>
+          <div class="ads-diagram__unit"><img src="images/products/adsorption-dryer.webp" alt="SANPAR adsorption dryer twin-tower unit" loading="lazy"></div>
+          <div class="ads-diagram__arrow">&rarr;</div>
+          <div class="ads-diagram__end ads-diagram__out">
+            <div class="ads-diagram__dots">&bull;&bull;&bull;</div>
+            Clean, Dry<br>Air Out
+          </div>
+        </div>
+        <div class="ads-diagram__moisture">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+          <div>Moisture Removed</div>
         </div>
       </div>
     </div>
-  </section>
-  <section class="section section--light">
-    <div class="container container--narrow"><div class="animate-on-scroll"><h2>Overview</h2><p>SANPAR has expertise and proven track record to design dryers supplying clean dry air using adsorption techniques. Twin-tower reversible process - moisture is adsorbed during drying and desorbed during regeneration.</p><p>The heart consists of desiccants (molecular sieves, activated alumina, silica gel), pressure vessels, directional valves, and control logic. Low pressure drop and low purge loss is the hallmark of SANPAR dryers.</p></div></div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Key Features</span><h2>Salient Features</h2></div>
-      <div class="grid grid--3"><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Twin-tower reversible process</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Multiple desiccant options</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Down to -70 deg C dew point</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Low pressure drop design</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Four dryer variants available</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Custom designed per application</h4></div></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section ads-section">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <span class="ads-eyebrow">Why</span>
+      <h2>Why Choose Adsorption Dryers?</h2>
     </div>
-  </section>
-  <section class="section section--light" id="specs">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Technical Data</span><h2>Specifications</h2></div>
-      <div class="spec-table-wrapper animate-on-scroll"><table class="spec-table"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Pressure Dew Point</td><td>Down to -70 deg C</td></tr><tr><td>Operating Pressure</td><td>> 7 bar g</td></tr><tr><td>Types</td><td>Heatless, HOC, Blower, No-Purge-Loss</td></tr><tr><td>Desiccants</td><td>Molecular Sieves, Activated Alumina, Silica Gel</td></tr></tbody></table></div>
+    <div class="ads-why-cards animate-on-scroll">
+      <div class="ads-why-card">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Built for Critical Applications</h3>
+        <p>Delivers ultra-dry air where moisture can cause rejection, corrosion, or system failure.</p>
+      </div>
+      <div class="ads-why-card">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+        <h3>Consistent Performance</h3>
+        <p>Stable dew point ensures reliable process quality without fluctuation.</p>
+      </div>
+      <div class="ads-why-card">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h9a3 3 0 1 1-3 3"/></svg>
+        <h3>Operational Flexibility</h3>
+        <p>Wide flow and pressure range to suit diverse industrial needs.</p>
+      </div>
+      <div class="ads-why-card">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.5-2-3.4-2.4 1a7.5 7.5 0 0 0-1.7-1l-.4-2.6h-3.8l-.4 2.6a7.5 7.5 0 0 0-1.7 1l-2.4-1-2 3.4 2 1.5a7.5 7.5 0 0 0 0 2l-2 1.5 2 3.4 2.4-1a7.5 7.5 0 0 0 1.7 1l.4 2.6h3.8l.4-2.6a7.5 7.5 0 0 0 1.7-1l2.4 1 2-3.4z"/></svg>
+        <h3>Engineered Reliability</h3>
+        <p>Robust valves and control systems ensure continuous, trouble-free operation.</p>
+      </div>
+      <div class="ads-why-card">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 7a4 4 0 0 0-5.5 5.5L3 18.5 5.5 21l6-6A4 4 0 0 0 17 9.5l-2.7 2.7-2.5-2.5z"/></svg>
+        <h3>Low Maintenance, Long Life</h3>
+        <p>Simple design with durable components for minimal maintenance and long life.</p>
+      </div>
     </div>
-  </section>
-  <section class="section section--dark" style="text-align:center">
-    <div class="container container--narrow animate-on-scroll">
-      <h2 style="color:var(--text-inverse)">Need a Custom Configuration?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin:0 auto var(--space-8)">Our engineering team can design a system tailored to your specific requirements.</p>
-      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote</a>
+  </div>
+</section>
+
+<!-- HOW + REGENERATION TYPES -->
+<section class="section section--light ads-section">
+  <div class="container">
+    <div class="ads-split">
+      <div class="ads-split__intro animate-on-scroll">
+        <span class="ads-eyebrow">How</span>
+        <h2>How It Works</h2>
+        <p>Moisture in compressed air is adsorbed onto the surface of the desiccant. The towers switch automatically, ensuring uninterrupted dry air supply.</p>
+      </div>
+      <div class="animate-on-scroll">
+        <span class="ads-eyebrow">Regeneration Types</span>
+        <div class="ads-regen" style="margin-top:var(--space-4)">
+          <div class="ads-regen-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4"/></svg>
+            <h3>Heatless Dryer</h3>
+            <p>Uses a portion of dry compressed air for regeneration. Simple, reliable, widely used.</p>
+          </div>
+          <div class="ads-regen-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13c-2-2-2-4 0-6s2-4 0-6M12 13c-2-2-2-4 0-6s2-4 0-6M16 13c-2-2-2-4 0-6s2-4 0-6M5 17h14a3 3 0 0 1 0 6H5"/></svg>
+            <h3>HOC (Heat of Compression) Dryer</h3>
+            <p>Utilizes heat from the compressor discharge air. Energy-efficient with minimal purge loss.</p>
+          </div>
+          <div class="ads-regen-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M12 9.5c2-4 5-3 5 0M14.5 12c4 2 3 5 0 5M12 14.5c-2 4-5 3-5 0M9.5 12c-4-2-3-5 0-5"/></svg>
+            <h3>Blower Reactivated Dryer</h3>
+            <p>Uses heated ambient air for regeneration. Ideal for large capacities with lowest operating cost.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- SALIENT FEATURES + IDEAL APPLICATIONS -->
+<section class="section ads-section">
+  <div class="container">
+    <div class="ads-fa-grid">
+      <div class="animate-on-scroll">
+        <span class="ads-eyebrow">Salient Features</span>
+        <div class="ads-feat-list">
+          <div class="ads-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Twin-tower reversible design</div>
+          <div class="ads-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Designed for -20&deg;C to -70&deg;C dew point</div>
+          <div class="ads-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Multiple desiccant options</div>
+          <div class="ads-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>10 &ndash; 5000 CFM capacity range</div>
+          <div class="ads-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Low pressure drop</div>
+          <div class="ads-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Reliable flow control valves for continuous operation</div>
+        </div>
+      </div>
+      <div class="animate-on-scroll">
+        <span class="ads-eyebrow">Ideal Applications</span>
+        <div class="ads-apps">
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l5-3 5 3v13M13 21v-7l4-2 4 2v7M3 21h18M6 11h2M6 15h2"/></svg>Chemical Processing</div>
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(45 12 12)"/></svg>Pharmaceuticals</div>
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3z"/></svg>Food &amp; Beverage</div>
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Power Generation</div>
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/></svg>Electronics &amp; Instrumentation</div>
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16M3 16h18v3H3zM6 19v2M18 19v2"/></svg>Automotive Manufacturing</div>
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c3-3 6 3 9 0s6-3 9 0M3 14c3-3 6 3 9 0s6-3 9 0"/></svg>Textile Industry</div>
+          <div class="ads-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/></svg>General Industries</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ads-cta">
+  <div class="ads-cta__inner animate-on-scroll">
+    <div class="ads-cta__badge"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+    <div>
+      <h2>Need a Custom Configuration?</h2>
+      <p>Our team can help you select the right dryer based on your application, dew point, and operating cost priorities.</p>
+    </div>
+    <div>
+      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="ads-strip">
+  <div class="ads-strip__inner animate-on-scroll">
+    <div class="ads-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><b>30+ Years</b><span>Of Experience</span></div>
+    </div>
+    <div class="ads-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+      <div><b>3500+</b><span>Installations</span></div>
+    </div>
+    <div class="ads-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 7L12 19l4.5 3L15 15"/></svg>
+      <div><b>ISO 9001:2015</b><span>Certified</span></div>
+    </div>
+    <div class="ads-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+      <div><b>Designed for -70&deg;C</b><span>Dew Point</span></div>
+    </div>
+    <div class="ads-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0M4 13v4a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2zM20 13v4a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2z"/></svg>
+      <div><b>Expert Support</b><span>Nationwide</span></div>
+    </div>
+  </div>
+</section>

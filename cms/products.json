@@ -7,7 +7,12 @@
       "category": "Chillers",
       "description": "CFC-free process chillers, 0.5TR to 100TR. PLC/microprocessor controlled, 24/7 operation.",
       "image": "images/products/Water-chiller.webp",
-      "features": ["CFC-free refrigerants", "0.5TR to 100TR capacity", "PLC/microprocessor controlled", "24/7 continuous operation"],
+      "features": [
+        "CFC-free refrigerants",
+        "0.5TR to 100TR capacity",
+        "PLC/microprocessor controlled",
+        "24/7 continuous operation"
+      ],
       "active": true
     },
     {
@@ -16,7 +21,11 @@
       "category": "Chillers",
       "description": "Industrial air chillers for precision cooling applications.",
       "image": "images/products/SAC_WC_1-768x540.webp",
-      "features": ["Precision temperature control", "Energy efficient", "Low maintenance"],
+      "features": [
+        "Precision temperature control",
+        "Energy efficient",
+        "Low maintenance"
+      ],
       "active": true
     },
     {
@@ -25,7 +34,11 @@
       "category": "Chillers",
       "description": "Coolant chillers for machine tools and industrial applications.",
       "image": "images/products/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
-      "features": ["Machine tool cooling", "Stable temperature control", "Compact design"],
+      "features": [
+        "Machine tool cooling",
+        "Stable temperature control",
+        "Compact design"
+      ],
       "active": true
     },
     {
@@ -34,7 +47,11 @@
       "category": "Chillers",
       "description": "Oil chillers for hydraulic systems and industrial machinery.",
       "image": "images/products/SAC_WC_2-1024x720.webp",
-      "features": ["Hydraulic oil cooling", "High efficiency", "Durable construction"],
+      "features": [
+        "Hydraulic oil cooling",
+        "High efficiency",
+        "Durable construction"
+      ],
       "active": true
     },
     {
@@ -43,7 +60,11 @@
       "category": "Dryers",
       "description": "Advanced desiccant air dryers for ultra-dry compressed air.",
       "image": "images/products/Xeros-Internal-1-1024x720.webp",
-      "features": ["Ultra-low dew point", "Energy efficient regeneration", "Long desiccant life"],
+      "features": [
+        "Ultra-low dew point",
+        "Energy efficient regeneration",
+        "Long desiccant life"
+      ],
       "active": true
     },
     {
@@ -52,7 +73,11 @@
       "category": "Dryers",
       "description": "Heatless and heated adsorption dryers for critical applications.",
       "image": "images/products/SFD320_1-r9r15r5jg1lg11ln26jap1az5m1r4djmmt8gvpnj4w.webp",
-      "features": ["Heatless regeneration", "Heated regeneration options", "Low pressure drop"],
+      "features": [
+        "Heatless regeneration",
+        "Heated regeneration options",
+        "Low pressure drop"
+      ],
       "active": true
     },
     {
@@ -61,25 +86,11 @@
       "category": "Dryers",
       "description": "Industrial dehumidifiers for humidity control applications.",
       "image": "images/products/SMPL_IAC_DH-r9r15xqcc6apzhp6u309ijmi0bmguisof3m6zrh9y8.webp",
-      "features": ["Precise humidity control", "Large area coverage", "Energy efficient"],
-      "active": true
-    },
-    {
-      "id": "cat-dth",
-      "name": "CAT DTH Series",
-      "category": "Medical & Dental",
-      "description": "Medical and dental air treatment systems.",
-      "image": "images/products/CAT_D1-5A-cutout-1024x720.webp",
-      "features": ["Medical grade air", "Oil-free operation", "Compact design"],
-      "active": true
-    },
-    {
-      "id": "cat-m1",
-      "name": "CAT Absorption Series",
-      "category": "Medical & Dental",
-      "description": "Medical-grade desiccant air filtration meeting ISO 8573-1: 2010 — the highest purity standard. Hospital and pharmaceutical facility ready.",
-      "image": "images/products/CAT-X1-157A-r9r1p9az9aamxr9q641lxm4awfwxu9z4bck6deqg0w.webp",
-      "features": ["Hospital grade", "Silent operation", "Easy maintenance"],
+      "features": [
+        "Precise humidity control",
+        "Large area coverage",
+        "Energy efficient"
+      ],
       "active": true
     },
     {
@@ -88,7 +99,11 @@
       "category": "Accessories",
       "description": "Air and water-cooled aftercoolers for compressed air systems.",
       "image": "images/products/CAT-X1-157A-r9r1p9az9aamxr9q641lxm4awfwxu9z4bck6deqg0w.webp",
-      "features": ["Air-cooled and water-cooled options", "High efficiency heat exchange", "Corrosion resistant"],
+      "features": [
+        "Air-cooled and water-cooled options",
+        "High efficiency heat exchange",
+        "Corrosion resistant"
+      ],
       "active": true
     },
     {
@@ -97,7 +112,11 @@
       "category": "Accessories",
       "description": "High-efficiency filters for compressed air purification.",
       "image": "images/products/Elements_PFFFCF_1-r9r150tzg7aedje8aem3625p0daamrixg7v5ysqlzs.webp",
-      "features": ["Multi-stage filtration", "Low pressure drop", "Easy element replacement"],
+      "features": [
+        "Multi-stage filtration",
+        "Low pressure drop",
+        "Easy element replacement"
+      ],
       "active": true
     },
     {
@@ -106,7 +125,11 @@
       "category": "Accessories",
       "description": "Condensate management and oil-water separation systems.",
       "image": "images/products/MS_1-r9r15b67s5fu8ulyht97upbfr2pnpsb4bzyjh4eq3k.webp",
-      "features": ["Environmental compliance", "Low operating cost", "Automatic operation"],
+      "features": [
+        "Environmental compliance",
+        "Low operating cost",
+        "Automatic operation"
+      ],
       "active": true
     },
     {
@@ -115,7 +138,11 @@
       "category": "Accessories",
       "description": "Zero air loss and timed automatic drain valves.",
       "image": "images/products/Ecodrair-arrangement1-cutout-1024x720.webp",
-      "features": ["Zero air loss", "Timed and level-sensing options", "Reliable operation"],
+      "features": [
+        "Zero air loss",
+        "Timed and level-sensing options",
+        "Reliable operation"
+      ],
       "active": true
     },
     {
@@ -124,7 +151,11 @@
       "category": "Accessories",
       "description": "Eco-friendly condensate drain systems.",
       "image": "images/products/ecodrair-blogpost-1024x681.webp",
-      "features": ["Energy saving", "Eco-friendly design", "Low maintenance"],
+      "features": [
+        "Energy saving",
+        "Eco-friendly design",
+        "Low maintenance"
+      ],
       "active": true
     }
   ]

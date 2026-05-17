@@ -125,18 +125,6 @@
     "description": "SANPAR Air Chillers - Closed-circuit refrigeration air chillers. 5 CFM to 10,000 CFM at variable pressures.",
     "navActive": "Products"
   },
-  "product-cat-dth": {
-    "file": "pages/product-cat-dth.html",
-    "title": "CAT DTH Series - SANPAR Industries",
-    "description": "SANPAR CAT DTH Series - Medical air dryers for breathing air. -40 deg C dew point. 5-1500 CFM.",
-    "navActive": "Products"
-  },
-  "product-cat-m1": {
-    "file": "pages/product-cat-m1.html",
-    "title": "CAT Absorption Series - SANPAR Industries",
-    "description": "SANPAR CAT Absorption Series - Medical air filters. 0.01 um particle, 0.003 mg/m3 oil. 5-500 CFM.",
-    "navActive": "Products"
-  },
   "product-coolant-chillers": {
     "file": "pages/product-coolant-chillers.html",
     "title": "Coolant Chillers - SANPAR Industries",

@@ -8,7 +8,13 @@
       "description": "High-capacity refrigerated air dryers engineered for tropical climates. 85 to 10,000 CFM. 3 to 16 bar g. Open and closed-loop. R407C eco-friendly refrigerant. India's widest range from a single manufacturer.",
       "image": "images/products/Xeros-Internal-2-1024x720.webp",
       "url": "product-xeros.html",
-      "features": ["85 to 10,000 CFM", "3 to 16 bar g", "R407C eco-friendly refrigerant", "Open and closed-loop", "Tropical climate optimised"],
+      "features": [
+        "85 to 10,000 CFM",
+        "3 to 16 bar g",
+        "R407C eco-friendly refrigerant",
+        "Open and closed-loop",
+        "Tropical climate optimised"
+      ],
       "active": true
     },
     {
@@ -18,7 +24,12 @@
       "description": "Compact tube-in-tube refrigerated dryers for space-constrained installations. 5 to 180 CFM. Energy-efficient with lowest operating cost in its class. Ideal for workshop, laboratory, and small-plant applications.",
       "image": "images/products/CAT_D1-5A-cutout-1024x720.webp",
       "url": "product-ecodrair.html",
-      "features": ["5 to 180 CFM", "Tube-in-tube design", "Energy efficient", "Compact footprint"],
+      "features": [
+        "5 to 180 CFM",
+        "Tube-in-tube design",
+        "Energy efficient",
+        "Compact footprint"
+      ],
       "active": true
     },
     {
@@ -28,7 +39,12 @@
       "description": "When refrigerated drying isn't enough. Dew points down to -70°C — essential for pharmaceutical, food-grade, and critical pneumatic applications. Heatless, heated-with-blower, and HOC configurations.",
       "image": "images/products/Product-6-1024x720.webp",
       "url": "product-adsorption.html",
-      "features": ["Down to -70°C dew point", "Heatless / heated / HOC variants", "Pharma and food grade", "Low pressure drop"],
+      "features": [
+        "Down to -70°C dew point",
+        "Heatless / heated / HOC variants",
+        "Pharma and food grade",
+        "Low pressure drop"
+      ],
       "active": true
     },
     {
@@ -38,7 +54,12 @@
       "description": "Five-stage filtration from 25μm pre-filtration to 0.01μm final polishing. Achieve ISO 8573.1 Class 1 air quality — the highest international standard. Every filter pressure-tested before dispatch.",
       "image": "images/products/Elements_PFFFCF_1-r9r150tzg7aedje8aem3625p0daamrixg7v5ysqlzs.webp",
       "url": "product-filters.html",
-      "features": ["Five filter series (PPF/PF/AF/FF/AC)", "ISO 8573-1: 2010", "25μm to 0.01μm range", "Aluminium or carbon steel housings"],
+      "features": [
+        "Five filter series (PPF/PF/AF/FF/AC)",
+        "ISO 8573-1: 2010",
+        "25μm to 0.01μm range",
+        "Aluminium or carbon steel housings"
+      ],
       "active": true
     },
     {
@@ -48,7 +69,12 @@
       "description": "Remove up to 70% of moisture at the compressor outlet — before it enters your system. Air-cooled and water-cooled variants with copper tube construction and SS316 baffles. The first line of defence.",
       "image": "images/products/SAC_WC_1-768x540.webp",
       "url": "product-aftercooler.html",
-      "features": ["Air-cooled and water-cooled variants", "Copper tube construction", "SS316 baffles", "Up to 70% moisture removal"],
+      "features": [
+        "Air-cooled and water-cooled variants",
+        "Copper tube construction",
+        "SS316 baffles",
+        "Up to 70% moisture removal"
+      ],
       "active": true
     },
     {
@@ -58,7 +84,12 @@
       "description": "Centrifugal moisture separation with no moving parts — zero maintenance and virtually zero pressure drop (0.06 bar). Install it. Forget about it. It keeps working.",
       "image": "images/products/MS_1-r9r15b67s5fu8ulyht97upbfr2pnpsb4bzyjh4eq3k.webp",
       "url": "product-separator.html",
-      "features": ["No moving parts", "Zero maintenance", "0.06 bar pressure drop", "Centrifugal design"],
+      "features": [
+        "No moving parts",
+        "Zero maintenance",
+        "0.06 bar pressure drop",
+        "Centrifugal design"
+      ],
       "active": true
     },
     {
@@ -68,7 +99,11 @@
       "description": "Condensate drains that protect your system 24/7. Float, timer, mechanical, or electronic level-sensor types. Rated up to 16 bar g. The small component that prevents the biggest headaches.",
       "image": "images/products/SFD320_1-r9r15r5jg1lg11ln26jap1az5m1r4djmmt8gvpnj4w.webp",
       "url": "product-drains.html",
-      "features": ["Float / timer / mechanical / electronic", "Rated up to 16 bar g", "Reliable 24/7 operation"],
+      "features": [
+        "Float / timer / mechanical / electronic",
+        "Rated up to 16 bar g",
+        "Reliable 24/7 operation"
+      ],
       "active": true
     },
     {
@@ -78,7 +113,12 @@
       "description": "CFC-free process chillers from 0.5TR to 100TR. PLC-controlled with digital temperature display. Air-cooled and water-cooled variants. Designed for 24/7 industrial operation.",
       "image": "images/products/Water-chiller.webp",
       "url": "product-water-chillers.html",
-      "features": ["0.5TR to 100TR capacity", "PLC-controlled", "CFC-free refrigerants", "Air-cooled and water-cooled variants"],
+      "features": [
+        "0.5TR to 100TR capacity",
+        "PLC-controlled",
+        "CFC-free refrigerants",
+        "Air-cooled and water-cooled variants"
+      ],
       "active": true
     },
     {
@@ -88,7 +128,12 @@
       "description": "Precision forced-air chillers delivering constant-temperature coolant for process-critical applications. 5 to 10,000 CFM. Ideal for defence ground testing, electronics cooling, and industrial HVAC.",
       "image": "images/products/Product-2-768x540.webp",
       "url": "product-air-chillers.html",
-      "features": ["5 to 10,000 CFM", "Constant-temperature supply", "Defence-grade", "Energy efficient"],
+      "features": [
+        "5 to 10,000 CFM",
+        "Constant-temperature supply",
+        "Defence-grade",
+        "Energy efficient"
+      ],
       "active": true
     },
     {
@@ -98,7 +143,12 @@
       "description": "Purpose-built for CNC machining centres, grinding operations, and EDM equipment. Maintains cutting fluid temperature within tight tolerances — extending tool life and reducing reject rates. CFC-free.",
       "image": "images/products/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
       "url": "product-coolant-chillers.html",
-      "features": ["CNC / EDM compatible", "Tight tolerance control", "CFC-free", "Compact design"],
+      "features": [
+        "CNC / EDM compatible",
+        "Tight tolerance control",
+        "CFC-free",
+        "Compact design"
+      ],
       "active": true
     },
     {
@@ -108,7 +158,12 @@
       "description": "Precision oil temperature control for hydraulic systems, grinding operations, and CNC machining centres. CFC-free, custom-designed, and available integrated with water chiller systems. First developed in 2004.",
       "image": "images/products/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
       "url": "product-oil-chillers.html",
-      "features": ["Hydraulic oil cooling", "Custom-designed", "Integrable with water chillers", "CFC-free"],
+      "features": [
+        "Hydraulic oil cooling",
+        "Custom-designed",
+        "Integrable with water chillers",
+        "CFC-free"
+      ],
       "active": true
     },
     {
@@ -118,27 +173,12 @@
       "description": "Industrial dehumidification for spaces where moisture means defects. ±5% RH accuracy in continuous 24/7 operation — protecting stored materials, preventing corrosion, and maintaining quality.",
       "image": "images/products/SMPL_IAC_DH-r9r15xqcc6apzhp6u309ijmi0bmguisof3m6zrh9y8.webp",
       "url": "product-dehumidifier.html",
-      "features": ["±5% RH precision", "24/7/365 continuous operation", "Built-in hygrostat", "Xerion Series condensation design"],
-      "active": true
-    },
-    {
-      "id": "cat-m1",
-      "name": "CAT Absorption Series",
-      "category": "Medical Air Systems",
-      "description": "Medical-grade desiccant air filtration meeting the highest international purity standard: ISO 8573.1 Class 1. 0.01μm particles, 0.003mg/m³ oil. For hospitals and pharmaceutical manufacturing.",
-      "image": "images/products/CAT-X1-157A-r9r1p9az9aamxr9q641lxm4awfwxu9z4bck6deqg0w.webp",
-      "url": "product-cat-m1.html",
-      "features": ["ISO 8573-1: 2010 compliance", "Medical-grade filtration", "0.01μm particles, 0.003mg/m³ oil", "Hospital and pharma ready"],
-      "active": true
-    },
-    {
-      "id": "cat-dth",
-      "name": "CAT DTH Series",
-      "category": "Medical Air Systems",
-      "description": "Medical air dryers certified to BS EN12021:2014 breathing air standard. -40°C dew point across 5 to 1,500 CFM. Essential for hospital medical air, hyperbaric chambers, and respiratory therapy.",
-      "image": "images/products/CAT_D1-5A-cutout-1024x720.webp",
-      "url": "product-cat-dth.html",
-      "features": ["BS EN12021:2014 breathing air", "-40°C dew point", "5 to 1,500 CFM", "Hospital and hyperbaric ready"],
+      "features": [
+        "±5% RH precision",
+        "24/7/365 continuous operation",
+        "Built-in hygrostat",
+        "Xerion Series condensation design"
+      ],
       "active": true
     }
   ]
