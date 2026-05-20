@@ -58,13 +58,17 @@
   opacity: 0.85;
 }
 
+.header__logo {
+  gap: 14px;
+}
 .header__logo img {
-  height: 44px;
   width: auto;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
 }
+.header__logo__emblem { height: 60px; }
+.header__logo__wordmark { height: 34px; }
 
 .header__nav {
   display: flex;
