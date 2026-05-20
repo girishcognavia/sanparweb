@@ -175,9 +175,8 @@
 <!-- Header (C1) -->
 <header class="header" role="banner">
   <div class="header__inner">
-    <a href="/" class="header__logo" data-spa>
-      <img src="images/logo/cropped-sanpar-icon-300x300.png" alt="SANPAR" width="36" height="36">
-      SANPAR
+    <a href="/" class="header__logo" data-spa aria-label="SANPAR Airing Solutions">
+      <img src="images/logo/sanpar-logo.png" alt="SANPAR Airing Solutions" height="44">
     </a>
     <nav class="header__nav" aria-label="Main navigation">
       <ul class="header__menu">
@@ -253,48 +252,277 @@
 
 <!-- Main content — fragments load here -->
 <main id="main-content">
-<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Dehumidifier - Xerion Series</li></ul></nav>
-  <section class="section" style="padding-top:var(--space-8)">
-    <div class="container">
-      <div class="grid grid--2" style="gap:var(--space-12);align-items:center">
-        <div class="animate-on-scroll">
-          <span class="badge badge--industry" style="margin-bottom:var(--space-4)">Industrial Air Conditioning</span>
-          <h1 style="font-size:var(--text-7xl)">Dehumidifier - Xerion Series</h1>
-          <p style="color:var(--text-secondary);font-size:var(--text-xl);max-width:48ch">Industrial dehumidifiers. Plus/minus 5% RH, 24/7/365 continuous operation.</p>
-          <div style="display:flex;gap:var(--space-6);margin:var(--space-6) 0;flex-wrap:wrap"><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Plus/minus 5%</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">RH Accuracy</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">40 to 100%</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Operating Humidity</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">15 to 40 deg C</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Operating Temperature</span></div></div>
-          <div class="flex gap-4" style="flex-wrap:wrap;margin-top:var(--space-6)">
-            <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
-            <a href="#specs" class="btn btn--secondary">View Specifications</a>
-          </div>
+<style>
+/* ── Xerion Dehumidifier premium product page (scoped) ── */
+.dhm-hero{position:relative;background:#eef3f9;overflow:hidden}
+.dhm-hero__bg{position:absolute;inset:0;background:url('images/products/frontpage/dehumidifier-frontpage.png') right center/contain no-repeat}
+.dhm-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(238,243,249,.99) 0%,rgba(238,243,249,.96) 38%,rgba(238,243,249,.55) 46%,rgba(238,243,249,.05) 54%,rgba(238,243,249,0) 65%)}
+.dhm-hero__inner{position:relative;z-index:2;max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);min-height:600px;display:flex;justify-content:flex-start;align-items:center}
+.dhm-hero__text{max-width:560px}
+.dhm-hbadge{display:inline-block;background:#1659d8;color:#fff;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:7px 14px;border-radius:5px;margin-bottom:var(--space-4)}
+.dhm-hero h1{color:#0c1c3c;font-size:var(--text-8xl);line-height:1.02;margin:0 0 var(--space-3)}
+.dhm-hero__tag{color:#0c1c3c;font-weight:700;font-size:var(--text-2xl);line-height:1.25;margin:0 0 var(--space-3)}
+.dhm-hero__desc{color:var(--text-secondary);font-size:var(--text-base);line-height:1.6;margin:0 0 var(--space-6);max-width:46ch}
+.dhm-stats{display:flex;flex-wrap:wrap;padding:var(--space-5) 0;margin-bottom:var(--space-6)}
+.dhm-stat{flex:1;min-width:130px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 var(--space-4);border-left:1px solid var(--grey-2);text-align:center}
+.dhm-stat:first-child{padding-left:0;border-left:none}
+.dhm-stat__icon{width:54px;height:54px;border-radius:50%;border:1.5px solid #1659d8;display:flex;align-items:center;justify-content:center;color:#1659d8;font-family:var(--font-display);font-weight:800;font-size:14px}
+.dhm-stat__icon svg{width:24px;height:24px;stroke:#1659d8;fill:none}
+.dhm-stat b{font-family:var(--font-display);font-size:var(--text-sm);color:#0c1c3c;font-weight:800;line-height:1.25}
+.dhm-hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap}
+
+.dhm-sec-title{text-align:center;color:#1659d8;font-size:15px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin:0 0 var(--space-8)}
+section.dhm-section{padding-top:3.25rem;padding-bottom:3.25rem}
+
+/* placeholder slot — swap for a real image when supplied */
+.dhm-ph{width:100%;height:100%;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1.5px dashed var(--grey-3);border-radius:var(--radius-md);color:var(--text-tertiary);background:#fff}
+.dhm-ph svg{width:46px;height:46px;stroke:currentColor;fill:none;opacity:.55}
+.dhm-ph span{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+
+/* CORE FEATURES */
+.dhm-core{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);overflow:hidden}
+.dhm-feat{padding:var(--space-6) var(--space-5);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:var(--space-3);border-right:1px solid var(--grey-2);border-bottom:1px solid var(--grey-2);min-height:170px}
+.dhm-feat:nth-child(3n){border-right:none}
+.dhm-feat:nth-child(n+7){border-bottom:none}
+.dhm-feat svg{width:60px;height:60px;padding:13px;border-radius:14px;background:#eaf0ff;stroke:#1659d8;fill:none;box-sizing:border-box;margin-bottom:var(--space-2)}
+.dhm-feat b{font-size:var(--text-sm);color:#0c1c3c;font-weight:700;line-height:1.35}
+.dhm-feat span{font-size:12px;color:var(--text-secondary);line-height:1.45}
+
+/* WHY HUMIDITY CONTROL */
+.dhm-why{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+.dhm-why__card{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-4)}
+.dhm-why__icon{width:72px;height:72px;border-radius:16px;background:#eaf0ff;display:flex;align-items:center;justify-content:center}
+.dhm-why__icon svg{width:38px;height:38px;stroke:#1659d8;fill:none}
+.dhm-why__card h3{margin:0;font-size:var(--text-xl)}
+.dhm-why__card p{color:var(--text-secondary);margin:0;line-height:1.6;font-size:var(--text-sm)}
+.dhm-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2) var(--space-4);width:100%}
+.dhm-list li{display:flex;gap:10px;align-items:center;font-size:var(--text-sm);font-weight:600;color:#0c1c3c}
+.dhm-list li svg{width:18px;height:18px;flex-shrink:0;stroke:#2f9e44;fill:none}
+.dhm-chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.dhm-chip{padding:7px 13px;background:var(--bg-light);border:1px solid var(--grey-2);border-radius:999px;font-size:13px;font-weight:600;color:#0c1c3c;display:flex;align-items:center;gap:7px}
+.dhm-chip svg{width:14px;height:14px;stroke:#1659d8;fill:none}
+
+/* HOW */
+.dhm-how-wrap{background:#f3f5fa;border-radius:var(--radius-lg);padding:var(--space-8) var(--space-6)}
+.dhm-how{display:grid;grid-template-columns:1.2fr .9fr;gap:var(--space-8);align-items:center}
+.dhm-how__img{display:flex;align-items:center;justify-content:center;min-height:240px}
+.dhm-how__img img{width:100%;max-width:520px;height:auto;display:block}
+.dhm-how__text h3{margin:0 0 var(--space-3);font-size:var(--text-2xl);line-height:1.22}
+.dhm-how__text p{color:var(--text-secondary);margin:0;line-height:1.7}
+
+/* CTA */
+.dhm-cta{background:linear-gradient(135deg,#0a1640 0%,#10204a 100%);color:#fff}
+.dhm-cta__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-10) var(--space-6);display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center}
+.dhm-cta__badge{width:58px;height:58px;background:rgba(255,255,255,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dhm-cta__badge svg{width:32px;height:32px;stroke:#fff;fill:none}
+.dhm-cta__inner h2{color:#fff;margin:0 0 6px;font-size:var(--text-2xl);line-height:1.22}
+.dhm-cta__inner p{color:rgba(255,255,255,.8);margin:0;font-size:var(--text-sm)}
+
+/* TRUST STRIP */
+.dhm-strip{background:var(--bg-light);border-top:1px solid var(--grey-2)}
+.dhm-strip__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-6) var(--space-6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+.dhm-strip__item{display:flex;align-items:center;gap:var(--space-3);justify-content:center}
+.dhm-strip__item svg{width:32px;height:32px;stroke:#1659d8;fill:none;flex-shrink:0}
+.dhm-strip__item b{display:block;font-family:var(--font-display);font-size:var(--text-base);color:#0c1c3c;font-weight:800;line-height:1.1}
+.dhm-strip__item span{display:block;font-size:11px;color:var(--text-secondary)}
+
+@media(max-width:1024px){
+  .dhm-hero__bg{background-position:center top;background-size:auto 45%}
+  .dhm-hero__bg::after{background:linear-gradient(180deg,rgba(238,243,249,0) 0%,rgba(238,243,249,.55) 38%,rgba(238,243,249,.97) 55%)}
+  .dhm-hero__inner{min-height:auto;align-items:flex-end;padding-top:260px}
+  .dhm-hero__text{max-width:none}
+  .dhm-core{grid-template-columns:repeat(2,1fr)}
+  .dhm-feat:nth-child(3n){border-right:1px solid var(--grey-2)}
+  .dhm-feat:nth-child(2n){border-right:none}
+  .dhm-feat:nth-child(n+7){border-bottom:1px solid var(--grey-2)}
+  .dhm-feat:nth-child(n+9){border-bottom:none}
+  .dhm-why{grid-template-columns:1fr}
+  .dhm-how{grid-template-columns:1fr}
+  .dhm-cta__inner{grid-template-columns:1fr;text-align:center}
+  .dhm-cta__badge{margin:0 auto}
+  .dhm-strip__inner{grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+}
+@media(max-width:544px){
+  .dhm-core{grid-template-columns:1fr}
+  .dhm-feat:nth-child(2n){border-right:none}
+  .dhm-feat:nth-child(n+9){border-bottom:none}
+  .dhm-feat:last-child{border-bottom:none}
+  .dhm-list{grid-template-columns:1fr}
+  .dhm-strip__inner{grid-template-columns:1fr}
+}
+</style>
+
+<nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Dehumidifier</li></ul></nav>
+
+<!-- HERO -->
+<section class="dhm-hero">
+  <div class="dhm-hero__bg"></div>
+  <div class="dhm-hero__inner">
+    <div class="dhm-hero__text animate-on-scroll">
+      <span class="dhm-hbadge">Dehumidifier</span>
+      <h1>Xerion Dehumidifier</h1>
+      <p class="dhm-hero__tag">Industrial Dehumidifiers for Reliable Humidity Control</p>
+      <p class="dhm-hero__desc">Refrigeration-based industrial dehumidifiers designed for continuous RH control in critical environments.</p>
+      <div class="dhm-stats">
+        <div class="dhm-stat">
+          <div class="dhm-stat__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/><circle cx="10" cy="13" r="1"/><circle cx="14" cy="17" r="1"/><path d="M9 17l6-6"/></svg></div>
+          <b>&plusmn;5% RH Control</b>
         </div>
-        <div class="animate-on-scroll" style="background:var(--grey-1);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
-          <img src="images/products/SMPL_IAC_DH-r9r15xqcc6apzhp6u309ijmi0bmguisof3m6zrh9y8.webp" alt="SANPAR Dehumidifier - Xerion Series" style="width:100%;max-height:420px;object-fit:contain" loading="lazy">
+        <div class="dhm-stat">
+          <div class="dhm-stat__icon">RH</div>
+          <b>RH 45 &plusmn; 5 %</b>
+        </div>
+        <div class="dhm-stat">
+          <div class="dhm-stat__icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4"/></svg></div>
+          <b>24/7 Continuous Operation</b>
+        </div>
+      </div>
+      <div class="dhm-hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg">Download Brochure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE FEATURES -->
+<section class="section dhm-section">
+  <div class="container">
+    <div class="dhm-sec-title animate-on-scroll">Core Features</div>
+    <div class="dhm-core animate-on-scroll">
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8a6 6 0 0 1 0 8M18.5 5.5a10 10 0 0 1 0 13"/></svg>
+        <b>Noise level &lt;70 dBA</b>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M12 6l4-3M12 6L8 3M12 18l4 3M12 18l-4 3M3.5 7l17 10M3.5 17l17-10"/></svg>
+        <b>Refrigerant R134a</b>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+        <b>RH 45 &plusmn; 5 %</b>
+        <span>765 CFM Air Flow</span>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="13" height="9" rx="1"/><path d="M16 12h3l2 3v3h-5M6 18v2M13 18v2"/><circle cx="8" cy="13.5" r="1.5"/></svg>
+        <b>Hermetically sealed compressor</b>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-3M12 5V3"/></svg>
+        <b>Built-in hygrostat</b>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M12 9.5c2-4 5-3 5 0M14.5 12c4 2 3 5 0 5M12 14.5c-2 4-5 3-5 0M9.5 12c-4-2-3-5 0-5"/></svg>
+        <b>Industrial axial fan</b>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+        <b>CRCA cabinet construction</b>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6v6h6v6"/><path d="M3 18h2l1 2h2M14 5h2l1 2h2"/></svg>
+        <b>Gravity drain</b>
+        <span>Optional condensate pump</span>
+      </div>
+      <div class="dhm-feat">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M4 10h16l-2 7M8 10V6h8v4"/></svg>
+        <b>Optional Wheels</b>
+        <span>and a carrying handle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HUMIDITY CONTROL -->
+<section class="section dhm-section">
+  <div class="container">
+    <div class="dhm-sec-title animate-on-scroll">Why Humidity Control?</div>
+    <div class="dhm-why">
+      <div class="dhm-why__card animate-on-scroll">
+        <div class="dhm-why__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/><path d="M12 9s3 3.5 3 6a3 3 0 0 1-6 0c0-2.5 3-6 3-6z"/></svg></div>
+        <h3>Prevent Moisture Problems</h3>
+        <p>Protect equipment, materials, and processes from:</p>
+        <ul class="dhm-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Condensation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Corrosion</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Mold growth</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Product quality issues</li>
+        </ul>
+      </div>
+      <div class="dhm-why__card animate-on-scroll">
+        <div class="dhm-why__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11zM9 21v-7h6v7"/></svg></div>
+        <h3>Ideal For</h3>
+        <p>Industries and environments that demand consistent humidity control:</p>
+        <ul class="dhm-chips">
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="13" height="9" rx="1"/><path d="M16 12h3l2 3v3h-5"/></svg>Pharma</li>
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>Electronics</li>
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3z"/></svg>Food Processing</li>
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11zM9 21v-7h6v7"/></svg>Warehouses</li>
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v8L5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l-5-10V2zM8 2h8"/></svg>Laboratories</li>
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Clean Rooms</li>
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v16H4zM10 4h4v16h-4zM14 4l5 1.5L17 20l-5-1.5z"/></svg>Libraries</li>
+          <li class="dhm-chip"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 9h16M9 5v14M15 5v14"/></svg>Storage Areas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section dhm-section">
+  <div class="container">
+    <div class="dhm-sec-title animate-on-scroll">How?</div>
+    <div class="dhm-how-wrap animate-on-scroll">
+      <div class="dhm-how">
+        <div class="dhm-how__img">
+          <img src="images/products/frontpage/dehumidifier-how.webp" alt="Refrigeration-based dehumidification diagram &mdash; humid air over evaporator coil with condensate drainage" loading="lazy">
+        </div>
+        <div class="dhm-how__text">
+          <h3>Refrigeration-Based Dehumidification</h3>
+          <p>Humid air passes over a low-temperature evaporator coil. Moisture condenses into water and is drained out, while dry air is recirculated back into the room.</p>
         </div>
       </div>
     </div>
-  </section>
-  <section class="section section--light">
-    <div class="container container--narrow"><div class="animate-on-scroll"><h2>Overview</h2><p>Compact electronic controls, drives, servos and PLCs are extremely sensitive to heat and contamination. Smaller cabinets make temperature control difficult.</p><p>The Xerion series works on the condensation principle. A fan draws humid air through an evaporator coil, cooling below dew point. Fully automatic with built-in hygrostat.</p></div></div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Key Features</span><h2>Salient Features</h2></div>
-      <div class="grid grid--3"><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Plus/minus 5% relative humidity</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>24/7/365 continuous operation</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Hermetically sealed compressor</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Fully automatic with hygrostat</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>ErP 2015 compliant fans</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>CRCA sheet cabinet with wheels</h4></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="dhm-cta">
+  <div class="dhm-cta__inner animate-on-scroll">
+    <div class="dhm-cta__badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z"/></svg></div>
+    <div>
+      <h2>Maintain the right humidity. Protect your process.</h2>
+      <p>Choose Xerion Dehumidifier for your application.</p>
     </div>
-  </section>
-  <section class="section section--light" id="specs">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Technical Data</span><h2>Specifications</h2></div>
-      <div class="spec-table-wrapper animate-on-scroll"><table class="spec-table"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>RH Accuracy</td><td>Plus/minus 5%</td></tr><tr><td>Operating Humidity</td><td>40 to 100%</td></tr><tr><td>Operating Temperature</td><td>15 to 40 deg C</td></tr><tr><td>Operation</td><td>24/7/365</td></tr><tr><td>Fan Compliance</td><td>ErP 2015 norms</td></tr></tbody></table></div>
+    <div style="display:flex;gap:var(--space-3);flex-wrap:wrap">
+      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">Talk to an Engineer</a>
     </div>
-  </section>
-  <section class="section section--dark" style="text-align:center">
-    <div class="container container--narrow animate-on-scroll">
-      <h2 style="color:var(--text-inverse)">Need a Custom Configuration?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin:0 auto var(--space-8)">Our engineering team can design a system tailored to your specific requirements.</p>
-      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote</a>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="dhm-strip">
+  <div class="dhm-strip__inner animate-on-scroll">
+    <div class="dhm-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 7L12 19l4.5 3L15 15"/></svg>
+      <div><b>ISO 9001:2015</b><span>Certified Company</span></div>
     </div>
-  </section>
+    <div class="dhm-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><b>30+ Years</b><span>Of Experience</span></div>
+    </div>
+    <div class="dhm-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+      <div><b>3500+</b><span>Installations</span></div>
+    </div>
+    <div class="dhm-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11zM9 21v-7h6v7"/></svg>
+      <div><b>Made in India</b><span>For Indian Industries</span></div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- Trust Bar (F2) -->
@@ -303,7 +531,7 @@
 <div class="footer__col"><h4>SANPAR Industries</h4><p>India's leading manufacturer of compressed air dryers, industrial chillers, and aerospace cooling systems. ISO 9001:2015 and AS 9100D certified. Trusted by 3,000+ customers across 10 industries since 1994.</p>
 <div class="footer__social"><a href="https://www.linkedin.com/company/sanpar-industries" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.youtube.com/channel/UCtD9fjNAP-VTtvyApCV8juw" rel="noopener" aria-label="YouTube">&#9654;</a><a href="https://www.facebook.com/sanparindustries/" rel="noopener" aria-label="Facebook">f</a><a href="https://x.com/SANPARindia" rel="noopener" aria-label="Twitter/X">&#120143;</a><a href="https://www.instagram.com/sanparindustries/" rel="noopener" aria-label="Instagram">&#9737;</a><a href="https://www.pinterest.com/sanparindustries/" rel="noopener" aria-label="Pinterest">&#9883;</a></div>
 <p style="margin-top:var(--space-4);font-size:var(--text-xs)">+91 7349 142 424 | Landline: +91 80 4343 5959<br>sales@sanpar.com</p></div>
-<div class="footer__col"><h4>Products</h4><ul class="footer__links"><li><a href="/products" data-spa>Compressed Air Treatment</a></li><li><a href="/products" data-spa>Industrial Cooling Systems</a></li><li><a href="/products" data-spa>Air Conditioning Systems</a></li><li><a href="/products" data-spa>Medical Air Dryers</a></li></ul>
+<div class="footer__col"><h4>Products</h4><ul class="footer__links"><li><a href="/products" data-spa>Compressed Air Treatment</a></li><li><a href="/products" data-spa>Industrial Cooling Systems</a></li><li><a href="/products" data-spa>Industrial Air Conditioning</a></li></ul>
 <h4 style="margin-top:var(--space-6)">Quick Links</h4><ul class="footer__links"><li><a href="/" data-spa>Home</a></li><li><a href="/who-we-are" data-spa>Who We Are</a></li><li><a href="/industries" data-spa>Industries</a></li><li><a href="/support" data-spa>Support</a></li><li><a href="/contact" data-spa>Contact Us</a></li></ul></div>
 <div class="footer__col"><h4>Company</h4><ul class="footer__links"><li><a href="/who-we-are" data-spa>About Us</a></li><li><a href="/success-stories" data-spa>Success Stories</a></li><li><a href="/work-with-us" data-spa>Careers</a></li><li><a href="/news" data-spa>News &amp; Events</a></li><li><a href="/blogs" data-spa>Blogs</a></li><li><a href="/technology" data-spa>Technology</a></li><li><a href="/job-openings" data-spa>Job Openings</a></li><li><a href="/support" data-spa>Support &amp; Services</a></li></ul></div>
 <div class="footer__col"><h4>Contact</h4><ul class="footer__links"><li><a href="tel:+917349142424">+91 7349 142 424</a></li><li><a href="tel:+918043435959">Landline: +91 80 4343 5959</a></li><li><a href="mailto:sales@sanpar.com">sales@sanpar.com</a></li></ul>

@@ -1,42 +1,333 @@
+<style>
+/* ── Drains premium product page (scoped) ── */
+.drn-hero{position:relative;background:#eef3f9;overflow:hidden}
+.drn-hero__bg{position:absolute;inset:0;background:url('images/products/frontpage/drains-frontpage.png') right center/contain no-repeat}
+.drn-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(238,243,249,.99) 0%,rgba(238,243,249,.96) 38%,rgba(238,243,249,.55) 46%,rgba(238,243,249,.05) 54%,rgba(238,243,249,0) 65%)}
+.drn-hero__inner{position:relative;z-index:2;max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);min-height:580px;display:flex;justify-content:flex-start;align-items:center}
+.drn-hero__text{max-width:560px}
+.drn-hbadge{display:inline-block;background:#1659d8;color:#fff;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:7px 14px;border-radius:5px;margin-bottom:var(--space-4)}
+.drn-hero h1{color:#0c1c3c;font-size:var(--text-8xl);line-height:1.02;margin:0 0 var(--space-3)}
+.drn-hero__tag{color:#0c1c3c;font-weight:700;font-size:var(--text-2xl);line-height:1.25;margin:0 0 var(--space-3)}
+.drn-hero__desc{color:var(--text-secondary);font-size:var(--text-base);line-height:1.6;margin:0 0 var(--space-6);max-width:44ch}
+.drn-stats{display:flex;flex-wrap:wrap;padding:var(--space-5) 0;border-top:1px solid var(--grey-2);border-bottom:1px solid var(--grey-2);margin-bottom:var(--space-6)}
+.drn-stat{flex:1;min-width:120px;display:flex;flex-direction:column;gap:7px;padding:0 var(--space-4);border-left:1px solid var(--grey-2)}
+.drn-stat:first-child{padding-left:0;border-left:none}
+.drn-stat svg{width:26px;height:26px;stroke:#1659d8;fill:none}
+.drn-stat b{font-family:var(--font-display);font-size:var(--text-sm);color:#0c1c3c;font-weight:800;line-height:1.2}
+.drn-stat span{font-size:11px;color:var(--text-tertiary)}
+.drn-hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap}
+
+.drn-eyebrow{display:block;color:#1659d8;font-size:var(--text-xs);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2)}
+.drn-sec-title{text-align:center;color:#1659d8;font-size:15px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin:0 0 var(--space-8)}
+section.drn-section{padding-top:3.25rem;padding-bottom:3.25rem}
+.drn-lav{background:#f3f3fb}
+
+/* OVERVIEW */
+.drn-ov{display:grid;grid-template-columns:1fr 1.12fr;gap:var(--space-10);align-items:center}
+.drn-ov p{color:var(--text-secondary);margin:0 0 var(--space-3)}
+.drn-diagram{display:flex;align-items:center;justify-content:center}
+.drn-diagram img{width:100%;max-width:560px;height:auto}
+
+/* WHY IT MATTERS */
+.drn-matters{display:grid;grid-template-columns:repeat(4,1fr)}
+.drn-matter{text-align:center;padding:0 var(--space-5);border-left:1px solid var(--grey-2)}
+.drn-matter:first-child{border-left:none}
+.drn-matter svg{width:46px;height:46px;fill:none;margin-bottom:var(--space-3)}
+.drn-matter h3{font-size:var(--text-base);margin:0 0 var(--space-2)}
+.drn-matter p{font-size:13px;color:var(--text-secondary);margin:0;line-height:1.5}
+
+/* TYPES OF DRAINS */
+.drn-types{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6)}
+.drn-type{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column}
+.drn-type__img{height:176px;display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-5);background:var(--bg-light);border-radius:var(--radius-md)}
+.drn-type__img img{max-width:70%;max-height:158px;width:auto;object-fit:contain}
+.drn-type h3{font-size:var(--text-base);margin:0 0 var(--space-3);line-height:1.3;min-height:2.6em;display:flex;align-items:flex-end}
+.drn-type p{font-size:13px;color:var(--text-secondary);margin:0;line-height:1.6;min-height:3.4em}
+.drn-type__benefit{display:flex;gap:7px;font-size:13px;font-weight:600;color:var(--text-primary);margin-top:auto;padding-top:var(--space-4);border-top:1px solid var(--grey-2);line-height:1.5}
+.drn-type__benefit::before{content:"\2192";color:#1659d8;font-weight:800;flex-shrink:0}
+
+/* WHY SANPAR DRAINS */
+.drn-reasons{display:grid;grid-template-columns:repeat(6,1fr)}
+.drn-reason{text-align:center;padding:0 var(--space-4);border-left:1px solid var(--grey-2)}
+.drn-reason:first-child{border-left:none}
+.drn-reason svg{width:44px;height:44px;margin:0 auto var(--space-3);display:block;fill:none}
+.drn-reason h3{font-size:var(--text-sm);margin:0 0 var(--space-2);line-height:1.3}
+.drn-reason p{font-size:12px;color:var(--text-secondary);margin:0;line-height:1.5}
+
+/* APPLICATIONS */
+.drn-apps{display:grid;grid-template-columns:repeat(6,1fr)}
+.drn-app{text-align:center;padding:0 var(--space-4);border-left:1px solid var(--grey-2);display:flex;flex-direction:column;align-items:center;gap:10px}
+.drn-app:first-child{border-left:none}
+.drn-app svg{width:36px;height:36px;stroke:#1659d8;fill:none}
+.drn-app span{font-size:12px;font-weight:600;color:var(--text-secondary);line-height:1.4}
+
+/* CTA */
+.drn-cta{background:linear-gradient(135deg,#0a1640 0%,#10204a 100%);color:#fff}
+.drn-cta__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-10) var(--space-6);display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center}
+.drn-cta__badge{width:58px;height:58px;background:rgba(255,255,255,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.drn-cta__badge svg{width:32px;height:32px;stroke:#fff;fill:none}
+.drn-cta__inner h2{color:#fff;margin:0 0 6px;font-size:var(--text-2xl);line-height:1.22}
+.drn-cta__inner p{color:rgba(255,255,255,.8);margin:0;font-size:var(--text-sm)}
+
+/* TRUST STRIP */
+.drn-strip{background:var(--bg-light);border-top:1px solid var(--grey-2)}
+.drn-strip__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-6) var(--space-6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+.drn-strip__item{display:flex;align-items:center;gap:var(--space-3);justify-content:center}
+.drn-strip__item svg{width:32px;height:32px;stroke:#1659d8;fill:none;flex-shrink:0}
+.drn-strip__item b{display:block;font-family:var(--font-display);font-size:var(--text-base);color:#0c1c3c;font-weight:800;line-height:1.1}
+.drn-strip__item span{display:block;font-size:11px;color:var(--text-secondary)}
+
+@media(max-width:1024px){
+  .drn-hero__bg{background-position:center top;background-size:auto 50%}
+  .drn-hero__bg::after{background:linear-gradient(180deg,rgba(238,243,249,0) 0%,rgba(238,243,249,.55) 38%,rgba(238,243,249,.97) 55%)}
+  .drn-hero__inner{min-height:auto;align-items:flex-end;padding-top:280px}
+  .drn-hero__text{max-width:none}
+  .drn-ov{grid-template-columns:1fr}
+  .drn-matters{grid-template-columns:1fr 1fr;gap:var(--space-6) 0}
+  .drn-types{grid-template-columns:1fr 1fr}
+  .drn-reasons{grid-template-columns:1fr 1fr 1fr;gap:var(--space-6) 0}
+  .drn-apps{grid-template-columns:1fr 1fr 1fr;gap:var(--space-6) 0}
+  .drn-cta__inner{grid-template-columns:1fr;text-align:center}
+  .drn-cta__badge{margin:0 auto}
+  .drn-strip__inner{grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+}
+@media(max-width:544px){
+  .drn-matters,.drn-types,.drn-reasons,.drn-apps{grid-template-columns:1fr}
+  .drn-matter,.drn-reason,.drn-app{border-left:none;padding:0}
+  .drn-strip__inner{grid-template-columns:1fr}
+}
+</style>
+
 <nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Drains</li></ul></nav>
-  <section class="section" style="padding-top:var(--space-8)">
-    <div class="container">
-      <div class="grid grid--2" style="gap:var(--space-12);align-items:center">
-        <div class="animate-on-scroll">
-          <span class="badge badge--industry" style="margin-bottom:var(--space-4)">Compressed Air Treatment</span>
-          <h1 style="font-size:var(--text-7xl)">Drains</h1>
-          <p style="color:var(--text-secondary);font-size:var(--text-xl);max-width:48ch">Condensate drain valves - float, timer, mechanical, and level-sensor types. Max 16 bar g.</p>
-          <div style="display:flex;gap:var(--space-6);margin:var(--space-6) 0;flex-wrap:wrap"><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Float type, no air loss, 1/2 inch BSP</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Internal Drain</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Solenoid 230V AC, 1/2 inch BSP</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Timer Controlled</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">No electrical supply, zero air loss</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Mechanical Float</span></div></div>
-          <div class="flex gap-4" style="flex-wrap:wrap;margin-top:var(--space-6)">
-            <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
-            <a href="#specs" class="btn btn--secondary">View Specifications</a>
-          </div>
+
+<!-- HERO -->
+<section class="drn-hero">
+  <div class="drn-hero__bg"></div>
+  <div class="drn-hero__inner">
+    <div class="drn-hero__text animate-on-scroll">
+      <span class="drn-hbadge">Drains</span>
+      <h1>Drains</h1>
+      <p class="drn-hero__tag">Efficient condensate removal without air loss</p>
+      <p class="drn-hero__desc">Protect your compressed air system from moisture-related damage and inefficiencies.</p>
+      <div class="drn-stats">
+        <div class="drn-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4"/></svg>
+          <b>Zero Air Loss</b><span>Options available</span>
         </div>
-        <div class="animate-on-scroll" style="background:var(--grey-1);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
-          <img src="images/products/SFD320_1-r9r15r5jg1lg11ln26jap1az5m1r4djmmt8gvpnj4w.webp" alt="SANPAR Drains" style="width:100%;max-height:420px;object-fit:contain" loading="lazy">
+        <div class="drn-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l3-3M12 5V3"/></svg>
+          <b>Up to 16 bar(g)</b><span>Working pressure</span>
+        </div>
+        <div class="drn-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <b>Multiple Drain Types</b><span>For every application</span>
+        </div>
+        <div class="drn-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/></svg>
+          <b>Reliable, Low-Maintenance</b><span>Operation</span>
         </div>
       </div>
+      <div class="drn-hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg">Download Brochure</a>
+      </div>
     </div>
-  </section>
-  <section class="section section--light">
-    <div class="container container--narrow"><div class="animate-on-scroll"><h2>Overview</h2><p>When condensate is not drained, it damages downstream components. Drain valves remove condensate and protect the compressed air treatment system.</p><p>SANPAR offers four drain types to suit different operational requirements and budgets, from simple float drains to advanced level-sensor controlled systems.</p></div></div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Key Features</span><h2>Salient Features</h2></div>
-      <div class="grid grid--3"><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Four drain types available</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Zero air loss options</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>No electrical supply option</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Max working pressure 16 bar g</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Aluminium die-cast housing</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>1/2 and 3/4 inch BSP connections</h4></div></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section drn-section">
+  <div class="container">
+    <div class="drn-ov">
+      <div class="animate-on-scroll">
+        <span class="drn-eyebrow">Overview</span>
+        <h2>Reliable condensate removal for every system</h2>
+        <p>Condensate is an unavoidable byproduct of compressed air systems. If not removed effectively, it can lead to corrosion, equipment damage, and reduced efficiency.</p>
+        <p>SANPAR drain valves automatically remove condensate from filters, dryers, receivers, and pipelines &mdash; ensuring clean, dry air and uninterrupted operation.</p>
+        <p>With multiple drain types available, you can select the right solution based on application, budget, and performance needs.</p>
+      </div>
+      <div class="drn-diagram animate-on-scroll">
+        <img src="images/products/frontpage/drains-overview-diagram.webp" alt="Condensate removal across filters, dryer and air receiver in a compressed air system" loading="lazy">
+      </div>
     </div>
-  </section>
-  <section class="section section--light" id="specs">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Technical Data</span><h2>Specifications</h2></div>
-      <div class="spec-table-wrapper animate-on-scroll"><table class="spec-table"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Internal Drain</td><td>Float type, no air loss, 1/2 inch BSP</td></tr><tr><td>Timer Controlled</td><td>Solenoid 230V AC, 1/2 inch BSP</td></tr><tr><td>Mechanical Float</td><td>No electrical supply, zero air loss</td></tr><tr><td>Level Control</td><td>Sensor + solenoid, max 16 bar g</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="section drn-section drn-lav">
+  <div class="container">
+    <div class="drn-sec-title animate-on-scroll">Why It Matters</div>
+    <div class="drn-matters animate-on-scroll">
+      <div class="drn-matter">
+        <svg viewBox="0 0 24 24" stroke="#2f9e44" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Prevents Equipment Damage</h3>
+        <p>Avoids corrosion and premature failures.</p>
+      </div>
+      <div class="drn-matter">
+        <svg viewBox="0 0 24 24" stroke="#1659d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+        <h3>Maintains Air Quality</h3>
+        <p>Stops water carryover downstream.</p>
+      </div>
+      <div class="drn-matter">
+        <svg viewBox="0 0 24 24" stroke="#2f9e44" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 16l4-5 3 3 5-7"/><path d="M21 9V5h-4"/></svg>
+        <h3>Improves Efficiency</h3>
+        <p>Eliminates pressure drops and air loss.</p>
+      </div>
+      <div class="drn-matter">
+        <svg viewBox="0 0 24 24" stroke="#e8820e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.5-2-3.4-2.4 1a7.5 7.5 0 0 0-1.7-1l-.4-2.6h-3.8l-.4 2.6a7.5 7.5 0 0 0-1.7 1l-2.4-1-2 3.4 2 1.5a7.5 7.5 0 0 0 0 2l-2 1.5 2 3.4 2.4-1a7.5 7.5 0 0 0 1.7 1l.4 2.6h3.8l.4-2.6a7.5 7.5 0 0 0 1.7-1l2.4 1 2-3.4z"/></svg>
+        <h3>Reduces Maintenance</h3>
+        <p>Keeps systems clean and reliable.</p>
+      </div>
     </div>
-  </section>
-  <section class="section section--dark" style="text-align:center">
-    <div class="container container--narrow animate-on-scroll">
-      <h2 style="color:var(--text-inverse)">Need a Custom Configuration?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin:0 auto var(--space-8)">Our engineering team can design a system tailored to your specific requirements.</p>
-      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote</a>
+  </div>
+</section>
+
+<!-- TYPES OF DRAINS -->
+<section class="section drn-section">
+  <div class="container">
+    <div class="drn-sec-title animate-on-scroll">Types of Drains</div>
+    <div class="drn-types animate-on-scroll">
+      <div class="drn-type">
+        <div class="drn-type__img">
+          <img src="images/products/frontpage/drain-float-type.webp" alt="SANPAR float type zero air loss drain" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <h3 style="color:#2f9e44">Float Type (Zero Air Loss)</h3>
+        <p>Mechanical operation based on condensate level.</p>
+        <div class="drn-type__benefit">No air loss, no electrical supply, highly reliable.</div>
+      </div>
+      <div class="drn-type">
+        <div class="drn-type__img">
+          <img src="images/products/frontpage/drain-timer-controlled.webp" alt="SANPAR timer controlled solenoid drain" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <h3 style="color:#1659d8">Timer Controlled (Solenoid)</h3>
+        <p>Discharges condensate at set intervals.</p>
+        <div class="drn-type__benefit">Simple and cost-effective solution.</div>
+      </div>
+      <div class="drn-type">
+        <div class="drn-type__img">
+          <img src="images/products/frontpage/drain-timer-controlled.webp" alt="SANPAR level sensor controlled drain" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <h3 style="color:#2f9e44">Level Sensor Controlled</h3>
+        <p>Discharges only when condensate is present.</p>
+        <div class="drn-type__benefit">Optimized performance with zero air loss.</div>
+      </div>
+      <div class="drn-type">
+        <div class="drn-type__img">
+          <img src="images/products/frontpage/drain-mechanical.webp" alt="SANPAR mechanical drain" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <h3 style="color:#e8820e">Mechanical Drains</h3>
+        <p>Robust and simple design.</p>
+        <div class="drn-type__benefit">Ideal for basic applications.</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- WHY SANPAR DRAINS -->
+<section class="section section--light drn-section">
+  <div class="container">
+    <div class="drn-sec-title animate-on-scroll">Why SANPAR Drains?</div>
+    <div class="drn-reasons animate-on-scroll">
+      <div class="drn-reason">
+        <svg viewBox="0 0 24 24" stroke="#2f9e44" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4"/></svg>
+        <h3>Zero Air Loss Operation</h3>
+        <p>Maximize efficiency by eliminating compressed air wastage.</p>
+      </div>
+      <div class="drn-reason">
+        <svg viewBox="0 0 24 24" stroke="#1659d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8M7.5 6.5a8 8 0 1 0 9 0"/></svg>
+        <h3>No Power Required (Float Type)</h3>
+        <p>Fully mechanical operation for simple, dependable performance.</p>
+      </div>
+      <div class="drn-reason">
+        <svg viewBox="0 0 24 24" stroke="#1659d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/></svg>
+        <h3>Rugged Construction</h3>
+        <p>Aluminium die-cast, corrosion-resistant housing.</p>
+      </div>
+      <div class="drn-reason">
+        <svg viewBox="0 0 24 24" stroke="#e8820e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 7a4 4 0 0 0-5.5 5.5L3 18.5 5.5 21l6-6A4 4 0 0 0 17 9.5l-2.7 2.7-2.5-2.5z"/></svg>
+        <h3>Low Maintenance Design</h3>
+        <p>Minimal servicing, long operational life.</p>
+      </div>
+      <div class="drn-reason">
+        <svg viewBox="0 0 24 24" stroke="#1659d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h9a3 3 0 1 1-3 3"/></svg>
+        <h3>Flexible Installation</h3>
+        <p>Suitable for filters, dryers, receivers, and pipelines.</p>
+      </div>
+      <div class="drn-reason">
+        <svg viewBox="0 0 24 24" stroke="#2f9e44" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/></svg>
+        <h3>Built for Industrial Conditions</h3>
+        <p>Handles pressure up to 16 bar(g) with stable performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="section drn-section drn-lav">
+  <div class="container">
+    <div class="drn-sec-title animate-on-scroll">Applications</div>
+    <div class="drn-apps animate-on-scroll">
+      <div class="drn-app">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l5-3 5 3v13M13 21v-7l4-2 4 2v7M3 21h18M6 11h2M6 15h2"/></svg>
+        <span>General Engineering &amp; Pneumatics</span>
+      </div>
+      <div class="drn-app">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16M3 16h18v3H3zM6 19v2M18 19v2"/></svg>
+        <span>Automotive &amp; Paint Shops</span>
+      </div>
+      <div class="drn-app">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3z"/></svg>
+        <span>Pharmaceuticals &amp; Food Processing</span>
+      </div>
+      <div class="drn-app">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
+        <span>CNC Machines &amp; Instrumentation</span>
+      </div>
+      <div class="drn-app">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/></svg>
+        <span>Electronics &amp; Precision Manufacturing</span>
+      </div>
+      <div class="drn-app">
+        <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c3-3 6 3 9 0s6-3 9 0M3 14c3-3 6 3 9 0s6-3 9 0"/></svg>
+        <span>Textile Industry</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="drn-cta">
+  <div class="drn-cta__inner animate-on-scroll">
+    <div class="drn-cta__badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z"/></svg></div>
+    <div>
+      <h2>Keep your system clean. Keep your productivity high.</h2>
+      <p>Choose the right drain for your application.</p>
+    </div>
+    <div style="display:flex;gap:var(--space-3);flex-wrap:wrap">
+      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">Talk to an Engineer</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="drn-strip">
+  <div class="drn-strip__inner animate-on-scroll">
+    <div class="drn-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 7L12 19l4.5 3L15 15"/></svg>
+      <div><b>ISO 9001:2015</b><span>Certified Company</span></div>
+    </div>
+    <div class="drn-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><b>30+ Years</b><span>Of Experience</span></div>
+    </div>
+    <div class="drn-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+      <div><b>3500+</b><span>Installations</span></div>
+    </div>
+    <div class="drn-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11zM9 21v-7h6v7"/></svg>
+      <div><b>Made in India</b><span>For Indian Industries</span></div>
+    </div>
+  </div>
+</section>

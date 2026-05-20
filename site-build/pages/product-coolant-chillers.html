@@ -1,42 +1,238 @@
+<style>
+/* ── Industrial Cooling Systems premium product page (scoped chl-) ── */
+/* Per-product accent colour, set via .chl-page--{slug} modifier on the wrapper */
+.chl-page{--chl-accent:#1659d8;--chl-soft:#eaf0ff}
+.chl-page--air    {--chl-accent:#1659d8;--chl-soft:#eaf0ff}
+.chl-page--water  {--chl-accent:#0c8ba4;--chl-soft:#def1f5}
+.chl-page--oil    {--chl-accent:#d97706;--chl-soft:#fdf0d4}
+.chl-page--coolant{--chl-accent:#16a34a;--chl-soft:#e3f5e9}
+
+.chl-hero{position:relative;background:#eef3f9;overflow:hidden}
+.chl-hero__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-10);align-items:center;min-height:560px}
+/* HERO with real image (light bg variant): full-bleed bg on the right, text on the left */
+.chl-hero--bg .chl-hero__bg{position:absolute;inset:0;background:var(--chl-hero-img) right center/contain no-repeat}
+.chl-hero--bg .chl-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(238,243,249,.99) 0%,rgba(238,243,249,.96) 38%,rgba(238,243,249,.55) 46%,rgba(238,243,249,.05) 54%,rgba(238,243,249,0) 65%)}
+.chl-hero--bg .chl-hero__inner,
+.chl-hero--bg-dark .chl-hero__inner{position:relative;z-index:2;display:flex;justify-content:flex-start;align-items:center;grid-template-columns:none;min-height:600px}
+.chl-hero__text{max-width:560px}
+/* HERO with real image (dark bg variant): cover image + dark gradient on left for white text */
+.chl-hero--bg-dark{background:#0a1640}
+.chl-hero--bg-dark .chl-hero__bg{position:absolute;inset:0;background:var(--chl-hero-img) right center/cover no-repeat}
+.chl-hero--bg-dark .chl-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,22,64,.96) 0%,rgba(10,22,64,.88) 32%,rgba(10,22,64,.55) 48%,rgba(10,22,64,.1) 64%,rgba(10,22,64,0) 78%)}
+.chl-hero.chl-hero--bg-dark h1,
+.chl-hero.chl-hero--bg-dark .chl-hero__tag{color:#fff}
+.chl-hero.chl-hero--bg-dark .chl-hero__desc{color:rgba(255,255,255,.78)}
+.chl-hero.chl-hero--bg-dark .chl-stats{border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.chl-hero.chl-hero--bg-dark .chl-stat{border-left:1px solid rgba(255,255,255,.16)}
+.chl-hero.chl-hero--bg-dark .chl-stat:first-child{border-left:none}
+.chl-hero.chl-hero--bg-dark .chl-stat b{color:#fff}
+.chl-hero.chl-hero--bg-dark .chl-stat span{color:rgba(255,255,255,.6)}
+.chl-hero.chl-hero--bg-dark .chl-stat svg{stroke:var(--chl-soft)}
+.chl-hero.chl-hero--bg-dark .btn--secondary{border-color:rgba(255,255,255,.55);color:#fff}
+.chl-hbadge{display:inline-block;background:var(--chl-accent);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:7px 14px;border-radius:5px;margin-bottom:var(--space-4)}
+.chl-hero h1{color:#0c1c3c;font-size:var(--text-8xl);line-height:1.02;margin:0 0 var(--space-3)}
+.chl-hero__tag{color:#0c1c3c;font-weight:700;font-size:var(--text-2xl);line-height:1.25;margin:0 0 var(--space-3)}
+.chl-hero__desc{color:var(--text-secondary);font-size:var(--text-base);line-height:1.6;margin:0 0 var(--space-6);max-width:48ch}
+.chl-stats{display:flex;flex-wrap:wrap;padding:var(--space-5) 0;border-top:1px solid var(--grey-2);border-bottom:1px solid var(--grey-2);margin-bottom:var(--space-6)}
+.chl-stat{flex:1;min-width:115px;display:flex;flex-direction:column;gap:6px;padding:0 var(--space-4);border-left:1px solid var(--grey-2)}
+.chl-stat:first-child{padding-left:0;border-left:none}
+.chl-stat svg{width:24px;height:24px;stroke:var(--chl-accent);fill:none}
+.chl-stat b{font-family:var(--font-display);font-size:13px;color:#0c1c3c;font-weight:800;line-height:1.2}
+.chl-stat span{font-size:11px;color:var(--text-tertiary);line-height:1.4}
+.chl-hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap}
+.chl-hero__media{display:flex;align-items:center;justify-content:center;min-height:380px}
+
+.chl-sec-title{text-align:center;color:var(--chl-accent);font-size:15px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin:0 0 var(--space-8)}
+section.chl-section{padding-top:3.25rem;padding-bottom:3.25rem}
+
+/* placeholder slot — swap for a real image when supplied */
+.chl-ph{width:100%;height:100%;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1.5px dashed var(--grey-3);border-radius:var(--radius-lg);color:var(--text-tertiary);background:#fff}
+.chl-ph svg{width:48px;height:48px;stroke:currentColor;fill:none;opacity:.55}
+.chl-ph span{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+
+/* CORE FEATURES — 3x2 grid card */
+.chl-core{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);overflow:hidden}
+.chl-feat{padding:var(--space-6) var(--space-5);text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--space-3);border-right:1px solid var(--grey-2);border-bottom:1px solid var(--grey-2);min-height:180px}
+.chl-feat:nth-child(3n){border-right:none}
+.chl-feat:nth-child(n+4):nth-last-child(-n+3){border-bottom:none}
+.chl-feat svg{width:60px;height:60px;padding:13px;border-radius:14px;background:var(--chl-soft);stroke:var(--chl-accent);fill:none;box-sizing:border-box;margin-bottom:var(--space-2)}
+.chl-feat b{font-size:var(--text-sm);color:#0c1c3c;font-weight:700;line-height:1.35}
+.chl-feat span{font-size:12px;color:var(--text-secondary);line-height:1.45}
+
+/* WHY + IDEAL FOR — 2 cards */
+.chl-why{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+.chl-why__card{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-8);display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-4)}
+.chl-why__icon{width:72px;height:72px;border-radius:16px;background:var(--chl-soft);display:flex;align-items:center;justify-content:center}
+.chl-why__icon svg{width:38px;height:38px;stroke:var(--chl-accent);fill:none}
+.chl-why__card h3{margin:0;font-size:var(--text-xl)}
+.chl-why__card p{color:var(--text-secondary);margin:0;line-height:1.6;font-size:var(--text-sm)}
+.chl-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2) var(--space-4);width:100%}
+.chl-list li{display:flex;gap:10px;align-items:center;font-size:var(--text-sm);font-weight:600;color:#0c1c3c}
+.chl-list li svg{width:18px;height:18px;flex-shrink:0;stroke:#2f9e44;fill:none}
+.chl-chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.chl-chip{padding:7px 13px;background:var(--bg-light);border:1px solid var(--grey-2);border-radius:999px;font-size:13px;font-weight:600;color:#0c1c3c;display:flex;align-items:center;gap:7px}
+.chl-chip svg{width:12px;height:12px;stroke:var(--chl-accent);fill:var(--chl-accent)}
+
+/* SMART CONTROLS — 3-column vertical cards (3×2) with comfortable spacing */
+.chl-ctrl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6)}
+.chl-ctrl__card{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4);transition:box-shadow .18s ease,border-color .18s ease}
+.chl-ctrl__card:hover{border-color:var(--chl-accent);box-shadow:var(--shadow-subtle)}
+.chl-ctrl__icon{width:52px;height:52px;border-radius:13px;background:var(--chl-soft);display:flex;align-items:center;justify-content:center}
+.chl-ctrl__icon svg{width:26px;height:26px;stroke:var(--chl-accent);fill:none}
+.chl-ctrl__card h4{margin:0;font-size:var(--text-sm);color:#0c1c3c;line-height:1.35}
+.chl-ctrl__card p{margin:0;font-size:13px;color:var(--text-secondary);line-height:1.65}
+
+/* CTA */
+.chl-cta{background:linear-gradient(135deg,#0a1640 0%,#10204a 100%);color:#fff}
+.chl-cta__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-10) var(--space-6);display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center}
+.chl-cta__badge{width:58px;height:58px;background:rgba(255,255,255,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chl-cta__badge svg{width:32px;height:32px;stroke:#fff;fill:none}
+.chl-cta__inner h2{color:#fff;margin:0 0 6px;font-size:var(--text-2xl);line-height:1.22}
+.chl-cta__inner p{color:rgba(255,255,255,.8);margin:0;font-size:var(--text-sm)}
+
+/* TRUST STRIP */
+.chl-strip{background:var(--bg-light);border-top:1px solid var(--grey-2)}
+.chl-strip__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-6) var(--space-6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+.chl-strip__item{display:flex;align-items:center;gap:var(--space-3);justify-content:center}
+.chl-strip__item svg{width:32px;height:32px;stroke:var(--chl-accent);fill:none;flex-shrink:0}
+.chl-strip__item b{display:block;font-family:var(--font-display);font-size:var(--text-base);color:#0c1c3c;font-weight:800;line-height:1.1}
+.chl-strip__item span{display:block;font-size:11px;color:var(--text-secondary)}
+
+@media(max-width:1024px){
+  .chl-hero__inner{grid-template-columns:1fr;gap:var(--space-6)}
+  .chl-hero__media{min-height:280px;order:-1}
+  .chl-hero--bg .chl-hero__bg{background-position:center top;background-size:auto 45%}
+  .chl-hero--bg .chl-hero__bg::after{background:linear-gradient(180deg,rgba(238,243,249,0) 0%,rgba(238,243,249,.55) 38%,rgba(238,243,249,.97) 55%)}
+  .chl-hero--bg .chl-hero__inner{min-height:auto;align-items:flex-end;padding-top:260px}
+  .chl-hero--bg .chl-hero__text{max-width:none}
+  .chl-hero--bg-dark .chl-hero__bg::after{background:linear-gradient(180deg,rgba(10,22,64,.1) 0%,rgba(10,22,64,.7) 35%,rgba(10,22,64,.95) 55%)}
+  .chl-hero--bg-dark .chl-hero__text{max-width:none}
+  .chl-core{grid-template-columns:repeat(2,1fr)}
+  .chl-feat:nth-child(3n){border-right:1px solid var(--grey-2)}
+  .chl-feat:nth-child(2n){border-right:none}
+  .chl-feat:nth-child(n+4):nth-last-child(-n+3){border-bottom:1px solid var(--grey-2)}
+  .chl-feat:nth-last-child(-n+1){border-bottom:none}
+  .chl-feat:nth-last-child(-n+2):nth-child(2n+1){border-bottom:none}
+  .chl-why{grid-template-columns:1fr}
+  .chl-ctrl{grid-template-columns:1fr 1fr}
+  .chl-cta__inner{grid-template-columns:1fr;text-align:center}
+  .chl-cta__badge{margin:0 auto}
+  .chl-strip__inner{grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+}
+@media(max-width:544px){
+  .chl-core{grid-template-columns:1fr}
+  .chl-feat{border-right:none;border-bottom:1px solid var(--grey-2)}
+  .chl-feat:last-child{border-bottom:none}
+  .chl-list{grid-template-columns:1fr}
+  .chl-ctrl{grid-template-columns:1fr}
+  .chl-strip__inner{grid-template-columns:1fr}
+}
+</style>
+
+<div class="chl-page chl-page--coolant">
+
 <nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Coolant Chillers</li></ul></nav>
-  <section class="section" style="padding-top:var(--space-8)">
-    <div class="container">
-      <div class="grid grid--2" style="gap:var(--space-12);align-items:center">
-        <div class="animate-on-scroll">
-          <span class="badge badge--industry" style="margin-bottom:var(--space-4)">Industrial Cooling System</span>
-          <h1 style="font-size:var(--text-7xl)">Coolant Chillers</h1>
-          <p style="color:var(--text-secondary);font-size:var(--text-xl);max-width:48ch">CFC-free process cooling for machine tools and manufacturing applications.</p>
-          <div style="display:flex;gap:var(--space-6);margin:var(--space-6) 0;flex-wrap:wrap"><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">CFC-free</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Refrigerant</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Process cooling, machine tools</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Application</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Custom per application</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">Design</span></div></div>
-          <div class="flex gap-4" style="flex-wrap:wrap;margin-top:var(--space-6)">
-            <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
-            <a href="#specs" class="btn btn--secondary">View Specifications</a>
-          </div>
-        </div>
-        <div class="animate-on-scroll" style="background:var(--grey-1);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
-          <img src="images/products/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp" alt="SANPAR Coolant Chillers" style="width:100%;max-height:420px;object-fit:contain" loading="lazy">
-        </div>
+
+<!-- HERO (image background) -->
+<section class="chl-hero chl-hero--bg-dark" style="--chl-hero-img:url('images/products/frontpage/coolant-chillers-frontpage.webp')">
+  <div class="chl-hero__bg"></div>
+  <div class="chl-hero__inner">
+    <div class="chl-hero__text animate-on-scroll">
+      <span class="chl-hbadge">Industrial Cooling System</span>
+      <h1>Coolant Chillers</h1>
+      <p class="chl-hero__tag">Process Coolant Chillers for Machine Tools</p>
+      <p class="chl-hero__desc">CFC-free chillers custom-designed for cooling cutting fluids and coolants in machine tools and manufacturing applications.</p>
+      <div class="chl-stats">
+        <div class="chl-stat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 7-15 16-15-1 9-7 15-16 15z"/><path d="M5 19c4-4 8-7 13-10"/></svg><b>CFC-Free</b><span>Refrigerant</span></div><div class="chl-stat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg><b>Machine Tools</b><span>Application Focus</span></div><div class="chl-stat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 7a4 4 0 0 0-5.5 5.5L3 18.5 5.5 21l6-6A4 4 0 0 0 17 9.5l-2.7 2.7-2.5-2.5z"/></svg><b>Custom-Designed</b><span>Per Application</span></div><div class="chl-stat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M12 9.5c2-4 5-3 5 0M14.5 12c4 2 3 5 0 5M12 14.5c-2 4-5 3-5 0M9.5 12c-4-2-3-5 0-5"/></svg><b>Energy-Efficient</b><span>Low Running Cost</span></div>
+      </div>
+      <div class="chl-hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg">Download Brochure</a>
       </div>
     </div>
-  </section>
-  <section class="section section--light">
-    <div class="container container--narrow"><div class="animate-on-scroll"><h2>Overview</h2><p>SANPAR coolant chillers are designed for unique requirements of process cooling, built to the same quality standards as all SANPAR products.</p><p>Custom designed per application with CFC-free refrigerants for environmentally responsible industrial cooling.</p></div></div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Key Features</span><h2>Salient Features</h2></div>
-      <div class="grid grid--3"><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>CFC-free refrigerants</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Custom per application</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Energy-efficient operation</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Process cooling optimised</h4></div></div>
+  </div>
+</section>
+
+<!-- CORE FEATURES -->
+<section class="section chl-section">
+  <div class="container">
+    <div class="chl-sec-title animate-on-scroll">Core Features</div>
+    <div class="chl-core animate-on-scroll">
+      <div class="chl-feat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 7-15 16-15-1 9-7 15-16 15z"/><path d="M5 19c4-4 8-7 13-10"/></svg><b>CFC-Free Refrigerants</b><span>Environmentally responsible</span></div><div class="chl-feat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 7a4 4 0 0 0-5.5 5.5L3 18.5 5.5 21l6-6A4 4 0 0 0 17 9.5l-2.7 2.7-2.5-2.5z"/></svg><b>Custom per Application</b></div><div class="chl-feat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M12 9.5c2-4 5-3 5 0M14.5 12c4 2 3 5 0 5M12 14.5c-2 4-5 3-5 0M9.5 12c-4-2-3-5 0-5"/></svg><b>Energy-Efficient Operation</b></div><div class="chl-feat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="1"/><path d="M8 6v12M12 6v12M16 6v12"/></svg><b>Process-Cooling Optimised</b><span>Engineered for cutting fluids</span></div><div class="chl-feat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/><path d="M9 12l2 2 4-4"/></svg><b>Quality Construction</b><span>SANPAR engineering standards</span></div><div class="chl-feat"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2.1 2.1M17.4 17.4l2.1 2.1M4.5 19.5l2.1-2.1M17.4 6.6l2.1-2.1"/></svg><b>Long Service Life</b></div>
     </div>
-  </section>
-  <section class="section section--light" id="specs">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Technical Data</span><h2>Specifications</h2></div>
-      <div class="spec-table-wrapper animate-on-scroll"><table class="spec-table"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Refrigerant</td><td>CFC-free</td></tr><tr><td>Application</td><td>Process cooling, machine tools</td></tr><tr><td>Design</td><td>Custom per application</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<!-- WHY + IDEAL FOR -->
+<section class="section chl-section">
+  <div class="container">
+    <div class="chl-sec-title animate-on-scroll">Why Coolant Chillers?</div>
+    <div class="chl-why">
+      <div class="chl-why__card animate-on-scroll">
+        <div class="chl-why__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Engineered for Performance</h3>
+        <p>Stable coolant temperature improves tool life, surface finish, and productivity in machine tools.</p>
+        <ul class="chl-list">
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Better surface finish</li><li><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Tool life extension</li><li><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Higher productivity</li><li><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Reduced coolant wastage</li><li><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Process consistency</li><li><svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Lower scrap rates</li>
+        </ul>
+      </div>
+      <div class="chl-why__card animate-on-scroll">
+        <div class="chl-why__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/></svg></div>
+        <h3>Ideal For</h3>
+        <p>Manufacturing operations where consistent coolant temperature is essential to part quality.</p>
+        <ul class="chl-chips">
+          <li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg>CNC Machining</li><li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="14" height="9" rx="1"/><path d="M17 12h3l1 6h-4M5 18v2M14 18v2"/></svg>Turning Centres</li><li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>Grinding</li><li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>EDM</li><li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>Hard Turning</li><li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 7a4 4 0 0 0-5.5 5.5L3 18.5 5.5 21l6-6A4 4 0 0 0 17 9.5l-2.7 2.7-2.5-2.5z"/></svg>Broaching</li><li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2.1 2.1M17.4 17.4l2.1 2.1M4.5 19.5l2.1-2.1M17.4 6.6l2.1-2.1"/></svg>Gear Cutting</li><li class="chl-chip"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6"/></svg>Hobbing</li>
+        </ul>
+      </div>
     </div>
-  </section>
-  <section class="section section--dark" style="text-align:center">
-    <div class="container container--narrow animate-on-scroll">
-      <h2 style="color:var(--text-inverse)">Need a Custom Configuration?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin:0 auto var(--space-8)">Our engineering team can design a system tailored to your specific requirements.</p>
-      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote</a>
+  </div>
+</section>
+
+<!-- SMART CONTROLS -->
+<section class="section section--light chl-section">
+  <div class="container">
+    <div class="chl-sec-title animate-on-scroll">Smart Controls</div>
+    <div class="chl-ctrl">
+      <div class="chl-ctrl__card animate-on-scroll"><div class="chl-ctrl__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><h4>Precision Temperature</h4><p>Maintains coolant within close tolerance for consistent machining.</p></div><div class="chl-ctrl__card animate-on-scroll"><div class="chl-ctrl__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5a2 2 0 0 1 4 0v9.3a4 4 0 1 1-4 0z"/><line x1="12" y1="14" x2="12" y2="6"/></svg></div><h4>Coolant-Out Sensor</h4><p>Continuous monitoring of outlet coolant temperature.</p></div><div class="chl-ctrl__card animate-on-scroll"><div class="chl-ctrl__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.5-3 7.2-7 8.5-4-1.3-7-4-7-8.5v-5z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>High-Temp Protection</h4><p>Trips the system on coolant over-temperature events.</p></div><div class="chl-ctrl__card animate-on-scroll"><div class="chl-ctrl__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 8-8"/><path d="M4 12V8h4"/><path d="M12 8v4l3 2"/></svg></div><h4>Auto-Adaptive Load</h4><p>Adjusts cooling output to match the machine duty cycle.</p></div><div class="chl-ctrl__card animate-on-scroll"><div class="chl-ctrl__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2.1 2.1M17.4 17.4l2.1 2.1M4.5 19.5l2.1-2.1M17.4 6.6l2.1-2.1"/></svg></div><h4>Event &amp; Service Log</h4><p>Records alarms, trips, and service intervals.</p></div><div class="chl-ctrl__card animate-on-scroll"><div class="chl-ctrl__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="1"/><path d="M8 6v12M12 6v12M16 6v12"/></svg></div><h4>Compact Heat Exchanger</h4><p>Plate exchanger for high capacity in a small footprint.</p></div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="chl-cta">
+  <div class="chl-cta__inner animate-on-scroll">
+    <div class="chl-cta__badge"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></div>
+    <div>
+      <h2>Stable Coolant. Better Parts. Less Downtime.</h2>
+      <p>Choose the right coolant chiller for your machine tool process.</p>
+    </div>
+    <div style="display:flex;gap:var(--space-3);flex-wrap:wrap">
+      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">Talk to an Engineer</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="chl-strip">
+  <div class="chl-strip__inner animate-on-scroll">
+    <div class="chl-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 7L12 19l4.5 3L15 15"/></svg>
+      <div><b>ISO 9001:2015</b><span>Certified Company</span></div>
+    </div>
+    <div class="chl-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><b>30+ Years</b><span>Of Experience</span></div>
+    </div>
+    <div class="chl-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+      <div><b>3500+</b><span>Installations</span></div>
+    </div>
+    <div class="chl-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11zM9 21v-7h6v7"/></svg>
+      <div><b>Made in India</b><span>For Indian Industries</span></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.chl-page -->

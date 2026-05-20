@@ -175,9 +175,8 @@
 <!-- Header (C1) -->
 <header class="header" role="banner">
   <div class="header__inner">
-    <a href="/" class="header__logo" data-spa>
-      <img src="images/logo/cropped-sanpar-icon-300x300.png" alt="SANPAR" width="36" height="36">
-      SANPAR
+    <a href="/" class="header__logo" data-spa aria-label="SANPAR Airing Solutions">
+      <img src="images/logo/sanpar-logo.png" alt="SANPAR Airing Solutions" height="44">
     </a>
     <nav class="header__nav" aria-label="Main navigation">
       <ul class="header__menu">
@@ -253,48 +252,420 @@
 
 <!-- Main content — fragments load here -->
 <main id="main-content">
+<style>
+/* ── Compressed Air Filters premium product page (scoped) ── */
+.caf-hero{position:relative;background:#07052a;color:#fff;overflow:hidden}
+.caf-hero__bg{position:absolute;inset:0;background:url('images/products/frontpage/Filters-hero.webp') right center/cover no-repeat}
+.caf-hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,5,38,.93) 0%,rgba(7,5,38,.82) 35%,rgba(7,5,38,.5) 52%,rgba(7,5,38,.12) 68%,rgba(7,5,38,.05) 100%)}
+.caf-hero__inner{position:relative;z-index:2;max-width:var(--container-max);margin:0 auto;padding:var(--space-12) var(--space-6);min-height:560px;display:flex;align-items:center}
+.caf-hero__text{max-width:620px}
+.caf-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:var(--space-4)}
+.caf-badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;padding:6px 13px;border-radius:5px}
+.caf-badge--p{background:#2d2db8;color:#fff}
+.caf-badge--c{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.32)}
+.caf-hero h1{color:#fff;font-size:var(--text-8xl);line-height:1.04;margin:0 0 var(--space-3)}
+.caf-hero__tag{color:#fff;font-weight:700;font-size:var(--text-xl);margin:0 0 var(--space-2)}
+.caf-hero__desc{color:rgba(255,255,255,.8);font-size:var(--text-base);line-height:1.55;margin:0 0 var(--space-6);max-width:46ch}
+.caf-stats{display:flex;flex-wrap:wrap;margin-bottom:var(--space-6);padding:var(--space-5) 0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.caf-stat{flex:1;min-width:140px;display:flex;flex-direction:column;gap:7px;padding:0 var(--space-5);border-left:1px solid rgba(255,255,255,.16)}
+.caf-stat:first-child{padding-left:0;border-left:none}
+.caf-stat svg{width:26px;height:26px;stroke:var(--color-accent);fill:none}
+.caf-stat b{font-family:var(--font-display);font-size:var(--text-lg);color:#fff;font-weight:800;line-height:1.15}
+.caf-stat span{font-size:11px;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.5px}
+.caf-hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap}
+
+.caf-eyebrow{display:block;color:var(--color-primary);font-size:var(--text-xs);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--space-2)}
+section.caf-section{padding-top:3.25rem;padding-bottom:3.25rem}
+.caf-section__head{margin-bottom:var(--space-8)}
+
+/* placeholder slot — swap for a real product image when supplied */
+.caf-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1.5px dashed var(--grey-3);border-radius:var(--radius-md);color:var(--text-tertiary);background:var(--bg-light)}
+.caf-ph svg{width:44px;height:44px;stroke:currentColor;fill:none;opacity:.55}
+.caf-ph span{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+
+/* OVERVIEW */
+.caf-ov{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--space-10);align-items:center}
+.caf-ov p{color:var(--text-secondary);margin:0 0 var(--space-3)}
+.caf-checks{display:flex;flex-direction:column;gap:var(--space-2);margin:var(--space-4) 0}
+.caf-check{display:flex;gap:10px;align-items:center;font-weight:600;font-size:var(--text-sm)}
+.caf-check svg{width:22px;height:22px;flex-shrink:0;stroke:#2f9e44;fill:none}
+.caf-ov-card{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);background:var(--bg-light);border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-6)}
+.caf-ov-tile{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-md);padding:var(--space-4);text-align:center}
+.caf-ov-tile__img{height:210px;display:flex;align-items:center;justify-content:center}
+.caf-ov-tile__img img{max-width:100%;max-height:210px;object-fit:contain}
+.caf-ov-tile b{display:block;font-size:var(--text-sm);margin-top:var(--space-3)}
+.caf-ov-tile span{font-size:12px;color:var(--text-tertiary)}
+
+/* FILTRATION PROCESS */
+.caf-flow{display:flex;align-items:flex-start;gap:var(--space-2)}
+.caf-flow__step{flex:1;text-align:center}
+.caf-flow__icon{width:84px;height:84px;margin:0 auto var(--space-3);border-radius:16px;background:#fff;border:1px solid var(--grey-2);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-subtle)}
+.caf-flow__icon svg{width:40px;height:40px;stroke:var(--color-primary);fill:none}
+.caf-flow__step h4{font-size:var(--text-sm);margin:0 0 4px}
+.caf-flow__step p{font-size:12px;color:var(--text-secondary);margin:0;line-height:1.5}
+.caf-flow__arrow{flex:0 0 24px;align-self:flex-start;margin-top:32px;color:var(--text-tertiary);font-size:22px;text-align:center}
+
+/* FILTER GRADES */
+.caf-grades{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-4)}
+.caf-grade{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column;text-align:center}
+.caf-grade__badge{font-size:14px;font-weight:800;letter-spacing:1px;color:#fff;padding:9px}
+.caf-grade__name{font-size:var(--text-sm);font-weight:700;margin:var(--space-3) var(--space-2) 0}
+.caf-grade__img{height:150px;margin:var(--space-3) var(--space-3) 0}
+.caf-grade__desc{font-size:12px;color:var(--text-secondary);padding:var(--space-3);margin:0;flex:1;line-height:1.5}
+.caf-grade__micron{font-family:var(--font-display);font-weight:800;font-size:13px;color:var(--color-primary);border-top:1px solid var(--grey-2);padding:var(--space-3)}
+.caf-grades-note{text-align:center;font-size:12px;color:var(--text-tertiary);margin-top:var(--space-5)}
+
+/* THREE COLUMNS */
+.caf-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6)}
+.caf-col{background:var(--bg-light);border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-6)}
+.caf-feat{display:flex;gap:10px;align-items:flex-start;font-size:var(--text-sm);margin-bottom:var(--space-3)}
+.caf-feat svg{width:20px;height:20px;flex-shrink:0;stroke:#2f9e44;fill:none;margin-top:2px}
+.caf-tech{display:flex;gap:var(--space-3);margin-bottom:var(--space-4)}
+.caf-tech svg{width:30px;height:30px;flex-shrink:0;stroke:var(--color-primary);fill:none}
+.caf-tech b{display:block;font-size:var(--text-sm);margin-bottom:2px}
+.caf-tech span{font-size:12px;color:var(--text-secondary);line-height:1.5}
+.caf-app{display:flex;gap:var(--space-3);align-items:center;margin-bottom:var(--space-4);font-size:var(--text-sm);font-weight:600}
+.caf-app:last-child{margin-bottom:0}
+.caf-app svg{width:28px;height:28px;flex-shrink:0;stroke:var(--color-primary);fill:none}
+
+/* STANDARDS */
+.caf-std{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:stretch}
+.caf-std-box{background:#fff;border:1px solid var(--grey-2);border-radius:var(--radius-lg);padding:var(--space-6)}
+.caf-std-iso{display:flex;gap:var(--space-5);align-items:center}
+.caf-iso-mark{flex:0 0 84px;height:84px;border-radius:50%;background:var(--color-primary);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.caf-iso-mark b{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:800}
+.caf-iso-mark span{font-size:9px;letter-spacing:1px;margin-top:3px}
+.caf-std-iso h3{margin:0 0 4px;font-size:var(--text-lg)}
+.caf-std-iso p{margin:0;font-size:13px;color:var(--text-secondary);line-height:1.5}
+.caf-classes{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);margin-top:var(--space-4)}
+.caf-class{text-align:center;padding:var(--space-4) var(--space-2);background:var(--bg-light);border:1px solid var(--grey-2);border-radius:var(--radius-md)}
+.caf-class span{display:block;font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.caf-class b{font-family:var(--font-display);font-size:var(--text-base);color:var(--color-primary);font-weight:800}
+
+/* CTA */
+.caf-cta{background:linear-gradient(135deg,#060097 0%,#0a0a40 100%);color:#fff}
+.caf-cta__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-10) var(--space-6);display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center}
+.caf-cta__badge{width:56px;height:56px;background:rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.caf-cta__badge svg{width:30px;height:30px;stroke:var(--color-accent);fill:none}
+.caf-cta__inner h2{color:#fff;margin:0 0 6px;font-size:var(--text-2xl)}
+.caf-cta__inner p{color:rgba(255,255,255,.8);margin:0;font-size:var(--text-sm)}
+
+/* TRUST STRIP */
+.caf-strip{background:var(--bg-light);border-top:1px solid var(--grey-2)}
+.caf-strip__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-6) var(--space-6);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+.caf-strip__item{display:flex;align-items:center;gap:var(--space-3);justify-content:center}
+.caf-strip__item svg{width:32px;height:32px;stroke:var(--color-primary);fill:none;flex-shrink:0}
+.caf-strip__item b{display:block;font-family:var(--font-display);font-size:var(--text-base);color:var(--color-primary);font-weight:800;line-height:1.1}
+.caf-strip__item span{display:block;font-size:11px;color:var(--text-secondary)}
+
+@media(max-width:1024px){
+  .caf-ov{grid-template-columns:1fr}
+  .caf-flow{flex-wrap:wrap;justify-content:center}
+  .caf-flow__step{flex:0 0 44%}
+  .caf-flow__arrow{display:none}
+  .caf-grades{grid-template-columns:repeat(3,1fr)}
+  .caf-cols{grid-template-columns:1fr}
+  .caf-std{grid-template-columns:1fr}
+  .caf-cta__inner{grid-template-columns:1fr;text-align:center}
+  .caf-cta__badge{margin:0 auto}
+  .caf-strip__inner{grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
+}
+@media(max-width:544px){
+  .caf-ov-card{grid-template-columns:1fr}
+  .caf-flow__step{flex:0 0 100%}
+  .caf-grades{grid-template-columns:1fr 1fr}
+  .caf-classes{grid-template-columns:1fr}
+}
+</style>
+
 <nav class="breadcrumb"><ul class="breadcrumb__list"><li><a href="index.html">Home</a></li><li class="breadcrumb__sep">&rsaquo;</li><li><a href="products.html">Products</a></li><li class="breadcrumb__sep">&rsaquo;</li><li class="breadcrumb__current" aria-current="page">Compressed Air Filters</li></ul></nav>
-  <section class="section" style="padding-top:var(--space-8)">
-    <div class="container">
-      <div class="grid grid--2" style="gap:var(--space-12);align-items:center">
-        <div class="animate-on-scroll">
-          <span class="badge badge--industry" style="margin-bottom:var(--space-4)">Compressed Air Treatment</span>
-          <span class="badge badge--cert" style="margin-bottom:var(--space-4)">ISO 8573-1: 2010</span><h1 style="font-size:var(--text-7xl)">Compressed Air Filters</h1>
-          <p style="color:var(--text-secondary);font-size:var(--text-xl);max-width:48ch">Microfilters for solid, liquid, aerosol, mist and gas removal. Five series from 25 µm to 0.01 µm.</p>
-          <div style="display:flex;gap:var(--space-6);margin:var(--space-6) 0;flex-wrap:wrap"><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">SS 316 mesh, up to 25 µm</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">PPF - Primary Pre Filter</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Cellulose acetate, up to 3 µm</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">PF - Pre Filter</span></div><div><strong style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)">Borosilicate glass fibre, 0.1 µm</strong><br><span style="font-size:var(--text-sm);color:var(--text-tertiary)">AF - After Filter</span></div></div>
-          <div class="flex gap-4" style="flex-wrap:wrap;margin-top:var(--space-6)">
-            <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote</a>
-            <a href="#specs" class="btn btn--secondary">View Specifications</a>
-          </div>
+
+<!-- HERO -->
+<section class="caf-hero">
+  <div class="caf-hero__bg"></div>
+  <div class="caf-hero__inner">
+    <div class="caf-hero__text animate-on-scroll">
+      <div class="caf-badges">
+        <span class="caf-badge caf-badge--p">Compressed Air Treatment</span>
+        <span class="caf-badge caf-badge--c">ISO 8573-1: 2010</span>
+      </div>
+      <h1>Compressed Air Filters</h1>
+      <p class="caf-hero__tag">High-efficiency filtration for particles, oil, and aerosols</p>
+      <p class="caf-hero__desc">Designed to meet ISO 8573-1 air quality standards across industrial applications.</p>
+      <div class="caf-stats">
+        <div class="caf-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg>
+          <b>0.01 micron</b><span>Filtration down to</span>
         </div>
-        <div class="animate-on-scroll" style="background:var(--grey-1);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
-          <img src="images/products/Elements_PFFFCF_1-r9r150tzg7aedje8aem3625p0daamrixg7v5ysqlzs.webp" alt="SANPAR Compressed Air Filters" style="width:100%;max-height:420px;object-fit:contain" loading="lazy">
+        <div class="caf-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+          <b>0.003 mg/m&sup3;</b><span>Residual oil content</span>
+        </div>
+        <div class="caf-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5M3 16l9 5 9-5"/></svg>
+          <b>5-Stage Filtration</b><span>PPF / PF / AF / FF / AC</span>
+        </div>
+        <div class="caf-stat">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <b>Wide Range</b><span>Sizes &amp; configurations</span>
+        </div>
+      </div>
+      <div class="caf-hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+        <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">Download Brochure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section caf-section">
+  <div class="container">
+    <div class="caf-ov">
+      <div class="animate-on-scroll">
+        <span class="caf-eyebrow">Overview</span>
+        <h2>Engineered for Clean, Reliable, Efficient Air</h2>
+        <p>SANPAR compressed air filters are designed to remove dust, liquid, oil aerosols, and vapors from compressed air systems.</p>
+        <p>Built on a low pressure drop, high dirt-holding design philosophy, these filters ensure:</p>
+        <div class="caf-checks">
+          <div class="caf-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Energy-efficient operation</div>
+          <div class="caf-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Long element life</div>
+          <div class="caf-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Consistent air quality</div>
+        </div>
+        <p>Housed in aluminium die-cast or carbon steel, they are suitable for demanding industrial environments.</p>
+      </div>
+      <div class="caf-ov-card animate-on-scroll">
+        <div class="caf-ov-tile">
+          <div class="caf-ov-tile__img">
+            <img src="images/products/frontpage/filter-aluminium-diecast.webp" alt="SANPAR aluminium die-cast compressed air filter housing" loading="lazy">
+          </div>
+          <b>Aluminium Die-Cast</b>
+          <span>Lightweight &amp; Corrosion Resistant</span>
+        </div>
+        <div class="caf-ov-tile">
+          <div class="caf-ov-tile__img">
+            <img src="images/products/frontpage/filter-carbon-steel.webp" alt="SANPAR carbon steel compressed air filter housing" loading="lazy">
+          </div>
+          <b>Carbon Steel</b>
+          <span>Robust for Heavy Duty Applications</span>
         </div>
       </div>
     </div>
-  </section>
-  <section class="section section--light">
-    <div class="container container--narrow"><div class="animate-on-scroll"><h2>Overview</h2><p>SANPAR is one of the leading organisations manufacturing microfilters for critical applications including painting, instrumentation, pneumatics, and textiles.</p><p>The design philosophy is low flow, long life rather than high flow, short life - in accordance with energy conservation in compressed air treatment. Cylindrical elements housed in aluminium die-cast or carbon steel housings.</p></div></div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Key Features</span><h2>Salient Features</h2></div>
-      <div class="grid grid--3"><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Five filter series (PPF/PF/AF/FF/AC)</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>ISO 8573-1: 2010</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Aluminium or carbon steel housings</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Differential pressure gauge included</h4></div><div class="animate-on-scroll" style="padding:var(--space-6);background:var(--bg-light);border-radius:var(--radius-md)"><h4>Zero-loss drain options</h4></div></div>
+  </div>
+</section>
+
+<!-- FILTRATION PROCESS -->
+<section class="section section--light caf-section">
+  <div class="container">
+    <div class="caf-section__head animate-on-scroll">
+      <span class="caf-eyebrow">How It Works</span>
+      <h2>Filtration Process</h2>
+      <p style="color:var(--text-secondary);max-width:54ch">Compressed air passes through multi-stage filtration, removing contaminants step by step.</p>
     </div>
-  </section>
-  <section class="section section--light" id="specs">
-    <div class="container">
-      <div class="text-center animate-on-scroll" style="margin-bottom:var(--space-10)"><span class="label">Technical Data</span><h2>Specifications</h2></div>
-      <div class="spec-table-wrapper animate-on-scroll"><table class="spec-table"><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>PPF - Primary Pre Filter</td><td>SS 316 mesh, up to 25 µm</td></tr><tr><td>PF - Pre Filter</td><td>Cellulose acetate, up to 3 µm</td></tr><tr><td>AF - After Filter</td><td>Borosilicate glass fibre, 0.1 µm</td></tr><tr><td>FF - Final Filter</td><td>Borosilicate glass fibre, 0.01 µm</td></tr><tr><td>AC - Activated Carbon</td><td>Oil vapour to 0.003 mg/m3</td></tr><tr><td>Standard</td><td>ISO 8573-1: 2010</td></tr></tbody></table></div>
+    <div class="caf-flow animate-on-scroll">
+      <div class="caf-flow__step">
+        <div class="caf-flow__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2"/><circle cx="14" cy="5" r="1.5"/><circle cx="18" cy="10" r="2"/><circle cx="9" cy="13" r="1.5"/><path d="M4 19s3-2 8-2 8 2 8 2"/></svg></div>
+        <h4>Bulk Particles &amp; Liquids</h4>
+        <p>Removed first</p>
+      </div>
+      <div class="caf-flow__arrow">&rarr;</div>
+      <div class="caf-flow__step">
+        <div class="caf-flow__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v4l5 5v7l4-2v-5l5-5V4z"/></svg></div>
+        <h4>Fine Particles &amp; Oil Aerosols</h4>
+        <p>Captured using microfilter media</p>
+      </div>
+      <div class="caf-flow__arrow">&rarr;</div>
+      <div class="caf-flow__step">
+        <div class="caf-flow__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h6"/></svg></div>
+        <h4>Oil Vapour &amp; Odor</h4>
+        <p>Removed using activated carbon</p>
+      </div>
+      <div class="caf-flow__arrow">&rarr;</div>
+      <div class="caf-flow__step">
+        <div class="caf-flow__icon"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c3-3 6 3 9 0s6-3 9 0M3 14c3-3 6 3 9 0s6-3 9 0"/></svg></div>
+        <h4>Clean, Dry, Oil-Free Air</h4>
+        <p>Tailored to your application</p>
+      </div>
     </div>
-  </section>
-  <section class="section section--dark" style="text-align:center">
-    <div class="container container--narrow animate-on-scroll">
-      <h2 style="color:var(--text-inverse)">Need a Custom Configuration?</h2>
-      <p style="color:rgba(255,255,255,0.85);margin:0 auto var(--space-8)">Our engineering team can design a system tailored to your specific requirements.</p>
-      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote</a>
+  </div>
+</section>
+
+<!-- FILTER GRADES & PERFORMANCE -->
+<section class="section caf-section">
+  <div class="container">
+    <div class="caf-section__head animate-on-scroll">
+      <span class="caf-eyebrow">Filter Grades &amp; Performance</span>
+      <h2>Five Filter Series</h2>
     </div>
-  </section>
+    <div class="caf-grades animate-on-scroll">
+      <!-- PPF -->
+      <div class="caf-grade">
+        <div class="caf-grade__badge" style="background:#1f6fd6">PPF</div>
+        <div class="caf-grade__name">Primary Filter</div>
+        <div class="caf-grade__img">
+          <img src="images/products/frontpage/filter-ppf.webp" alt="SANPAR PPF primary filter element" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <p class="caf-grade__desc">Removes bulk particles &amp; liquid</p>
+        <div class="caf-grade__micron">Up to 25 micron</div>
+      </div>
+      <!-- PF -->
+      <div class="caf-grade">
+        <div class="caf-grade__badge" style="background:#2f9e44">PF</div>
+        <div class="caf-grade__name">Pre Filter</div>
+        <div class="caf-grade__img">
+          <img src="images/products/frontpage/filter-pf.webp" alt="SANPAR PF pre filter element" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <p class="caf-grade__desc">Removes finer particles</p>
+        <div class="caf-grade__micron">Up to 3 micron</div>
+      </div>
+      <!-- AF -->
+      <div class="caf-grade">
+        <div class="caf-grade__badge" style="background:#f0a020">AF</div>
+        <div class="caf-grade__name">After Filter</div>
+        <div class="caf-grade__img">
+          <img src="images/products/frontpage/filter-af.webp" alt="SANPAR AF after filter element" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <p class="caf-grade__desc">Removes oil aerosols</p>
+        <div class="caf-grade__micron">Up to 0.1 micron</div>
+      </div>
+      <!-- FF -->
+      <div class="caf-grade">
+        <div class="caf-grade__badge" style="background:#e03131">FF</div>
+        <div class="caf-grade__name">Fine Filter</div>
+        <div class="caf-grade__img">
+          <img src="images/products/frontpage/filter-ff.webp" alt="SANPAR FF fine filter element" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <p class="caf-grade__desc">High-efficiency filtration</p>
+        <div class="caf-grade__micron">Up to 0.01 micron</div>
+      </div>
+      <!-- AC -->
+      <div class="caf-grade">
+        <div class="caf-grade__badge" style="background:#2b2b2b">AC</div>
+        <div class="caf-grade__name">Activated Carbon</div>
+        <div class="caf-grade__img">
+          <img src="images/products/frontpage/element-1024x720.webp" alt="SANPAR activated carbon filter element" style="width:100%;height:100%;object-fit:contain" loading="lazy">
+        </div>
+        <p class="caf-grade__desc">Removes oil vapour &amp; odor</p>
+        <div class="caf-grade__micron">Ultra-clean air</div>
+      </div>
+    </div>
+    <p class="caf-grades-note">Performance tested in accordance with ISO 8573-1:2010</p>
+  </div>
+</section>
+
+<!-- FEATURES / TECHNOLOGY / APPLICATIONS -->
+<section class="section section--light caf-section">
+  <div class="container">
+    <div class="caf-cols">
+      <div class="caf-col animate-on-scroll">
+        <span class="caf-eyebrow">Salient Features</span>
+        <div style="margin-top:var(--space-4)">
+          <div class="caf-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>5-stage filtration system (PPF / PF / AF / FF / AC)</div>
+          <div class="caf-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Designed as per ISO 8573-1:2010</div>
+          <div class="caf-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Low pressure drop for energy savings</div>
+          <div class="caf-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>High dirt holding capacity &rarr; longer service life</div>
+          <div class="caf-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Aluminium or carbon steel housings</div>
+          <div class="caf-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Differential pressure gauge for monitoring</div>
+          <div class="caf-feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Zero-loss drain options available</div>
+        </div>
+      </div>
+      <div class="caf-col animate-on-scroll">
+        <span class="caf-eyebrow">Core Technology</span>
+        <div style="margin-top:var(--space-4)">
+          <div class="caf-tech">
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            <div><b>Borosilicate Glass Fibre Media</b><span>High void volume &rarr; high dirt holding with low pressure drop</span></div>
+          </div>
+          <div class="caf-tech">
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16M8 4v16M12 4v16M16 4v16M20 4v16"/></svg>
+            <div><b>Pleated Element Design</b><span>Increased surface area &rarr; better filtration efficiency &amp; longer life</span></div>
+          </div>
+          <div class="caf-tech">
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c4 0 4-3 8-3M3 13c5 0 5-3 10-3M3 17c6 0 6-3 12-3"/><circle cx="18" cy="6" r="2"/><circle cx="19" cy="11" r="2"/><circle cx="17" cy="15" r="2"/></svg>
+            <div><b>Aerodynamic Housing Design</b><span>Optimized flow &rarr; reduced pressure loss</span></div>
+          </div>
+          <div class="caf-tech" style="margin-bottom:0">
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><b>Smart Monitoring</b><span>Differential pressure indication ensures timely maintenance</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caf-col animate-on-scroll">
+        <span class="caf-eyebrow">Applications</span>
+        <div style="margin-top:var(--space-4)">
+          <div class="caf-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l5-3 5 3v13M13 21v-7l4-2 4 2v7M3 21h18M6 11h2M6 15h2"/></svg>General Engineering &amp; Pneumatics</div>
+          <div class="caf-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5h11L19 16M3 16h18v3H3zM6 19v2M18 19v2"/></svg>Automotive &amp; Paint Shops</div>
+          <div class="caf-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3z"/></svg>Pharmaceuticals &amp; Food Processing</div>
+          <div class="caf-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg>CNC Machines &amp; Instrumentation</div>
+          <div class="caf-app"><svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/></svg>Electronics &amp; Precision Manufacturing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEETS INTERNATIONAL STANDARDS -->
+<section class="section caf-section">
+  <div class="container">
+    <div class="caf-std">
+      <div class="caf-std-box animate-on-scroll">
+        <div class="caf-std-iso">
+          <div class="caf-iso-mark"><b>ISO</b><span>STANDARD</span></div>
+          <div>
+            <h3>8573-1:2010</h3>
+            <p>Engineered to meet ISO 8573-1:2010 air quality classes for particle, oil and moisture.</p>
+          </div>
+        </div>
+      </div>
+      <div class="caf-std-box animate-on-scroll">
+        <span class="caf-eyebrow">Air Quality Classes Supported</span>
+        <div class="caf-classes">
+          <div class="caf-class"><span>Particles</span><b>Class 1 &ndash; 7</b></div>
+          <div class="caf-class"><span>Oil Content</span><b>Class 1 &ndash; 4</b></div>
+          <div class="caf-class"><span>Moisture</span><b>Class 1 &ndash; 6</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="caf-cta">
+  <div class="caf-cta__inner animate-on-scroll">
+    <div class="caf-cta__badge"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+    <div>
+      <h2>Need a Custom Filtration Solution?</h2>
+      <p>Our experts will help you select the right filter grade, size, and configuration for your application.</p>
+    </div>
+    <div style="display:flex;gap:var(--space-3);flex-wrap:wrap">
+      <a href="contact.html" class="btn btn--light btn--lg">Request a Quote <span class="arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,.55);color:#fff">Talk to an Engineer</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="caf-strip">
+  <div class="caf-strip__inner animate-on-scroll">
+    <div class="caf-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1.5 7L12 19l4.5 3L15 15"/></svg>
+      <div><b>ISO 9001:2015</b><span>Certified Company</span></div>
+    </div>
+    <div class="caf-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><b>30+ Years</b><span>Of Experience</span></div>
+    </div>
+    <div class="caf-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+      <div><b>3500+</b><span>Installations</span></div>
+    </div>
+    <div class="caf-strip__item">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11zM9 21v-7h6v7"/></svg>
+      <div><b>Made in India</b><span>For Indian Industries</span></div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- Trust Bar (F2) -->
@@ -303,7 +674,7 @@
 <div class="footer__col"><h4>SANPAR Industries</h4><p>India's leading manufacturer of compressed air dryers, industrial chillers, and aerospace cooling systems. ISO 9001:2015 and AS 9100D certified. Trusted by 3,000+ customers across 10 industries since 1994.</p>
 <div class="footer__social"><a href="https://www.linkedin.com/company/sanpar-industries" rel="noopener" aria-label="LinkedIn">in</a><a href="https://www.youtube.com/channel/UCtD9fjNAP-VTtvyApCV8juw" rel="noopener" aria-label="YouTube">&#9654;</a><a href="https://www.facebook.com/sanparindustries/" rel="noopener" aria-label="Facebook">f</a><a href="https://x.com/SANPARindia" rel="noopener" aria-label="Twitter/X">&#120143;</a><a href="https://www.instagram.com/sanparindustries/" rel="noopener" aria-label="Instagram">&#9737;</a><a href="https://www.pinterest.com/sanparindustries/" rel="noopener" aria-label="Pinterest">&#9883;</a></div>
 <p style="margin-top:var(--space-4);font-size:var(--text-xs)">+91 7349 142 424 | Landline: +91 80 4343 5959<br>sales@sanpar.com</p></div>
-<div class="footer__col"><h4>Products</h4><ul class="footer__links"><li><a href="/products" data-spa>Compressed Air Treatment</a></li><li><a href="/products" data-spa>Industrial Cooling Systems</a></li><li><a href="/products" data-spa>Air Conditioning Systems</a></li><li><a href="/products" data-spa>Medical Air Dryers</a></li></ul>
+<div class="footer__col"><h4>Products</h4><ul class="footer__links"><li><a href="/products" data-spa>Compressed Air Treatment</a></li><li><a href="/products" data-spa>Industrial Cooling Systems</a></li><li><a href="/products" data-spa>Industrial Air Conditioning</a></li></ul>
 <h4 style="margin-top:var(--space-6)">Quick Links</h4><ul class="footer__links"><li><a href="/" data-spa>Home</a></li><li><a href="/who-we-are" data-spa>Who We Are</a></li><li><a href="/industries" data-spa>Industries</a></li><li><a href="/support" data-spa>Support</a></li><li><a href="/contact" data-spa>Contact Us</a></li></ul></div>
 <div class="footer__col"><h4>Company</h4><ul class="footer__links"><li><a href="/who-we-are" data-spa>About Us</a></li><li><a href="/success-stories" data-spa>Success Stories</a></li><li><a href="/work-with-us" data-spa>Careers</a></li><li><a href="/news" data-spa>News &amp; Events</a></li><li><a href="/blogs" data-spa>Blogs</a></li><li><a href="/technology" data-spa>Technology</a></li><li><a href="/job-openings" data-spa>Job Openings</a></li><li><a href="/support" data-spa>Support &amp; Services</a></li></ul></div>
 <div class="footer__col"><h4>Contact</h4><ul class="footer__links"><li><a href="tel:+917349142424">+91 7349 142 424</a></li><li><a href="tel:+918043435959">Landline: +91 80 4343 5959</a></li><li><a href="mailto:sales@sanpar.com">sales@sanpar.com</a></li></ul>
