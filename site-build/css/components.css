@@ -26,7 +26,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 64px;
+  height: 100px;
   background: var(--bg-white);
   border-bottom: 1px solid var(--grey-3);
   z-index: var(--z-sticky);
@@ -67,7 +67,7 @@
   display: block;
   flex-shrink: 0;
 }
-.header__logo__emblem { height: 60px; }
+.header__logo__emblem { height: 84px; }
 .header__logo__wordmark { height: 34px; }
 
 .header__nav {
@@ -420,7 +420,7 @@
   align-items: center;
   background: var(--bg-dark);
   overflow: hidden;
-  padding-top: 64px;
+  padding-top: 100px;
 }
 
 .hero__bg {
@@ -711,7 +711,7 @@ video.hero__video {
   background: linear-gradient(135deg, #060097 0%, #1a0a4e 40%, #0a0040 70%, #060097 100%);
   background-size: 300% 300%;
   animation: heroGradient 12s ease infinite;
-  padding: calc(64px + var(--space-16)) var(--space-6) var(--space-12);
+  padding: calc(100px + var(--space-16)) var(--space-6) var(--space-12);
   position: relative;
   overflow: hidden;
 }
@@ -1344,12 +1344,12 @@ video.hero__video {
 
 /* Page content wrapper */
 main {
-  margin-top: 64px;
+  margin-top: 100px;
 }
 
 /* Hero as first child of main cancels the main margin since hero handles its own offset */
 main > .hero:first-child {
-  margin-top: -64px;
+  margin-top: -100px;
 }
 
 /* --- Road Map Journey --- */
