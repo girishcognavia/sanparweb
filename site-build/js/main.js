@@ -104,8 +104,28 @@ function initCounters() {
   counters.forEach(el => observer.observe(el));
 }
 
+/* --- Mega-menu: close after a link is clicked (until mouse leaves) --- */
+function initMegaMenuClose() {
+  document.querySelectorAll('.mega-menu__link').forEach(link => {
+    if (link.dataset.closeBound) return;
+    link.dataset.closeBound = '1';
+    link.addEventListener('click', () => {
+      const dropdown = link.closest('.header__dropdown');
+      if (!dropdown) return;
+      dropdown.classList.add('header__dropdown--closed');
+      const reset = () => {
+        dropdown.classList.remove('header__dropdown--closed');
+        dropdown.removeEventListener('mouseleave', reset);
+      };
+      dropdown.addEventListener('mouseleave', reset);
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', initMegaMenuClose);
+
 /* --- SPA reinit hook (called by router after each navigation) --- */
 window.reinitPage = function () {
   initScrollAnimations();
   initCounters();
+  initMegaMenuClose();
 };

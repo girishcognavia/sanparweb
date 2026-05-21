@@ -69,7 +69,6 @@
 }
 
 /* Dark navy chevron section housing the white emblem — extends to viewport left edge */
-.header { overflow: hidden; }
 .header__logo__mark {
   background: linear-gradient(135deg, #0a1640 0%, #0c1c3c 55%, #122752 100%);
   display: flex;
@@ -206,6 +205,14 @@
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+}
+
+/* After a link is clicked, force the mega menu hidden until mouse leaves */
+.header__dropdown--closed .header__mega-menu,
+.header__dropdown:hover.header__dropdown--closed .header__mega-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(8px);
 }
 
 .mega-menu__category {
