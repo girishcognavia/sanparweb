@@ -68,18 +68,13 @@
   flex-shrink: 0;
 }
 
-/* Dark navy chevron section housing the white emblem — extends to viewport left edge */
+/* Logo emblem container (plain, no chevron) */
 .header__logo__mark {
-  background: linear-gradient(135deg, #0a1640 0%, #0c1c3c 55%, #122752 100%);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 6px 46px 6px 50vw;
-  margin-left: -50vw;
-  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%);
   flex-shrink: 0;
 }
-.header__logo__emblem { height: 78px; }
+.header__logo__emblem { height: 84px; }
 
 .header__logo__text {
   display: flex;
@@ -89,8 +84,8 @@
   gap: 4px;
   margin-left: 18px;
 }
-.header__logo__wordmark { height: 30px; }
-.header__logo__sub { height: 26px; margin-left: 10px; }
+.header__logo__wordmark { height: 32px; width: auto; }
+.header__logo__sub { height: 50px; width: auto; margin-left: 10px; }
 
 /* Bottom accent strip — red on left, dark navy on right */
 .header { border-bottom: none; }
