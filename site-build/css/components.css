@@ -49,26 +49,62 @@
 
 .header__logo {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  align-self: stretch;
+  height: 100%;
   text-decoration: none;
   flex-shrink: 0;
+  gap: 0;
 }
 
 .header__logo:hover {
-  opacity: 0.85;
+  opacity: 0.92;
 }
 
-.header__logo {
-  gap: 14px;
-}
 .header__logo img {
   width: auto;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
 }
-.header__logo__emblem { height: 84px; }
-.header__logo__wordmark { height: 34px; }
+
+/* Dark navy chevron section housing the white emblem — extends to viewport left edge */
+.header { overflow: hidden; }
+.header__logo__mark {
+  background: linear-gradient(135deg, #0a1640 0%, #0c1c3c 55%, #122752 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 6px 46px 6px 50vw;
+  margin-left: -50vw;
+  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%);
+  flex-shrink: 0;
+}
+.header__logo__emblem { height: 78px; }
+
+.header__logo__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  margin-left: 18px;
+}
+.header__logo__wordmark { height: 30px; }
+.header__logo__sub { height: 26px; margin-left: 10px; }
+
+/* Bottom accent strip — red on left, dark navy on right */
+.header { border-bottom: none; }
+.header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #d11e1e 0% 22%, #16a1b8 22% 100%);
+  pointer-events: none;
+}
 
 .header__nav {
   display: flex;
