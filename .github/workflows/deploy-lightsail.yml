@@ -29,15 +29,19 @@ jobs:
           username: ubuntu
           key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
           script: |
-            # --- Preserve admin-managed content across deploys ---
-            # The CMS admin writes to /var/www/html/data/products.json and uploads
-            # images to /var/www/html/images/products-cms/. These are NOT in git —
-            # they're the runtime state edited via the admin UI. We back them up
-            # before wiping the web root and restore them after the fresh deploy.
+            # --- Preserve runtime-only content across deploys ---
+            # Two things are pure runtime state and NOT in git, so they must
+            # survive a deploy:
+            #   - images/products-cms/  : images uploaded via the admin UI
+            #   - data/backups/         : timestamped products.json backups the
+            #                             CMS writes on every Save
+            # data/products.json IS tracked in git and is the source of truth,
+            # so it is deployed fresh from the repo each time. (Admin edits made
+            # in the CMS should be committed back to git to persist.)
             sudo rm -rf /tmp/sanpar-preserve
             sudo mkdir -p /tmp/sanpar-preserve
-            if [ -d /var/www/html/data ]; then
-              sudo cp -r /var/www/html/data /tmp/sanpar-preserve/data
+            if [ -d /var/www/html/data/backups ]; then
+              sudo cp -r /var/www/html/data/backups /tmp/sanpar-preserve/backups
             fi
             if [ -d /var/www/html/images/products-cms ]; then
               sudo cp -r /var/www/html/images/products-cms /tmp/sanpar-preserve/products-cms
@@ -47,13 +51,11 @@ jobs:
             sudo rm -rf /var/www/html/*
             sudo cp -r /tmp/sanpar-deploy/* /var/www/html/
 
-            # Restore admin-managed content. If the server already had a data
-            # directory with admin edits, those edits win over the deploy's
-            # version. On a first-ever deploy (nothing to preserve), the
-            # deploy's data/products.json seeds the initial state.
-            if [ -d /tmp/sanpar-preserve/data ]; then
-              sudo rm -rf /var/www/html/data
-              sudo cp -r /tmp/sanpar-preserve/data /var/www/html/data
+            # Restore runtime-only content into the freshly deployed tree.
+            # products.json is intentionally NOT restored — the repo version wins.
+            if [ -d /tmp/sanpar-preserve/backups ]; then
+              sudo mkdir -p /var/www/html/data
+              sudo cp -r /tmp/sanpar-preserve/backups /var/www/html/data/backups
             fi
             if [ -d /tmp/sanpar-preserve/products-cms ]; then
               sudo mkdir -p /var/www/html/images/products-cms

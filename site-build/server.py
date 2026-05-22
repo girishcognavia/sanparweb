@@ -11,8 +11,8 @@ class SPAHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
-    STATIC_PREFIXES = ('/css/', '/js/', '/images/', '/pages/')
-    STATIC_FILES = ('spa.html', 'favicon.ico', 'robots.txt')
+    STATIC_PREFIXES = ('/css/', '/js/', '/images/', '/pages/', '/admin/', '/data/')
+    STATIC_FILES = ('spa.html', 'favicon.ico', 'robots.txt', 'admin')
 
     def end_headers(self):
         self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
