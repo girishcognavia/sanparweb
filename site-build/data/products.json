@@ -6,7 +6,7 @@
       "name": "Xeros Series",
       "category": "Compressed Air Treatment",
       "description": "High-capacity refrigerated air dryers engineered for tropical climates. 85 to 10,000 CFM. 3 to 16 bar g. Open and closed-loop. R407C eco-friendly refrigerant. India's widest range from a single manufacturer.",
-      "image": "images/products/Xeros-Internal-2-1024x720.webp",
+      "image": "images/products/frontpage/Xeros-Internal-2-1024x720.webp",
       "url": "product-xeros.html",
       "features": [
         "85 to 10,000 CFM",
@@ -111,7 +111,7 @@
       "name": "Water Chillers",
       "category": "Industrial Cooling",
       "description": "CFC-free process chillers from 0.5TR to 100TR. PLC-controlled with digital temperature display. Air-cooled and water-cooled variants. Designed for 24/7 industrial operation.",
-      "image": "images/products/Water-chiller.webp",
+      "image": "images/products/frontpage/cutout/Water-chiller.webp",
       "url": "product-water-chillers.html",
       "features": [
         "0.5TR to 100TR capacity",
@@ -126,7 +126,7 @@
       "name": "Air Chillers",
       "category": "Industrial Cooling",
       "description": "Precision forced-air chillers delivering constant-temperature coolant for process-critical applications. 5 to 10,000 CFM. Ideal for defence ground testing, electronics cooling, and industrial HVAC.",
-      "image": "images/products/Product-2-768x540.webp",
+      "image": "images/products/frontpage/cutout/Product-2-768x540.webp",
       "url": "product-air-chillers.html",
       "features": [
         "5 to 10,000 CFM",
@@ -141,7 +141,7 @@
       "name": "Coolant Chillers",
       "category": "Industrial Cooling",
       "description": "Purpose-built for CNC machining centres, grinding operations, and EDM equipment. Maintains cutting fluid temperature within tight tolerances — extending tool life and reducing reject rates. CFC-free.",
-      "image": "images/products/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
+      "image": "images/products/frontpage/cutout/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
       "url": "product-coolant-chillers.html",
       "features": [
         "CNC / EDM compatible",
@@ -156,7 +156,7 @@
       "name": "Oil Chillers",
       "category": "Industrial Cooling",
       "description": "Precision oil temperature control for hydraulic systems, grinding operations, and CNC machining centres. CFC-free, custom-designed, and available integrated with water chiller systems. First developed in 2004.",
-      "image": "images/products/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
+      "image": "images/products/frontpage/cutout/Coolant-r7tjpt18f39ncz2v6qca7bxqwgmxkljyz1x9lqko80.webp",
       "url": "product-oil-chillers.html",
       "features": [
         "Hydraulic oil cooling",
@@ -171,7 +171,7 @@
       "name": "Dehumidifier — Xerion Series",
       "category": "Air Conditioning",
       "description": "Industrial dehumidification for spaces where moisture means defects. ±5% RH accuracy in continuous 24/7 operation — protecting stored materials, preventing corrosion, and maintaining quality.",
-      "image": "images/products/SMPL_IAC_DH-r9r15xqcc6apzhp6u309ijmi0bmguisof3m6zrh9y8.webp",
+      "image": "images/products/frontpage/cutout/dehumidifier-cutout.webp",
       "url": "product-dehumidifier.html",
       "features": [
         "±5% RH precision",
