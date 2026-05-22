@@ -195,3 +195,58 @@ jobs:
               sudo nginx -t && sudo systemctl reload nginx
               exit 1
             fi
+
+      - name: Ensure CMS API reverse-proxy (/admin/api/)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.LIGHTSAIL_HOST }}
+          username: ubuntu
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          script: |
+            set -e
+            BACKUP_DIR=/var/backups/nginx
+            sudo mkdir -p "$BACKUP_DIR"
+
+            # Find the active sanpar config (skip .bak files)
+            CONF=$(sudo grep -l "/var/www/html" /etc/nginx/sites-enabled/* 2>/dev/null | grep -v '\.bak' | head -1)
+            [ -z "$CONF" ] && CONF=$(sudo grep -l "sanpar" /etc/nginx/sites-enabled/* 2>/dev/null | grep -v '\.bak' | head -1)
+            [ -z "$CONF" ] && CONF=/etc/nginx/sites-enabled/default
+            echo "Using nginx config: $CONF"
+
+            # Idempotent — skip if the CMS API proxy block is already present
+            if sudo grep -q "location /admin/api/" "$CONF"; then
+              echo "CMS API proxy block already present — skipping"
+              sudo nginx -t && sudo systemctl reload nginx
+              exit 0
+            fi
+
+            BACKUP_FILE="$BACKUP_DIR/$(basename "$CONF").bak-cmsapi-$(date +%Y%m%d-%H%M%S)"
+            sudo cp "$CONF" "$BACKUP_FILE"
+            echo "Backed up to $BACKUP_FILE"
+
+            # The reverse-proxy block: routes /admin/api/* to the local Node CMS
+            BLOCK='    # SANPAR CMS API - reverse-proxy to local Node.js service\n    location /admin/api/ {\n        auth_basic "SANPAR Admin";\n        auth_basic_user_file /etc/nginx/.htpasswd;\n        proxy_pass http://127.0.0.1:3001/;\n        proxy_http_version 1.1;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header X-Forwarded-Proto $scheme;\n        client_max_body_size 60M;\n        proxy_read_timeout 60s;\n    }\n'
+
+            # Insert before the first "location /admin" block; fall back to
+            # inserting before the server block's closing brace.
+            if sudo grep -qE '^[[:space:]]*location[[:space:]]+/admin\b' "$BACKUP_FILE"; then
+              sudo awk -v b="$BLOCK" '!d && /^[[:space:]]*location[[:space:]]+\/admin\b/ { printf("%s", b); d=1 } { print }' "$BACKUP_FILE" | sudo tee "$CONF" > /dev/null
+            else
+              sudo awk -v b="$BLOCK" 'BEGIN{d=0;depth=0} /^[[:space:]]*server[[:space:]]*\{/{s=1} s&&/\{/{depth++} s&&/\}/{depth--; if(depth==0&&!d){printf("%s",b);d=1}} {print}' "$BACKUP_FILE" | sudo tee "$CONF" > /dev/null
+            fi
+
+            if ! sudo grep -q "location /admin/api/" "$CONF"; then
+              sudo cp "$BACKUP_FILE" "$CONF"
+              echo "ERROR: could not insert CMS API block — reverted"
+              exit 1
+            fi
+
+            if sudo nginx -t; then
+              sudo systemctl reload nginx
+              echo "CMS API proxy block added and nginx reloaded"
+            else
+              sudo cp "$BACKUP_FILE" "$CONF"
+              echo "ERROR: nginx test failed — config reverted from $BACKUP_FILE"
+              sudo nginx -t && sudo systemctl reload nginx
+              exit 1
+            fi
