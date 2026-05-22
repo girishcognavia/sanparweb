@@ -6,7 +6,7 @@
       "name": "Xeros Series",
       "category": "Compressed Air Treatment",
       "description": "High-capacity refrigerated air dryers engineered for tropical climates. 85 to 10,000 CFM. 3 to 16 bar g. Open and closed-loop. R407C eco-friendly refrigerant. India's widest range from a single manufacturer.",
-      "image": "images/products/frontpage/Xeros-Internal-2-1024x720.webp",
+      "image": "images/products/frontpage/cutout/Xeros-Cutout.png",
       "url": "product-xeros.html",
       "features": [
         "85 to 10,000 CFM",
@@ -22,7 +22,7 @@
       "name": "Ecodrair Series",
       "category": "Compressed Air Treatment",
       "description": "Compact tube-in-tube refrigerated dryers for space-constrained installations. 5 to 180 CFM. Energy-efficient with lowest operating cost in its class. Ideal for workshop, laboratory, and small-plant applications.",
-      "image": "images/products/CAT_D1-5A-cutout-1024x720.webp",
+      "image": "images/products/frontpage/cutout/Ecodrain-Cutout.png",
       "url": "product-ecodrair.html",
       "features": [
         "5 to 180 CFM",
@@ -37,7 +37,7 @@
       "name": "Adsorption Dryers",
       "category": "Compressed Air Treatment",
       "description": "When refrigerated drying isn't enough. Dew points down to -70°C — essential for pharmaceutical, food-grade, and critical pneumatic applications. Heatless, heated-with-blower, and HOC configurations.",
-      "image": "images/products/Product-6-1024x720.webp",
+      "image": "images/products/frontpage/cutout/adsorption-dryer-cutout.webp",
       "url": "product-adsorption.html",
       "features": [
         "Down to -70°C dew point",
@@ -52,7 +52,7 @@
       "name": "Compressed Air Filters",
       "category": "Compressed Air Treatment",
       "description": "Five-stage filtration from 25μm pre-filtration to 0.01μm final polishing. Achieve ISO 8573.1 Class 1 air quality — the highest international standard. Every filter pressure-tested before dispatch.",
-      "image": "images/products/Elements_PFFFCF_1-r9r150tzg7aedje8aem3625p0daamrixg7v5ysqlzs.webp",
+      "image": "images/products/frontpage/cutout/compressed-airfilter-cutout.png",
       "url": "product-filters.html",
       "features": [
         "Five filter series (PPF/PF/AF/FF/AC)",
@@ -67,7 +67,7 @@
       "name": "Aftercooler",
       "category": "Compressed Air Treatment",
       "description": "Remove up to 70% of moisture at the compressor outlet — before it enters your system. Air-cooled and water-cooled variants with copper tube construction and SS316 baffles. The first line of defence.",
-      "image": "images/products/SAC_WC_1-768x540.webp",
+      "image": "images/products/frontpage/cutout/after-cooler-cutout.png",
       "url": "product-aftercooler.html",
       "features": [
         "Air-cooled and water-cooled variants",
@@ -82,7 +82,7 @@
       "name": "Moisture Separator",
       "category": "Compressed Air Treatment",
       "description": "Centrifugal moisture separation with no moving parts — zero maintenance and virtually zero pressure drop (0.06 bar). Install it. Forget about it. It keeps working.",
-      "image": "images/products/MS_1-r9r15b67s5fu8ulyht97upbfr2pnpsb4bzyjh4eq3k.webp",
+      "image": "images/products/frontpage/cutout/moisture-separator-cutout.png",
       "url": "product-separator.html",
       "features": [
         "No moving parts",
@@ -97,7 +97,7 @@
       "name": "Drains",
       "category": "Compressed Air Treatment",
       "description": "Condensate drains that protect your system 24/7. Float, timer, mechanical, or electronic level-sensor types. Rated up to 16 bar g. The small component that prevents the biggest headaches.",
-      "image": "images/products/SFD320_1-r9r15r5jg1lg11ln26jap1az5m1r4djmmt8gvpnj4w.webp",
+      "image": "images/products/frontpage/cutout/drains-cutout.png",
       "url": "product-drains.html",
       "features": [
         "Float / timer / mechanical / electronic",
