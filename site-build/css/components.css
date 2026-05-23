@@ -1624,3 +1624,47 @@ main > .hero:first-child {
   .journey__roadmap { display: none; }
   .journey__content h3 { font-size: var(--text-2xl); }
 }
+
+/* --- Long-form policy / legal pages (Privacy Policy, Terms & Conditions) ---
+   Always visible (no scroll-fade gating), smaller section headings, and
+   prose-friendly line height. The default h2/h3 sizes are tuned for hero
+   sections, which is way too large for a page that has 10+ numbered sections. */
+.policy-content {
+  /* Override the global p.max-width so list/paragraph wrap matches the container */
+  color: var(--color-text, #111);
+}
+.policy-content h2 {
+  font-size: var(--text-3xl);          /* 28px — was 48px (text-6xl) */
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+.policy-content h2:first-child {
+  margin-top: 0;
+}
+.policy-content h3 {
+  font-size: var(--text-xl);           /* 20px — was 28px (text-3xl) */
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+  line-height: 1.4;
+  color: var(--color-text, #111);
+}
+.policy-content p {
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+  max-width: none;                     /* allow full container width */
+}
+.policy-content ul {
+  margin: 0 0 var(--space-4);
+  padding-left: 1.5rem;
+}
+.policy-content li {
+  margin-bottom: var(--space-2);
+  line-height: 1.6;
+}
+.policy-content strong { font-weight: 600; }
+
+@media (max-width: 768px) {
+  .policy-content h2 { font-size: var(--text-2xl); }
+  .policy-content h3 { font-size: var(--text-lg, 1.125rem); }
+}
