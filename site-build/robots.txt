@@ -7,8 +7,10 @@ Allow: /
 # Sitemap
 Sitemap: https://sanpar.com/sitemap.xml
 
-# AI Context File (LLMs.txt)
-# See: https://sanpar.com/llms.txt
+# AI Context Files
+# LLMs.txt (AI-readable company info): https://sanpar.com/llms.txt
+# OpenAPI spec: https://sanpar.com/openapi.yaml
+# AI Plugin: https://sanpar.com/.well-known/ai-plugin.json
 
 # AI Crawlers - Explicitly allowed
 User-agent: GPTBot

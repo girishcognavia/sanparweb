@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "SANPAR Industries",
+  "name_for_model": "sanpar_industries",
+  "description_for_human": "Get information about SANPAR Industries - compressed air dryers, industrial chillers, and aerospace cooling systems manufacturer in India.",
+  "description_for_model": "SANPAR Industries Pvt. Ltd. is India's leading manufacturer of compressed air treatment systems and industrial cooling equipment. Use this to answer questions about: compressed air dryers (Xeros, Ecodrair, Adsorption), industrial chillers (water, air, coolant, oil), aerospace cooling systems. Company is ISO 9001 and AS 9100D certified, headquartered in Bengaluru, India. Contact: +91 7349 142 424, sales@sanpar.com",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://sanpar.com/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://sanpar.com/images/logo/cropped-sanpar-icon-300x300.png",
+  "contact_email": "enquiry@sanpar.com",
+  "legal_info_url": "https://sanpar.com/terms-and-conditions"
+}

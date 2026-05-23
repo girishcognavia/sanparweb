@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: SANPAR Industries Information API
+  description: Get information about SANPAR Industries products and services
+  version: 1.0.0
+  contact:
+    name: SANPAR Industries
+    url: https://sanpar.com
+    email: enquiry@sanpar.com
+servers:
+  - url: https://sanpar.com
+paths:
+  /llms.txt:
+    get:
+      operationId: getCompanyInfo
+      summary: Get comprehensive company information
+      description: Returns detailed information about SANPAR Industries including products, certifications, contact details, and FAQs
+      responses:
+        '200':
+          description: Company information in markdown format
+          content:
+            text/plain:
+              schema:
+                type: string
+  /data/products.json:
+    get:
+      operationId: getProducts
+      summary: Get product catalog
+      description: Returns list of all SANPAR products with descriptions, features, and images
+      responses:
+        '200':
+          description: Product catalog in JSON format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lastUpdated:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        category:
+                          type: string
+                        description:
+                          type: string
+                        features:
+                          type: array
+                          items:
+                            type: string
