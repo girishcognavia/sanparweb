@@ -131,4 +131,26 @@
     renderList: renderList
   };
 
+  // Auto-upgrade cards when page loads or SPA navigates
+  function autoUpgrade() {
+    var cards = document.querySelectorAll('.card[data-product-id]');
+    if (cards.length > 0) {
+      upgradeCards('.card[data-product-id]').catch(function () {});
+    }
+  }
+
+  // Run on initial page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', autoUpgrade);
+  } else {
+    autoUpgrade();
+  }
+
+  // Hook into SPA router's reinitPage for navigation
+  var originalReinit = window.reinitPage;
+  window.reinitPage = function () {
+    if (originalReinit) originalReinit();
+    autoUpgrade();
+  };
+
 })(window);
