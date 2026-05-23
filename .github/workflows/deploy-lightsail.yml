@@ -73,6 +73,18 @@ jobs:
             sudo chown -R www-data:www-data /var/www/html
             rm -rf /tmp/sanpar-deploy
 
+            # Restart the CMS service so its mount namespace picks up the
+            # freshly created /var/www/html/data directory. The systemd unit
+            # uses ProtectSystem=strict + ReadWritePaths=/var/www/html/data,
+            # which is implemented as a bind-mount pinned at service-start
+            # time. After we wipe & recreate that directory above, the bind
+            # mount points at the old (now-unlinked) inode and writes fail
+            # with EROFS. A restart re-binds to the current directory.
+            if sudo systemctl list-unit-files sanpar-cms.service >/dev/null 2>&1; then
+              sudo systemctl restart sanpar-cms || true
+              echo "Restarted sanpar-cms to refresh ReadWritePaths bind-mounts"
+            fi
+
       - name: Configure nginx for SPA routing
         uses: appleboy/ssh-action@v1.0.3
         with:
