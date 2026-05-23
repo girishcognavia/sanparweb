@@ -58,9 +58,20 @@
   }
 
   /**
-   * Upgrade product cards on the page in place.
-   * Cards with a matching `data-product-id` get text/image swapped from the JSON.
-   * Cards without a match are left untouched (safe).
+   * Find an element marked with data-cms="<key>" inside `root`. Also matches
+   * `root` itself — useful on detail pages where the same element carries
+   * both data-product-id and data-cms="name" (e.g. the <h1>).
+   */
+  function findCms(root, key) {
+    if (root.matches && root.matches('[data-cms="' + key + '"]')) return root;
+    return root.querySelector('[data-cms="' + key + '"]');
+  }
+
+  /**
+   * Upgrade product-scoped containers on the page in place. Any element
+   * carrying `data-product-id` is a container; its descendants (or itself)
+   * marked with [data-cms="name|description|category|image"] get swapped
+   * from the JSON. Containers without a match are left untouched (safe).
    */
   async function upgradeCards(selector) {
     var products = await load();
@@ -75,10 +86,10 @@
       var p = byId[id];
       if (!p) return;
 
-      var nameEl  = card.querySelector('[data-cms="name"]');
-      var descEl  = card.querySelector('[data-cms="description"]');
-      var catEl   = card.querySelector('[data-cms="category"]');
-      var imgEl   = card.querySelector('[data-cms="image"]');
+      var nameEl  = findCms(card, 'name');
+      var descEl  = findCms(card, 'description');
+      var catEl   = findCms(card, 'category');
+      var imgEl   = findCms(card, 'image');
 
       if (nameEl && p.name)        nameEl.textContent  = p.name;
       if (descEl && p.description) descEl.textContent  = p.description;
@@ -131,11 +142,12 @@
     renderList: renderList
   };
 
-  // Auto-upgrade cards when page loads or SPA navigates
+  // Auto-upgrade any product-scoped container on the page (cards on the
+  // listing, and the H1/intro/image on detail pages).
   function autoUpgrade() {
-    var cards = document.querySelectorAll('.card[data-product-id]');
-    if (cards.length > 0) {
-      upgradeCards('.card[data-product-id]').catch(function () {});
+    var containers = document.querySelectorAll('[data-product-id]');
+    if (containers.length > 0) {
+      upgradeCards('[data-product-id]').catch(function () {});
     }
   }
 
