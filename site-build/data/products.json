@@ -234,7 +234,7 @@
     },
     {
       "id": "dehumidifier",
-      "name": "Dehumidifier — Xerion Series",
+      "name": "Industrial Dehumidifier",
       "category": "Air Conditioning",
       "description": "Industrial dehumidification for spaces where moisture means defects. ±5% RH accuracy in continuous 24/7 operation — protecting stored materials, preventing corrosion, and maintaining quality.",
       "image": "images/products/frontpage/cutout/dehumidifier-cutout.webp",
@@ -250,7 +250,7 @@
         "tagline": "Industrial Dehumidifiers for Reliable Humidity Control",
         "intro": "Industrial dehumidification for spaces where moisture means defects. ±5% RH accuracy in continuous 24/7 operation — protecting stored materials, preventing corrosion, and maintaining quality.",
         "cta_heading": "Maintain the right humidity. Protect your process.",
-        "cta_body": "Choose Xerion Dehumidifier for your application."
+        "cta_body": "Choose Industrial Dehumidifier (Xerion Series) for your application."
       }
     }
   ]

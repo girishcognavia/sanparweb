@@ -7,7 +7,7 @@
   },
   "contact": {
     "file": "pages/contact.html",
-    "title": "Contact Us \u2014 SANPAR Industries",
+    "title": "Contact Us — SANPAR Industries",
     "description": "Contact SANPAR Industries for compressed air treatment solutions, industrial cooling systems, and engineering support. 8 regional offices across India.",
     "navActive": "Contact"
   },
@@ -19,14 +19,14 @@
   },
   "home": {
     "file": "pages/home.html",
-    "title": "SANPAR Industries \u2014 Compressed Air Treatment & Industrial Cooling Solutions",
-    "description": "SANPAR Industries \u2014 Precision-engineered compressed air treatment, industrial cooling, and aerospace cooling systems. ISO 9001 &amp; AS 9100D certified. Trusted by 3000+ customers since 1994.",
+    "title": "SANPAR Industries — Compressed Air Treatment & Industrial Cooling Solutions",
+    "description": "SANPAR Industries — Precision-engineered compressed air treatment, industrial cooling, and aerospace cooling systems. ISO 9001 &amp; AS 9100D certified. Trusted by 3000+ customers since 1994.",
     "navActive": "Home"
   },
   "industries": {
     "file": "pages/industries.html",
-    "title": "Industries & Applications \u2014 SANPAR Industries",
-    "description": "SANPAR serves 10 industries with precision thermal engineering \u2014 aerospace &amp; defence, pharmaceutical, food &amp; beverage, machine tools, manufacturing, and more.",
+    "title": "Industries & Applications — SANPAR Industries",
+    "description": "SANPAR serves 10 industries with precision thermal engineering — aerospace &amp; defence, pharmaceutical, food &amp; beverage, machine tools, manufacturing, and more.",
     "navActive": "Industries"
   },
   "industry-aerospace-defence": {
@@ -133,8 +133,8 @@
   },
   "product-dehumidifier": {
     "file": "pages/product-dehumidifier.html",
-    "title": "Dehumidifier - Xerion Series - SANPAR Industries",
-    "description": "SANPAR Dehumidifier - Xerion Series - Industrial dehumidifiers. Plus/minus 5% RH, 24/7/365 continuous operation.",
+    "title": "Industrial Dehumidifier — SANPAR Industries",
+    "description": "SANPAR Industrial Dehumidifier (Xerion Series) — ±5% RH precision, 24/7/365 continuous operation.",
     "navActive": "Products"
   },
   "product-drains": {
@@ -175,14 +175,14 @@
   },
   "product-xeros": {
     "file": "pages/product-xeros.html",
-    "title": "Xeros Series \u2014 Refrigerated Air Dryers \u2014 SANPAR Industries",
+    "title": "Xeros Series — Refrigerated Air Dryers — SANPAR Industries",
     "description": "SANPAR Xeros Series refrigerated compressed air dryers. Open and closed loop design. 85-10,000 CFM capacity, 3-16 bar g working pressure. R407C and R134A eco-friendly refrigerants.",
     "navActive": "Products"
   },
   "products": {
     "file": "pages/products.html",
-    "title": "Products & Solutions \u2014 SANPAR Industries",
-    "description": "SANPAR products \u2014 14 precision-engineered solutions across compressed air treatment, industrial cooling, air conditioning, and medical desiccant air dryers.",
+    "title": "Products & Solutions — SANPAR Industries",
+    "description": "SANPAR products — 14 precision-engineered solutions across compressed air treatment, industrial cooling, air conditioning, and medical desiccant air dryers.",
     "navActive": "Products"
   },
   "register": {
@@ -200,49 +200,49 @@
   "story-ashok-leyland-ltd": {
     "file": "pages/story-ashok-leyland-ltd.html",
     "title": "Engine R&amp;D Division &mdash; SANPAR Industries",
-    "description": "SANPAR success story: Engine R&amp;D Division, Ashok Leyland Ltd, Hosur - Emissions testing accuracy achieved for ARAI-standard particulate measurement \u2014 a SANPAR Climatic Controller maintains the weighing room at exactly 22\u00b11\u00b0C and 45\u00b12% RH, enabling precise filter paper measurements.",
+    "description": "SANPAR success story: Engine R&amp;D Division, Ashok Leyland Ltd, Hosur - Emissions testing accuracy achieved for ARAI-standard particulate measurement — a SANPAR Climatic Controller maintains the weighing room at exactly 22±1°C and 45±2% RH, enabling precise filter paper measurements.",
     "navActive": ""
   },
   "story-excel-glass": {
     "file": "pages/story-excel-glass.html",
     "title": "Excel Glass &mdash; SANPAR Industries",
-    "description": "SANPAR success story: Excel Glass, Allappuzha, Kerala - Blowholes in glass moulds eliminated entirely. SANPAR's XEROS dryer replaced a failing shell-and-tube system \u2014 cutting pressure drop in half (0.2 bar to 0.1 bar) while delivering India's largest refrigerated dryer from a domestic manufacturer.",
+    "description": "SANPAR success story: Excel Glass, Allappuzha, Kerala - Blowholes in glass moulds eliminated entirely. SANPAR's XEROS dryer replaced a failing shell-and-tube system — cutting pressure drop in half (0.2 bar to 0.1 bar) while delivering India's largest refrigerated dryer from a domestic manufacturer.",
     "navActive": ""
   },
   "story-gas-turbine-research-establishment": {
     "file": "pages/story-gas-turbine-research-establishment.html",
     "title": "Gas Turbine Research Establishment (GTRE) &mdash; SANPAR Industries",
-    "description": "SANPAR success story: Gas Turbine Research Establishment (GTRE), Bangalore - Power consumption for turbine blade testing air supply reduced dramatically \u2014 by replacing a desiccant dryer (25% purge loss) with a custom SANPAR refrigerated system on a mobile trolley. Now used for India's most advanced gas turbine development programme.",
+    "description": "SANPAR success story: Gas Turbine Research Establishment (GTRE), Bangalore - Power consumption for turbine blade testing air supply reduced dramatically — by replacing a desiccant dryer (25% purge loss) with a custom SANPAR refrigerated system on a mobile trolley. Now used for India's most advanced gas turbine development programme.",
     "navActive": ""
   },
   "story-hical-technologies": {
     "file": "pages/story-hical-technologies.html",
     "title": "Hical Technologies Pvt. Ltd. &mdash; SANPAR Industries",
-    "description": "SANPAR success story: Hical Technologies Pvt. Ltd. - Vacuum potting environment stabilised at 23\u00b12\u00b0C and 40\u00b15% RH \u2014 eliminating pustule defects on inductors and achieving 100% yield on a previously inconsistent process.",
+    "description": "SANPAR success story: Hical Technologies Pvt. Ltd. - Vacuum potting environment stabilised at 23±2°C and 40±5% RH — eliminating pustule defects on inductors and achieving 100% yield on a previously inconsistent process.",
     "navActive": ""
   },
   "story-hindustan-motors": {
     "file": "pages/story-hindustan-motors.html",
     "title": "Hindustan Motors &mdash; SANPAR Industries",
-    "description": "SANPAR success story: Hindustan Motors, Calcutta - 6 compressors eliminated. \u20b98.7 lakhs saved every month. Over \u20b91 crore in annual savings \u2014 with zero production disruption during the changeover.",
+    "description": "SANPAR success story: Hindustan Motors, Calcutta - 6 compressors eliminated. ₹8.7 lakhs saved every month. Over ₹1 crore in annual savings — with zero production disruption during the changeover.",
     "navActive": ""
   },
   "story-infosys-technologies-ltd": {
     "file": "pages/story-infosys-technologies-ltd.html",
     "title": "Infosys Technologies Ltd &mdash; SANPAR Industries",
-    "description": "SANPAR success story: Infosys Technologies Ltd, Mysore - Laundry drying time at Infosys Mysore campus reduced significantly \u2014 a compact 11.50 CFM / 7 bar g system that solved a quality-of-life problem for thousands of resident employees.",
+    "description": "SANPAR success story: Infosys Technologies Ltd, Mysore - Laundry drying time at Infosys Mysore campus reduced significantly — a compact 11.50 CFM / 7 bar g system that solved a quality-of-life problem for thousands of resident employees.",
     "navActive": ""
   },
   "story-jindal-steel-power-limited-raigarh": {
     "file": "pages/story-jindal-steel-power-limited-raigarh.html",
     "title": "Jindal Steel &amp; Power Limited &mdash; SANPAR Industries",
-    "description": "SANPAR success story: Jindal Steel &amp; Power Limited, Raigarh - 6 large-capacity dryers deployed across Raigarh facility \u2014 protecting blast furnace operations from moisture-related damage and maintaining full production volumes with R407C eco-friendly refrigerant.",
+    "description": "SANPAR success story: Jindal Steel &amp; Power Limited, Raigarh - 6 large-capacity dryers deployed across Raigarh facility — protecting blast furnace operations from moisture-related damage and maintaining full production volumes with R407C eco-friendly refrigerant.",
     "navActive": ""
   },
   "story-jmt-auto-ltd": {
     "file": "pages/story-jmt-auto-ltd.html",
     "title": "JMT Auto Ltd &mdash; SANPAR Industries",
-    "description": "SANPAR success story: JMT Auto Ltd, Jamshedpur - CMM measurement accuracy restored to specification \u2014 and JMT Auto was so impressed, they ordered a second system for their Dharwad plant within months.",
+    "description": "SANPAR success story: JMT Auto Ltd, Jamshedpur - CMM measurement accuracy restored to specification — and JMT Auto was so impressed, they ordered a second system for their Dharwad plant within months.",
     "navActive": ""
   },
   "success-stories": {
@@ -253,8 +253,8 @@
   },
   "support": {
     "file": "pages/support.html",
-    "title": "Support & Services \u2014 SANPAR Industries",
-    "description": "SANPAR support and services \u2014 installation, commissioning, preventive maintenance, annual service contracts, spare parts, and emergency troubleshooting.",
+    "title": "Support & Services — SANPAR Industries",
+    "description": "SANPAR support and services — installation, commissioning, preventive maintenance, annual service contracts, spare parts, and emergency troubleshooting.",
     "navActive": "Support"
   },
   "technology": {
@@ -271,8 +271,8 @@
   },
   "who-we-are": {
     "file": "pages/who-we-are.html",
-    "title": "Who We Are \u2014 SANPAR Industries",
-    "description": "SANPAR Industries \u2014 established 1994, over three decades of excellence in compressed air treatment, industrial cooling, and aerospace cooling systems. ISO 9001 and AS 9100D certified.",
+    "title": "Who We Are — SANPAR Industries",
+    "description": "SANPAR Industries — established 1994, over three decades of excellence in compressed air treatment, industrial cooling, and aerospace cooling systems. ISO 9001 and AS 9100D certified.",
     "navActive": "About Us"
   },
   "work-with-us": {
