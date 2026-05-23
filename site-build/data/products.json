@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-12T00:00:00Z",
+  "lastUpdated": "2026-05-23T07:46:18Z",
   "products": [
     {
       "id": "xeros",
@@ -15,7 +15,13 @@
         "Open and closed-loop",
         "Tropical climate optimised"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Maximum efficiency. Minimum moisture. Built to power your operations.",
+        "intro": "The Xeros Series is a range of high-efficiency refrigerated air dryers engineered for reliable moisture removal from compressed air systems.",
+        "cta_heading": "Need a Custom Configuration?",
+        "cta_body": "Our engineering team will design a Xeros system tailored to your air flow, pressure and environmental requirements."
+      }
     },
     {
       "id": "ecodrair",
@@ -30,7 +36,13 @@
         "Energy efficient",
         "Compact footprint"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Compact. Efficient. Reliable.",
+        "intro": "Every Ecodrair dryer is built to protect your production, cut your costs, and keep running — year after year.",
+        "cta_heading": "Need the Right Dryer for Your Application?",
+        "cta_body": "Tell us your requirements. Our experts will recommend the ideal Ecodrair model for you."
+      }
     },
     {
       "id": "adsorption",
@@ -45,7 +57,13 @@
         "Pharma and food grade",
         "Low pressure drop"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Engineered Solution for Moisture-Free, High-Precision Operations",
+        "intro": "Adsorption dryers remove moisture using a pressure swing twin-tower process.",
+        "cta_heading": "Need a Custom Configuration?",
+        "cta_body": "Our team can help you select the right dryer based on your application, dew point, and operating cost priorities."
+      }
     },
     {
       "id": "filters",
@@ -60,7 +78,13 @@
         "25μm to 0.01μm range",
         "Aluminium or carbon steel housings"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "High-efficiency filtration for particles, oil, and aerosols",
+        "intro": "SANPAR compressed air filters are designed to remove dust, liquid, oil aerosols, and vapors from compressed air systems.",
+        "cta_heading": "Need a Custom Filtration Solution?",
+        "cta_body": "Our experts will help you select the right filter grade, size, and configuration for your application."
+      }
     },
     {
       "id": "aftercooler",
@@ -75,7 +99,13 @@
         "SS316 baffles",
         "Up to 70% moisture removal"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "High-performance after coolers engineered to reduce compressed air temperature, remove bulk moisture, and improve downstream system reliability — available in both air-cooled and water-cooled configurations for industrial applications.",
+        "intro": "Compressed air leaving the compressor carries heat and moisture that can affect dryers, pipelines, pneumatic equipment, and production reliability.",
+        "cta_heading": "Lower Temperature. Clean Air. Better Performance.",
+        "cta_body": "Choose the right after cooler solution for your system."
+      }
     },
     {
       "id": "separator",
@@ -90,7 +120,13 @@
         "0.06 bar pressure drop",
         "Centrifugal design"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "High-efficiency removal of bulk water from compressed air",
+        "intro": "Centrifugal moisture separation with no moving parts — zero maintenance and virtually zero pressure drop (0.06 bar). Install it. Forget about it. It keeps working.",
+        "cta_heading": "Eliminate bulk moisture. Protect your equipment.",
+        "cta_body": "Choose the right moisture separator for your system."
+      }
     },
     {
       "id": "drains",
@@ -104,7 +140,13 @@
         "Rated up to 16 bar g",
         "Reliable 24/7 operation"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Efficient condensate removal without air loss",
+        "intro": "Condensate is an unavoidable byproduct of compressed air systems. If not removed effectively, it can lead to corrosion, equipment damage, and reduced efficiency.",
+        "cta_heading": "Keep your system clean. Keep your productivity high.",
+        "cta_body": "Choose the right drain for your application."
+      }
     },
     {
       "id": "water-chillers",
@@ -119,7 +161,13 @@
         "CFC-free refrigerants",
         "Air-cooled and water-cooled variants"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "CFC-Free Process Water Chillers",
+        "intro": "CFC-free process chillers from 0.5TR to 100TR. PLC-controlled with digital temperature display. Air-cooled and water-cooled variants. Designed for 24/7 industrial operation.",
+        "cta_heading": "Constant Chilled Water. Reliable 24/7 Process Cooling.",
+        "cta_body": "Choose the right water chiller for your process."
+      }
     },
     {
       "id": "air-chillers",
@@ -134,7 +182,13 @@
         "Defence-grade",
         "Energy efficient"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Closed-Circuit Refrigeration Air Chillers",
+        "intro": "Precision forced-air chillers delivering constant-temperature coolant for process-critical applications. 5 to 10,000 CFM. Ideal for defence ground testing, electronics cooling, and industrial HVAC.",
+        "cta_heading": "Constant Temperature. Continuous Operation.",
+        "cta_body": "Choose the right air chiller for your process."
+      }
     },
     {
       "id": "coolant-chillers",
@@ -149,7 +203,13 @@
         "CFC-free",
         "Compact design"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Process Coolant Chillers for Machine Tools",
+        "intro": "Purpose-built for CNC machining centres, grinding operations, and EDM equipment. Maintains cutting fluid temperature within tight tolerances — extending tool life and reducing reject rates. CFC-free.",
+        "cta_heading": "Stable Coolant. Better Parts. Less Downtime.",
+        "cta_body": "Choose the right coolant chiller for your machine tool process."
+      }
     },
     {
       "id": "oil-chillers",
@@ -164,7 +224,13 @@
         "Integrable with water chillers",
         "CFC-free"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Precision Oil Temperature Control",
+        "intro": "Precision oil temperature control for hydraulic systems, grinding operations, and CNC machining centres. CFC-free, custom-designed, and available integrated with water chiller systems. First developed in 2004.",
+        "cta_heading": "Stable Oil. Sharper Tools. Better Parts.",
+        "cta_body": "Choose the right oil chiller for your application."
+      }
     },
     {
       "id": "dehumidifier",
@@ -179,7 +245,13 @@
         "Built-in hygrostat",
         "Xerion Series condensation design"
       ],
-      "active": true
+      "active": true,
+      "detail": {
+        "tagline": "Industrial Dehumidifiers for Reliable Humidity Control",
+        "intro": "Industrial dehumidification for spaces where moisture means defects. ±5% RH accuracy in continuous 24/7 operation — protecting stored materials, preventing corrosion, and maintaining quality.",
+        "cta_heading": "Maintain the right humidity. Protect your process.",
+        "cta_body": "Choose Xerion Dehumidifier for your application."
+      }
     }
   ]
 }

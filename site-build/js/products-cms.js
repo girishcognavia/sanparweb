@@ -68,10 +68,67 @@
   }
 
   /**
-   * Upgrade product-scoped containers on the page in place. Any element
-   * carrying `data-product-id` is a container; its descendants (or itself)
-   * marked with [data-cms="name|description|category|image"] get swapped
-   * from the JSON. Containers without a match are left untouched (safe).
+   * Resolve a dotted path against the product object.
+   * 'name'         -> p.name
+   * 'detail.tagline' -> p.detail && p.detail.tagline
+   * Returns undefined if any segment is missing.
+   */
+  function resolve(obj, path) {
+    var parts = path.split('.');
+    var cur = obj;
+    for (var i = 0; i < parts.length; i++) {
+      if (cur == null) return undefined;
+      cur = cur[parts[i]];
+    }
+    return cur;
+  }
+
+  /**
+   * Map of CMS keys (used in the HTML's data-cms attribute) to the dotted
+   * path of the source field inside the product object. Add new fields
+   * here when you tag a new element on the website.
+   */
+  var FIELD_PATHS = {
+    name:        'name',
+    description: 'description',
+    category:    'category',
+    image:       'image',
+    tagline:     'detail.tagline',
+    intro:       'detail.intro',
+    cta_heading: 'detail.cta_heading',
+    cta_body:    'detail.cta_body'
+  };
+
+  /**
+   * Apply a single product's value to a single [data-cms] element.
+   * No-op if the element's key is unknown or the source value is empty.
+   */
+  function applyToTagged(el, product) {
+    var key = el.getAttribute('data-cms');
+    if (!key) return;
+    if (key === 'image') {
+      if (product.image) {
+        el.setAttribute('src', '/' + product.image.replace(/^\//, ''));
+        if (product.name) el.setAttribute('alt', product.name);
+      }
+      return;
+    }
+    var path = FIELD_PATHS[key];
+    if (!path) return;
+    var val = resolve(product, path);
+    if (typeof val === 'string' && val.length > 0) {
+      el.textContent = val;
+    }
+  }
+
+  /**
+   * Upgrade product-scoped containers on the page in place. Two modes:
+   *   1. Listing mode: every [data-product-id] container holds its own
+   *      [data-cms] descendants (the card on /products).
+   *   2. Detail-page mode: a single [data-product-id] marker (typically on
+   *      the <h1>) scopes the whole page. Any [data-cms] anywhere else on
+   *      the page (tagline, intro, cta_*) inherits that product's data.
+   * Anything without a JSON value is left as the static HTML fallback.
    */
   async function upgradeCards(selector) {
     var products = await load();
@@ -80,25 +137,31 @@
     var byId = {};
     products.forEach(function (p) { byId[p.id] = p; });
 
-    var cards = document.querySelectorAll(selector);
-    cards.forEach(function (card) {
+    var containers = document.querySelectorAll(selector);
+    containers.forEach(function (card) {
       var id = card.getAttribute('data-product-id');
-      var p = byId[id];
-      if (!p) return;
-
-      var nameEl  = findCms(card, 'name');
-      var descEl  = findCms(card, 'description');
-      var catEl   = findCms(card, 'category');
-      var imgEl   = findCms(card, 'image');
-
-      if (nameEl && p.name)        nameEl.textContent  = p.name;
-      if (descEl && p.description) descEl.textContent  = p.description;
-      if (catEl  && p.category)    catEl.textContent   = p.category;
-      if (imgEl  && p.image) {
-        imgEl.setAttribute('src', '/' + p.image.replace(/^\//, ''));
-        if (p.name) imgEl.setAttribute('alt', p.name);
-      }
+      var product = byId[id];
+      if (!product) return;
+      // The container itself may carry a data-cms attribute (e.g. <h1 data-cms="name">).
+      if (card.hasAttribute('data-cms')) applyToTagged(card, product);
+      // Descendants.
+      card.querySelectorAll('[data-cms]').forEach(function (el) {
+        applyToTagged(el, product);
+      });
     });
+
+    // Detail-page fallback: exactly one [data-product-id] on the page,
+    // so any [data-cms] outside that container still belongs to it.
+    if (containers.length === 1) {
+      var only = containers[0];
+      var product = byId[only.getAttribute('data-product-id')];
+      if (product) {
+        document.querySelectorAll('[data-cms]').forEach(function (el) {
+          if (el === only || only.contains(el)) return;
+          applyToTagged(el, product);
+        });
+      }
+    }
   }
 
   /**

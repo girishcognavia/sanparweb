@@ -415,6 +415,31 @@
             <button class="btn btn-primary" onclick="addFeature()">Add</button>
           </div>
         </div>
+
+        <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0 16px">
+        <h3 style="margin:0 0 4px;font-size:15px;color:#475569">Detail Page Content</h3>
+        <p style="margin:0 0 16px;font-size:13px;color:#94a3b8">These show on the product's individual page (e.g. /product-xeros). The card on /products uses Name, Category, Description and Image above.</p>
+
+        <div class="form-group">
+          <label>Hero Tagline</label>
+          <input type="text" id="productTagline" placeholder="One-line subheading under the H1">
+          <small>Example: "Maximum efficiency. Minimum moisture."</small>
+        </div>
+        <div class="form-group">
+          <label>Intro Paragraph</label>
+          <textarea id="productIntro" rows="3" placeholder='Opening paragraph for the "What is…" section'></textarea>
+          <small>Shown after the first body heading on richer pages. Pages without an intro section will ignore this.</small>
+        </div>
+        <div class="form-group">
+          <label>CTA Heading</label>
+          <input type="text" id="productCtaHeading" placeholder="Closing call-to-action heading">
+          <small>Example: "Need a Custom Configuration?"</small>
+        </div>
+        <div class="form-group">
+          <label>CTA Body</label>
+          <textarea id="productCtaBody" rows="2" placeholder="One or two sentences inviting contact"></textarea>
+        </div>
+
         <div class="form-group">
           <div class="checkbox-group">
             <input type="checkbox" id="productActive" checked>
@@ -557,6 +582,7 @@
 
       if (index >= 0) {
         const product = products[index];
+        const detail = product.detail || {};
         document.getElementById('modalTitle').textContent = 'Edit Product';
         document.getElementById('productId').value = product.id;
         document.getElementById('productName').value = product.name;
@@ -565,6 +591,10 @@
         document.getElementById('productDescription').value = product.description;
         document.getElementById('productImage').value = product.image;
         document.getElementById('productActive').checked = product.active;
+        document.getElementById('productTagline').value     = detail.tagline     || '';
+        document.getElementById('productIntro').value       = detail.intro       || '';
+        document.getElementById('productCtaHeading').value  = detail.cta_heading || '';
+        document.getElementById('productCtaBody').value     = detail.cta_body    || '';
         currentFeatures = [...(product.features || [])];
 
         // Show existing image — same-origin path so it works on any host
@@ -586,6 +616,10 @@
         document.getElementById('productDescription').value = '';
         document.getElementById('productImage').value = '';
         document.getElementById('productActive').checked = true;
+        document.getElementById('productTagline').value     = '';
+        document.getElementById('productIntro').value       = '';
+        document.getElementById('productCtaHeading').value  = '';
+        document.getElementById('productCtaBody').value     = '';
         currentFeatures = [];
 
         // Reset image UI
@@ -648,6 +682,11 @@
         image = currentImageDataUrl;
       }
 
+      const tagline    = document.getElementById('productTagline').value.trim();
+      const intro      = document.getElementById('productIntro').value.trim();
+      const ctaHeading = document.getElementById('productCtaHeading').value.trim();
+      const ctaBody    = document.getElementById('productCtaBody').value.trim();
+
       const product = {
         id: slug,
         name,
@@ -655,7 +694,13 @@
         description,
         image: image || '',
         features: currentFeatures,
-        active
+        active,
+        detail: {
+          tagline,
+          intro,
+          cta_heading: ctaHeading,
+          cta_body: ctaBody
+        }
       };
 
       // Preserve existing 'url' field if editing (so the product page link stays correct)
