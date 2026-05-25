@@ -1670,12 +1670,12 @@ main > .hero:first-child {
 }
 
 /* Footer tagline image — appears below the description, no backdrop.
-   Sized to feel like a signature mark, not a card. */
+   Bigger and tighter against the surrounding copy. */
 .footer__tagline {
   display: block;
   width: 100%;
-  max-width: 280px;
+  max-width: 380px;
   height: auto;
-  margin: var(--space-5) 0 var(--space-2);
+  margin: calc(var(--space-1) * -1) 0 0;
 }
 
