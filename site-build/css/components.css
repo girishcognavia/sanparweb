@@ -1669,26 +1669,13 @@ main > .hero:first-child {
   .policy-content h3 { font-size: var(--text-lg, 1.125rem); }
 }
 
-/* Footer tagline image — sits as a light card so the dark text in the
-   PNG reads against the deep-blue footer. The rest of the footer column
-   keeps its dark theme; only this small card is light. */
-.footer__tagline-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5fc 55%, #e6edf7 100%);
-  border-radius: 14px;
-  padding: 18px 22px;
-  margin-bottom: var(--space-5);
-  box-shadow:
-    0 14px 30px -16px rgba(0, 0, 0, .55),
-    inset 0 1px 0 rgba(255, 255, 255, .65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Footer tagline image — appears below the description, no backdrop.
+   Sized to feel like a signature mark, not a card. */
 .footer__tagline {
   display: block;
   width: 100%;
+  max-width: 280px;
   height: auto;
-  max-height: 130px;
-  object-fit: contain;
+  margin: var(--space-5) 0 var(--space-2);
 }
 
