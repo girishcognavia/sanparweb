@@ -1679,3 +1679,34 @@ main > .hero:first-child {
   margin: calc(var(--space-1) * -1) 0 0;
 }
 
+/* Homepage hero — rotating chakra ornament.
+   Sized to the hero height, anchored to the right side, slow continuous
+   spin around its own center. The non-rotating .hero__bg--grid stays as
+   the masked-grid texture; this is the standalone wheel that revolves. */
+.hero__chakra {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  aspect-ratio: 1;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.55;
+  z-index: 1;
+  pointer-events: none;
+  transform-origin: center center;
+  animation: heroChakraSpin 60s linear infinite;
+}
+
+@keyframes heroChakraSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__chakra { animation: none; }
+}
+
