@@ -41,6 +41,11 @@ section.caf-section{padding-top:3.25rem;padding-bottom:3.25rem}
 .caf-ov-tile__img img{max-width:100%;max-height:210px;object-fit:contain}
 .caf-ov-tile b{display:block;font-size:var(--text-sm);margin-top:var(--space-3)}
 .caf-ov-tile span{font-size:12px;color:var(--text-tertiary)}
+/* Text-only housing tiles (after image removal) — bigger, centered, with a thin accent rule */
+.caf-ov-tile--text{padding:var(--space-7) var(--space-4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:170px;background:linear-gradient(180deg,#fff 0%,#f7f9ff 100%);border:1px solid var(--grey-2)}
+.caf-ov-tile--text::before{content:"";display:block;width:36px;height:3px;border-radius:2px;background:var(--color-primary);margin-bottom:var(--space-3);opacity:.85}
+.caf-ov-tile--text b{font-size:var(--text-xl);margin:0;color:#0c1c3c;line-height:1.2}
+.caf-ov-tile--text span{font-size:13px;color:var(--text-secondary);margin-top:2px}
 
 /* FILTRATION PROCESS */
 .caf-flow{display:flex;align-items:flex-start;gap:var(--space-2)}
@@ -181,17 +186,11 @@ section.caf-section{padding-top:3.25rem;padding-bottom:3.25rem}
         <p>Housed in aluminium die-cast or carbon steel, they are suitable for demanding industrial environments.</p>
       </div>
       <div class="caf-ov-card animate-on-scroll">
-        <div class="caf-ov-tile">
-          <div class="caf-ov-tile__img">
-            <img src="images/products/frontpage/filter-aluminium-diecast.webp" alt="SANPAR aluminium die-cast compressed air filter housing" loading="lazy">
-          </div>
+        <div class="caf-ov-tile caf-ov-tile--text">
           <b>Aluminium Die-Cast</b>
           <span>Lightweight &amp; Corrosion Resistant</span>
         </div>
-        <div class="caf-ov-tile">
-          <div class="caf-ov-tile__img">
-            <img src="images/products/frontpage/filter-carbon-steel.webp" alt="SANPAR carbon steel compressed air filter housing" loading="lazy">
-          </div>
+        <div class="caf-ov-tile caf-ov-tile--text">
           <b>Carbon Steel</b>
           <span>Robust for Heavy Duty Applications</span>
         </div>
